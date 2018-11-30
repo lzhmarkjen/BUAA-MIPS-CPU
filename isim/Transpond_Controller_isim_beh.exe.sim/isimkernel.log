@@ -1,0 +1,28 @@
+Command line:
+   Transpond_Controller_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  51411
+
+Tue Nov 27 16:31:14 2018
+
+
+ Elaboration Time: 0.078125 sec
+
+ Current Memory Usage: 1016.79 Meg
+
+ Total Signals          : 28
+ Total Nets             : 156
+ Total Signal Drivers   : 16
+ Total Blocks           : 2
+ Total Primitive Blocks : 2
+ Total Processes        : 17
+ Total Traceable Variables  : 18
+ Total Scalar Nets and Variables : 236
+
+ Total Simulation Time: 0.09375 sec
+
+ Current Memory Usage: 1017.84 Meg
+
+Tue Nov 27 16:31:15 2018
+

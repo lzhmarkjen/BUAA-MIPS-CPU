@@ -1,0 +1,20 @@
+[Inputs]
+clk
+reset
+nPC_Sel
+MemWrite
+MemRead
+ALUSrc
+RegWrite
+PCWrite
+PCSel
+=ALUCtrl[3:0]=
+=RegDst[1:0]=
+=MemtoReg[1:0]=
+=ExtOp[1:0]=
+[Outputs]
+=Instr[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel datapath
+

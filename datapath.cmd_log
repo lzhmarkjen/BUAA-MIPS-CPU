@@ -1,0 +1,5 @@
+vhdtdtfi -lib work G:/ComputerOrganization/CPU/datapath.v -lang verilog -prj CPU -o datapath.spl -module datapath -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 datapath.spl G:/ComputerOrganization/CPU/datapath.sym 
+vhdtdtfi -lang verilog -prj CPU -o G:/ComputerOrganization/CPU/datapath.tfi -lib work G:/ComputerOrganization/CPU//datapath.v -module datapath -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lib work G:/ComputerOrganization/CPU/datapath.v -lang verilog -prj CPU -o datapath.spl -module datapath -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 datapath.spl G:/ComputerOrganization/CPU/datapath.sym 

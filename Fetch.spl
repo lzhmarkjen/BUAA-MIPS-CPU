@@ -1,0 +1,17 @@
+[Inputs]
+clk
+reset
+PC_En
+IF_ID_En
+IF_ID_Clr
+=PCSel[1:0]=
+=PC_j[31:0]=
+=PC_jr[31:0]=
+=PC_beq[31:0]=
+[Outputs]
+=PC1[31:0]=
+=Instr1[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel Fetch
+

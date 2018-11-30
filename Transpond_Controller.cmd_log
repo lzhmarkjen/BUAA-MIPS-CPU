@@ -1,0 +1,2 @@
+vhdtdtfi -lib work G:/ComputerOrganization/CPU/Transpond.v -lang verilog -prj CPU -o Transpond_Controller.spl -module Transpond_Controller -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 Transpond_Controller.spl G:/ComputerOrganization/CPU/Transpond_Controller.sym 
