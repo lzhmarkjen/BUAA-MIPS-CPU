@@ -22,6 +22,7 @@ module ALU(
     input [31:0] A,
     input [31:0] B,
     input [3:0] ALUOp,
+	 input [4:0] shift_offset,
     output reg [31:0] Result,
     output reg Zero
     );

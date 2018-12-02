@@ -26,6 +26,58 @@
 `define ALU 2'b01
 `define DM  2'b10
 `define PC  2'b11
+////////////////////////////////////////////////////////////////////
+`define LB    (Op==6'b100000)
+`define LBU   (Op==6'b100100)
+`define LH    (Op==6'b100001)
+`define LHU   (Op==6'b100101)
+`define LW    (Op==6'b100011)
+`define SB    (Op==6'b101000)
+`define SH    (Op==6'b101001)
+`define SW    (Op==6'b101011)
+`define ADD   (Op==6'b000000 & Func==6'b100000)
+`define ADDU  (Op==6'b000000 & Func==6'b100001)
+`define SUB   (Op==6'b000000 & Func==6'b100010)
+`define SUBU  (Op==6'b000000 & Func==6'b100011)
+`define SLL   (Op==6'b000000 & Func==6'b000000)
+`define SRL   (Op==6'b000000 & Func==6'b000010)
+`define SRA   (Op==6'b000000 & Func==6'b000011)
+`define SLLV  (Op==6'b000000 & Func==6'b000100)
+`define SRLV  (Op==6'b000000 & Func==6'b000110)
+`define SRAV  (Op==6'b000000 & Func==6'b000111)
+`define AND   (Op==6'b000000 & Func==6'b100100)
+`define OR    (Op==6'b000000 & Func==6'b100101)
+`define XOR   (Op==6'b000000 & Func==6'b100110)
+`define NOR   (Op==6'b000000 & Func==6'b100111)
+`define ADDI  (Op==6'b001000)
+`define ADDIU (Op==6'b001001)
+`define ANDI  (Op==6'b001100)
+`define ORI   (Op==6'b001101)
+`define XORI  (Op==6'b001110)
+`define LUI   (Op==6'b001111)
+`define SLT   (Op==6'b000000 & Func==6'b101010)
+`define SLTI  (Op==6'b001010)
+`define SLTIU (Op==6'b001011)
+`define SLTU  (Op==6'b000000 & Func==6'b101011)
+`define BEQ   (Op==6'b000100)
+`define BNE   (Op==6'b000101)
+`define BLEZ  (Op==6'b000110)
+`define BGTZ  (Op==6'b000111)
+`define BLTZ  (Op==6'b000001 & Instr[20:16]==5'b00000)
+`define BGEZ  (Op==6'b000001 & Instr[20:16]==5'b00001)
+`define J     (Op==6'b000010)
+`define JAL   (Op==6'b000011)
+`define JALR  (Op==6'b000000 & Func==6'b001001)
+`define JR    (Op==6'b000000 & Func==6'b001000)
+`define MULT  (Op==6'b000000 & Func==6'b011000)
+`define MULTU (Op==6'b000000 & Func==6'b011001)
+`define DIV   (Op==6'b000000 & Func==6'b011010)
+`define DIVU  (Op==6'b000000 & Func==6'b011011)
+`define MFHI  (Op==6'b000000 & Func==6'b010000)
+`define MFLO  (Op==6'b000000 & Func==6'b010010)
+`define MTHI  (Op==6'b000000 & Func==6'b010001)
+`define MTLO  (Op==6'b000000 & Func==6'b010011)
+/////////////////////////////////////////////////////////////////
 module InstrCoder(
     input [31:0] Instr,
 	 output cal_r,
@@ -41,23 +93,19 @@ module InstrCoder(
 	 output [1:0]Res
     );
 	
-	wire addu = Instr[`op]==6'b000000 & Instr[`func]==6'b100001;
-	wire subu = Instr[`op]==6'b000000 & Instr[`func]==6'b100011;
-	wire ori  = Instr[`op]==6'b001101;
-	wire lui  = Instr[`op]==6'b001111;
-	wire lw   = Instr[`op]==6'b100011;
-	wire sw   = Instr[`op]==6'b101011;
-	wire beq  = Instr[`op]==6'b000100;
-	wire _jr  = Instr[`op]==6'b000000 & Instr[`func]==6'b001000;
-	wire jal  = Instr[`op]==6'b000011;
+	wire [5:0]Op,Func;
+	assign Op = Instr[31:26];
+	assign Func = Instr[5:0];
 	
-	assign cal_r = addu | subu;
-	assign cal_i = ori  | lui;
-	assign branch= beq;
-	assign load  = lw;
-	assign store = sw;
-	assign jr    = _jr;
-	assign link  = jal;
+	assign cal_r = ADD | ADDU | SUB | SUBU | SLL | STL | SRA | SLLV | SRLV | SRAV | AND | OR | XOR | NOR | SLT | SLTU ;
+	assign cal_i = ADDI | ADDIU | ANDI | ORI | XORI | LUI | SLTI | SLTIU;
+	assign branch= BEQ | BNE | BLEZ | BGTZ | BLTZ | BGEZ ;
+	assign load  = LB | LBU | LH | LHU | LW;
+	assign store = SB | SH | SW;
+	assign jr    = JR;
+	assign link  = JAL | JALR;
+	assign gg = MULT | MULTU | DIV | DIVU | MFHI | MFLO | MTHI | MTLO;
+	assign jump = J | JAL | JALR | JR;
 	
 	assign RegWrite = cal_r | cal_i | load | link;
 	assign WA = cal_r 		 ? Instr[`rd]:

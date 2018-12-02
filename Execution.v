@@ -55,6 +55,7 @@ module Execution(
 	.A(A),
 	.B(B),
 	.ALUOp(ALUOp),
+	.shift_offset(Instr2[10:6]),
 	.Result(Result2)
 	);
 //////////////////	ALU

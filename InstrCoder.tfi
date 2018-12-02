@@ -9,7 +9,12 @@ InstrCoder instance_name (
     .branch(branch), 
     .load(load), 
     .store(store), 
-    .jr(jr)
+    .jr(jr), 
+    .link(link), 
+    .RegWrite(RegWrite), 
+    .WA(WA), 
+    .MemRead(MemRead), 
+    .Res(Res)
     );
 
 

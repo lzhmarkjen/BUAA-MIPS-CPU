@@ -126,7 +126,7 @@ module datapath(
 	.WD(WD)
 	);
 //////////////////////	module
-Controller Hazard (
+Hazard hazard (
     .clk(clk), 
     .reset(reset), 
     .Instr1(Instr1), 

@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.35 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.17 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.35 secs
  
 --> Reading design: mips.prj
 
@@ -141,14 +141,14 @@ Analyzing Verilog file "G:\ComputerOrganization\CPU\WB.v" into library work
 Parsing module <WriteBack>.
 Analyzing Verilog file "G:\ComputerOrganization\CPU\Memory.v" into library work
 Parsing module <Memory>.
+Analyzing Verilog file "G:\ComputerOrganization\CPU\Hazard.v" into library work
+Parsing module <Hazard>.
 Analyzing Verilog file "G:\ComputerOrganization\CPU\Fetch.v" into library work
 Parsing module <Fetch>.
 Analyzing Verilog file "G:\ComputerOrganization\CPU\Execution.v" into library work
 Parsing module <Execution>.
 Analyzing Verilog file "G:\ComputerOrganization\CPU\Decode.v" into library work
 Parsing module <Decode>.
-Analyzing Verilog file "G:\ComputerOrganization\CPU\Controller.v" into library work
-Parsing module <Controller>.
 Analyzing Verilog file "G:\ComputerOrganization\CPU\datapath.v" into library work
 Parsing module <datapath>.
 Analyzing Verilog file "G:\ComputerOrganization\CPU\mips.v" into library work
@@ -207,7 +207,7 @@ Elaborating module <Memory>.
 Elaborating module <Memory_Controller>.
 
 Elaborating module <DM>.
-"G:\ComputerOrganization\CPU\DM.v" Line 52. $display  32'b00000000000000000000..........00 32'b................................ 32'b................................
+"G:\ComputerOrganization\CPU\DM.v" Line 52. $display  32'b................................ 32'b00000000000000000000..........00 32'b................................
 
 Elaborating module <MFRTM>.
 
@@ -218,21 +218,21 @@ Elaborating module <WriteBack>.
 Elaborating module <WriteBack_Controller>.
 
 Elaborating module <MemtoRegmux>.
-WARNING:HDLCompiler:1016 - "G:\ComputerOrganization\CPU\Controller.v" Line 49: Port RegWrite is not connected to this instance
+WARNING:HDLCompiler:1016 - "G:\ComputerOrganization\CPU\Hazard.v" Line 49: Port RegWrite is not connected to this instance
 
-Elaborating module <Controller>.
+Elaborating module <Hazard>.
 
 Elaborating module <InstrCoder>.
-WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\Controller.v" Line 49: Assignment to link_D ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\Controller.v" Line 50: Assignment to cal_r_E ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\Controller.v" Line 51: Assignment to cal_r_M ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\Controller.v" Line 52: Assignment to cal_r_W ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\Hazard.v" Line 49: Assignment to link_D ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\Hazard.v" Line 50: Assignment to cal_r_E ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\Hazard.v" Line 51: Assignment to cal_r_M ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\Hazard.v" Line 52: Assignment to cal_r_W ignored, since the identifier is never used
 WARNING:Xst:2972 - "G:\ComputerOrganization\CPU\datapath.v" line 44. All outputs of instance <fetch> of block <Fetch> are unconnected in block <datapath>. Underlying logic will be removed.
 WARNING:Xst:2972 - "G:\ComputerOrganization\CPU\datapath.v" line 58. All outputs of instance <decode> of block <Decode> are unconnected in block <datapath>. Underlying logic will be removed.
 WARNING:Xst:2972 - "G:\ComputerOrganization\CPU\datapath.v" line 82. All outputs of instance <execution> of block <Execution> are unconnected in block <datapath>. Underlying logic will be removed.
 WARNING:Xst:2972 - "G:\ComputerOrganization\CPU\datapath.v" line 102. All outputs of instance <memory> of block <Memory> are unconnected in block <datapath>. Underlying logic will be removed.
 WARNING:Xst:2972 - "G:\ComputerOrganization\CPU\datapath.v" line 120. All outputs of instance <writeback> of block <WriteBack> are unconnected in block <datapath>. Underlying logic will be removed.
-WARNING:Xst:2972 - "G:\ComputerOrganization\CPU\datapath.v" line 129. All outputs of instance <Hazard> of block <Controller> are unconnected in block <datapath>. Underlying logic will be removed.
+WARNING:Xst:2972 - "G:\ComputerOrganization\CPU\datapath.v" line 129. All outputs of instance <hazard> of block <Hazard> are unconnected in block <datapath>. Underlying logic will be removed.
 WARNING:Xst:2972 - "G:\ComputerOrganization\CPU\mips.v" line 26. All outputs of instance <datapath> of block <datapath> are unconnected in block <mips>. Underlying logic will be removed.
 
 =========================================================================
@@ -34822,12 +34822,12 @@ Cross Clock Domains Report:
 =========================================================================
 
 
-Total REAL time to Xst completion: 87.00 secs
-Total CPU time to Xst completion: 87.33 secs
+Total REAL time to Xst completion: 92.00 secs
+Total CPU time to Xst completion: 92.13 secs
  
 --> 
 
-Total memory usage is 412328 kilobytes
+Total memory usage is 412252 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   23 (   0 filtered)

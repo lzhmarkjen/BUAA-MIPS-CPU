@@ -25,7 +25,7 @@
 `define func 5:0
 `define ALU 2'b01
 `define DM  2'b10
-module Controller(
+module Hazard(
     input clk,
 	 input reset,
 	 input [31:0]Instr1,

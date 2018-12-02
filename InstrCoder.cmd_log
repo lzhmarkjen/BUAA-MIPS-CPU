@@ -1,3 +1,4 @@
 vhdtdtfi -lib work G:/ComputerOrganization/CPU/InstrCoder.v -lang verilog -prj CPU -o InstrCoder.spl -module InstrCoder -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
 spl2sym -intstyle ise -family spartan6 InstrCoder.spl G:/ComputerOrganization/CPU/InstrCoder.sym 
 vhdtdtfi -lang verilog -prj CPU -o G:/ComputerOrganization/CPU/InstrCoder.tfi -lib work G:/ComputerOrganization/CPU//InstrCoder.v -module InstrCoder -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj CPU -o G:/ComputerOrganization/CPU/InstrCoder.tfi -lib work G:/ComputerOrganization/CPU//InstrCoder.v -module InstrCoder -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

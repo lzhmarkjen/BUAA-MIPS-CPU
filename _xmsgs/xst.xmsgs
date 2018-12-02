@@ -11,19 +11,19 @@
 <msg type="warning" file="HDLCompiler" num="1016" delta="old" >"G:\ComputerOrganization\CPU\Execution.v" Line 54: Port <arg fmt="%s" index="1">Zero</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1016" delta="old" >"G:\ComputerOrganization\CPU\Controller.v" Line 49: Port <arg fmt="%s" index="1">RegWrite</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="old" >"G:\ComputerOrganization\CPU\Hazard.v" Line 49: Port <arg fmt="%s" index="1">RegWrite</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"G:\ComputerOrganization\CPU\Controller.v" Line 49: Assignment to <arg fmt="%s" index="1">link_D</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"G:\ComputerOrganization\CPU\Hazard.v" Line 49: Assignment to <arg fmt="%s" index="1">link_D</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"G:\ComputerOrganization\CPU\Controller.v" Line 50: Assignment to <arg fmt="%s" index="1">cal_r_E</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"G:\ComputerOrganization\CPU\Hazard.v" Line 50: Assignment to <arg fmt="%s" index="1">cal_r_E</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"G:\ComputerOrganization\CPU\Controller.v" Line 51: Assignment to <arg fmt="%s" index="1">cal_r_M</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"G:\ComputerOrganization\CPU\Hazard.v" Line 51: Assignment to <arg fmt="%s" index="1">cal_r_M</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"G:\ComputerOrganization\CPU\Controller.v" Line 52: Assignment to <arg fmt="%s" index="1">cal_r_W</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"G:\ComputerOrganization\CPU\Hazard.v" Line 52: Assignment to <arg fmt="%s" index="1">cal_r_W</arg> ignored, since the identifier is never used
 </msg>
 
 <msg type="warning" file="Xst" num="2972" delta="old" >&quot;<arg fmt="%s" index="1">G:\ComputerOrganization\CPU\datapath.v</arg>&quot; line <arg fmt="%d" index="2">44</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">fetch</arg>&gt; of block &lt;<arg fmt="%s" index="4">Fetch</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">datapath</arg>&gt;. Underlying logic will be removed.
@@ -41,7 +41,7 @@
 <msg type="warning" file="Xst" num="2972" delta="old" >&quot;<arg fmt="%s" index="1">G:\ComputerOrganization\CPU\datapath.v</arg>&quot; line <arg fmt="%d" index="2">120</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">writeback</arg>&gt; of block &lt;<arg fmt="%s" index="4">WriteBack</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">datapath</arg>&gt;. Underlying logic will be removed.
 </msg>
 
-<msg type="warning" file="Xst" num="2972" delta="old" >&quot;<arg fmt="%s" index="1">G:\ComputerOrganization\CPU\datapath.v</arg>&quot; line <arg fmt="%d" index="2">129</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">Hazard</arg>&gt; of block &lt;<arg fmt="%s" index="4">Controller</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">datapath</arg>&gt;. Underlying logic will be removed.
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">G:\ComputerOrganization\CPU\datapath.v</arg>&quot; line <arg fmt="%d" index="2">129</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">hazard</arg>&gt; of block &lt;<arg fmt="%s" index="4">Hazard</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">datapath</arg>&gt;. Underlying logic will be removed.
 </msg>
 
 <msg type="warning" file="Xst" num="2972" delta="old" >&quot;<arg fmt="%s" index="1">G:\ComputerOrganization\CPU\mips.v</arg>&quot; line <arg fmt="%d" index="2">26</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">datapath</arg>&gt; of block &lt;<arg fmt="%s" index="4">datapath</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mips</arg>&gt;. Underlying logic will be removed.
