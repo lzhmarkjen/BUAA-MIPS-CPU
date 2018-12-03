@@ -16,42 +16,6 @@ Finished circuit initialization process.
                   45@00003000: $31 <= 00003008
                   45@00003004: *00000000 <= 00003008
                   65@00003008: $ 1 <= 00090000
-                 115@0000301c: $31 <= 00003024
-                 125@00003020: *00000458 <= 00003024
-                 155@00003028: $ 1 <= 000a0000
-                 165@0000302c: $ 1 <= 000b0000
-                 175@00003030: $ 1 <= 000c0000
-ISim P.20131013 (signature 0x8ef4fb42)
-----------------------------------------------------------------------
-WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
-
-
-----------------------------------------------------------------------
-This is a Full version of ISim.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-Finished circuit initialization process.
-                  45@00003000: $31 <= 00003008
-                  45@00003004: *00000000 <= 00003008
-                  65@00003008: $ 1 <= 00090000
-                 115@0000301c: $31 <= 00003024
-                 125@00003020: *00000004 <= 00003024
-                 155@00003028: $ 1 <= 000a0000
-                 165@0000302c: $ 1 <= 000b0000
-                 175@00003030: $ 1 <= 000c0000
-ISim P.20131013 (signature 0x8ef4fb42)
-----------------------------------------------------------------------
-WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
-
-
-----------------------------------------------------------------------
-This is a Full version of ISim.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-Finished circuit initialization process.
-                  45@00003000: $31 <= 00003008
-                  45@00003004: *00000000 <= 00003008
-                  65@00003008: $ 1 <= 00090000
                  105@00003018: $ 2 <= 00003024
                  115@0000301c: $31 <= 00003024
                  125@00003020: *00000004 <= 00003024

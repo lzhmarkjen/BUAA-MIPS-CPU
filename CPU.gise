@@ -145,7 +145,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1543832083" xil_pn:in_ck="-689425248864895701" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1543832083">
+    <transform xil_pn:end_ts="1543839708" xil_pn:in_ck="8249264629427643886" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1543839708">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ALU.v"/>
@@ -160,7 +160,6 @@
       <outfile xil_pn:name="IM.v"/>
       <outfile xil_pn:name="InstrCoder.v"/>
       <outfile xil_pn:name="Memory.v"/>
-      <outfile xil_pn:name="Transpond.v"/>
       <outfile xil_pn:name="TranspondMux.v"/>
       <outfile xil_pn:name="WB.v"/>
       <outfile xil_pn:name="datapath.v"/>
@@ -181,7 +180,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1543824358" xil_pn:in_ck="8249264629427643886" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1543824358">
+    <transform xil_pn:end_ts="1543839708" xil_pn:in_ck="8249264629427643886" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1543839708">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ALU.v"/>
@@ -204,7 +203,7 @@
       <outfile xil_pn:name="mux.v"/>
       <outfile xil_pn:name="pipline_reg.v"/>
     </transform>
-    <transform xil_pn:end_ts="1543837726" xil_pn:in_ck="-689425248864895701" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1375850586314952989" xil_pn:start_ts="1543837720">
+    <transform xil_pn:end_ts="1543839714" xil_pn:in_ck="8249264629427643886" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1375850586314952989" xil_pn:start_ts="1543839708">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -216,7 +215,7 @@
       <outfile xil_pn:name="mips_test_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1543837727" xil_pn:in_ck="-7714341762109920628" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7248151530696428544" xil_pn:start_ts="1543837726">
+    <transform xil_pn:end_ts="1543839715" xil_pn:in_ck="-7714341762109920628" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7248151530696428544" xil_pn:start_ts="1543839714">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>

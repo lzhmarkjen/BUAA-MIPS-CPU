@@ -25,7 +25,7 @@
 `define func 5:0
 `define ALU 2'b01
 `define DM  2'b10
-module Controller(
+module Hazard(
     input clk,
 	 input reset,
 	 input [31:0]Instr1,
@@ -57,17 +57,18 @@ module Controller(
 	wire Tuse_rt0 = branch_D;//rt的Tuse为0
 	wire Tuse_rt1 = cal_r_D;//rt的Tuse为1
 	
-	assign Stall_rs = Tuse_rs0 & Res_E==`ALU & Instr1[`rs]==WA_E & RegWrite_E ? 1'b1://D E冲突 需要ALU结果
-							Tuse_rs0 & Res_E==`DM  & Instr1[`rs]==WA_E & RegWrite_E ? 1'b1://D E冲突 需要DM结果
-							Tuse_rs0 & Res_M==`DM  & Instr1[`rs]==WA_M & RegWrite_M ? 1'b1://D M冲突 需要DM结果
-							Tuse_rs1 & Res_E==`DM  & Instr1[`rs]==WA_E & RegWrite_E ? 1'b1://E M冲突 需要DM结果
-																										 1'b0;
-	assign Stall_rt = Tuse_rt0 & Res_E==`ALU & Instr1[`rt]==WA_E & RegWrite_E ? 1'b1://D E冲突 需要ALU结果
-							Tuse_rt0 & Res_E==`DM  & Instr1[`rt]==WA_E & RegWrite_E ? 1'b1://D E冲突 需要DM结果
-							Tuse_rt0 & Res_M==`DM  & Instr1[`rt]==WA_M & RegWrite_M ? 1'b1://D M冲突 需要DM结果
-							Tuse_rt1 & Res_E==`DM  & Instr1[`rt]==WA_E & RegWrite_E ? 1'b1://E M冲突 需要DM结果
-																										 1'b0;
+	assign Stall_rs = Tuse_rs0 & Res_E==`ALU & Instr1[`rs]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://D E冲突 需要ALU结果
+							Tuse_rs0 & Res_E==`DM  & Instr1[`rs]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://D E冲突 需要DM结果
+							Tuse_rs0 & Res_M==`DM  & Instr1[`rs]==WA_M & WA_M!=5'b0 & RegWrite_M ? 1'b1://D M冲突 需要DM结果
+							Tuse_rs1 & Res_E==`DM  & Instr1[`rs]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://E M冲突 需要DM结果
+																														  1'b0;
+	assign Stall_rt = Tuse_rt0 & Res_E==`ALU & Instr1[`rt]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://D E冲突 需要ALU结果
+							Tuse_rt0 & Res_E==`DM  & Instr1[`rt]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://D E冲突 需要DM结果
+							Tuse_rt0 & Res_M==`DM  & Instr1[`rt]==WA_M & WA_M!=5'b0 & RegWrite_M ? 1'b1://D M冲突 需要DM结果
+							Tuse_rt1 & Res_E==`DM  & Instr1[`rt]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://E M冲突 需要DM结果
+																														  1'b0;
 	assign Stall = Stall_rs | Stall_rt;
+//RegWrite need?
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	assign ForwardRSD = Instr1[`rs]==WA_M & WA_M!=5'b0 & RegWrite_M & Res_M==`ALU ? 2'd1:2'd0;//修改了GRF使得W级和D级的冲突取消
 	assign ForwardRTD = Instr1[`rt]==WA_M & WA_M!=5'b0 & RegWrite_M & Res_M==`ALU ? 2'd1:2'd0;
@@ -79,4 +80,6 @@ module Controller(
 																											  2'd0;
 	assign ForwardRTM = Instr3[`rt]==WA_W & WA_W!=5'b0 & RegWrite_W & Res_W==`DM  ? 1'b1:
 																											  1'b0;
+//RSE,RTE,RTM
+//Res_W==`DM change to Res_W==`DM|`ALU;
 endmodule

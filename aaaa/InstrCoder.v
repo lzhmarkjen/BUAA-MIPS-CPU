@@ -48,7 +48,7 @@ module InstrCoder(
 	wire lw   = Instr[`op]==6'b100011;
 	wire sw   = Instr[`op]==6'b101011;
 	wire beq  = Instr[`op]==6'b000100;
-	wire _jr   = Instr[`op]==6'b000000 & Instr[`func]==6'b001000;
+	wire _jr  = Instr[`op]==6'b000000 & Instr[`func]==6'b001000;
 	wire jal  = Instr[`op]==6'b000011;
 	
 	assign cal_r = addu | subu;
@@ -68,7 +68,7 @@ module InstrCoder(
 	assign MemRead  = load ? 1'b1:1'b0;
 	
 	assign Res = (cal_r | cal_i) ? `ALU:
-					 load            ? `DM:
-					 link				  ? `DM:
-											 2'b00;//指令的写寄存器的结果从哪里来
+					 load            ?  `DM:
+					 link				  ?  `DM:
+											2'b00;//指令的写寄存器的结果从哪里来
 endmodule
