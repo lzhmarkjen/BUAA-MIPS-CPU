@@ -145,15 +145,29 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1543555486" xil_pn:in_ck="8954718993176798863" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1543555486">
+    <transform xil_pn:end_ts="1543832083" xil_pn:in_ck="-689425248864895701" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1543832083">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="ALU.v"/>
+      <outfile xil_pn:name="Control.v"/>
+      <outfile xil_pn:name="Controller.v"/>
+      <outfile xil_pn:name="DM.v"/>
+      <outfile xil_pn:name="Decode.v"/>
+      <outfile xil_pn:name="EXT.v"/>
+      <outfile xil_pn:name="Execution.v"/>
+      <outfile xil_pn:name="Fetch.v"/>
+      <outfile xil_pn:name="GRF.v"/>
+      <outfile xil_pn:name="IM.v"/>
+      <outfile xil_pn:name="InstrCoder.v"/>
+      <outfile xil_pn:name="Memory.v"/>
+      <outfile xil_pn:name="Transpond.v"/>
+      <outfile xil_pn:name="TranspondMux.v"/>
+      <outfile xil_pn:name="WB.v"/>
+      <outfile xil_pn:name="datapath.v"/>
+      <outfile xil_pn:name="mips.v"/>
+      <outfile xil_pn:name="mips_test.v"/>
+      <outfile xil_pn:name="mux.v"/>
+      <outfile xil_pn:name="pipline_reg.v"/>
     </transform>
     <transform xil_pn:end_ts="1543307478" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="7116480837836703951" xil_pn:start_ts="1543307478">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -167,39 +181,49 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1543555487" xil_pn:in_ck="8954718993176798863" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1543555486">
+    <transform xil_pn:end_ts="1543824358" xil_pn:in_ck="8249264629427643886" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1543824358">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="ALU.v"/>
+      <outfile xil_pn:name="Control.v"/>
+      <outfile xil_pn:name="Controller.v"/>
+      <outfile xil_pn:name="DM.v"/>
+      <outfile xil_pn:name="Decode.v"/>
+      <outfile xil_pn:name="EXT.v"/>
+      <outfile xil_pn:name="Execution.v"/>
+      <outfile xil_pn:name="Fetch.v"/>
+      <outfile xil_pn:name="GRF.v"/>
+      <outfile xil_pn:name="IM.v"/>
+      <outfile xil_pn:name="InstrCoder.v"/>
+      <outfile xil_pn:name="Memory.v"/>
+      <outfile xil_pn:name="TranspondMux.v"/>
+      <outfile xil_pn:name="WB.v"/>
+      <outfile xil_pn:name="datapath.v"/>
+      <outfile xil_pn:name="mips.v"/>
+      <outfile xil_pn:name="mips_test.v"/>
+      <outfile xil_pn:name="mux.v"/>
+      <outfile xil_pn:name="pipline_reg.v"/>
     </transform>
-    <transform xil_pn:end_ts="1543555491" xil_pn:in_ck="8954718993176798863" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1375850586314952989" xil_pn:start_ts="1543555487">
+    <transform xil_pn:end_ts="1543837726" xil_pn:in_ck="-689425248864895701" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1375850586314952989" xil_pn:start_ts="1543837720">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="mips_test_beh.prj"/>
+      <outfile xil_pn:name="mips_test_isim_beh.exe"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1543555492" xil_pn:in_ck="-7714341762109920628" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7248151530696428544" xil_pn:start_ts="1543555491">
+    <transform xil_pn:end_ts="1543837727" xil_pn:in_ck="-7714341762109920628" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7248151530696428544" xil_pn:start_ts="1543837726">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="mips_test_isim_beh.wdb"/>
     </transform>
     <transform xil_pn:end_ts="1542452770" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1542452770">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -235,6 +259,7 @@
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
