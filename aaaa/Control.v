@@ -41,7 +41,8 @@ module Decode_Controller(
 		(Op == 6'b000011) ? 2'b10 :
 		(Op == 6'b000010) ? 2'b10 :
 		(Op == 6'b000000 & Func == 6'b001000) ? 2'b11 :
-		2'b00;
+		(Op == 6'b000000 & Func == 6'b001001) ? 2'b11 :
+		2'b00;//00 +4;01 beq;11 jr
 endmodule
 
 module Execution_Controller(
@@ -64,8 +65,9 @@ module Execution_Controller(
 	assign RegDst = 
 		(Op == 6'b000000 & Func == 6'b100001) ? 2'b01 :
 		(Op == 6'b000000 & Func == 6'b100011) ? 2'b01 :
+		(Op == 6'b000000 & Func == 6'b001001) ? 2'b01 :
 		(Op == 6'b000011) ? 2'b10 :
-		2'b00;
+		2'b00;//00 rt;01 rd;10 31
 	assign ALUSrc =
 			(Op == 6'b001101) ? 1'b1 :
 			(Op == 6'b100011) ? 1'b1 :
@@ -107,11 +109,13 @@ module WriteBack_Controller(
 	assign MemtoReg = 
 		(Op == 6'b100011) ? 2'b01 :
 		(Op == 6'b000011) ? 2'b10 :
-		2'b00;
+		(Op == 6'b000000 & Func == 6'b001001)? 2'b10 :
+		2'b00;//Write Data_00 ALU;01 DM;10 PC
 		
 	assign RegWrite = 
 		(Op == 6'b000000 & Func == 6'b100001) ? 1'b1 :
 		(Op == 6'b000000 & Func == 6'b100011) ? 1'b1 :
+		(Op == 6'b000000 & Func == 6'b001001)? 1'b1 :
 		(Op == 6'b001101) ? 1'b1 :
 		(Op == 6'b100011) ? 1'b1 :
 		(Op == 6'b001111) ? 1'b1 :

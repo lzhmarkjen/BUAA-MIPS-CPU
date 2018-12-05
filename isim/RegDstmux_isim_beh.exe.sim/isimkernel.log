@@ -1,0 +1,28 @@
+Command line:
+   RegDstmux_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  63859
+
+Wed Dec 05 16:44:42 2018
+
+
+ Elaboration Time: 0.078125 sec
+
+ Current Memory Usage: 1016.79 Meg
+
+ Total Signals          : 16
+ Total Nets             : 30
+ Total Signal Drivers   : 6
+ Total Blocks           : 2
+ Total Primitive Blocks : 2
+ Total Processes        : 8
+ Total Traceable Variables  : 19
+ Total Scalar Nets and Variables : 115
+
+ Total Simulation Time: 0.09375 sec
+
+ Current Memory Usage: 1017.84 Meg
+
+Wed Dec 05 16:44:46 2018
+
