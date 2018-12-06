@@ -2815,7 +2815,7 @@ LAB13:    t103 = *((unsigned int *)t92);
 
 }
 
-static void Cont_65_19(char *t0)
+static void Cont_66_19(char *t0)
 {
     char t3[8];
     char t4[8];
@@ -2974,7 +2974,7 @@ LAB0:    t1 = (t0 + 6020U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(65, ng0);
+LAB2:    xsi_set_current_line(66, ng0);
     t2 = (t0 + 692U);
     t5 = *((char **)t2);
     t2 = (t0 + 2624U);
@@ -3277,7 +3277,7 @@ LAB46:    memcpy(t116, t130, 8);
 
 }
 
-static void Cont_70_20(char *t0)
+static void Cont_71_20(char *t0)
 {
     char t3[8];
     char t4[8];
@@ -3322,7 +3322,7 @@ LAB0:    t1 = (t0 + 6164U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(70, ng0);
+LAB2:    xsi_set_current_line(71, ng0);
     t2 = (t0 + 968U);
     t5 = *((char **)t2);
     memset(t4, 0, 8);
@@ -3405,7 +3405,7 @@ LAB14:    memcpy(t3, t16, 8);
 
 }
 
-static void Cont_72_21(char *t0)
+static void Cont_73_21(char *t0)
 {
     char t3[8];
     char t4[8];
@@ -3536,7 +3536,7 @@ LAB0:    t1 = (t0 + 6308U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(72, ng0);
+LAB2:    xsi_set_current_line(73, ng0);
     t2 = (t0 + 692U);
     t5 = *((char **)t2);
     t2 = (t0 + 784U);
@@ -3830,7 +3830,7 @@ LAB56:    memcpy(t88, t102, 8);
 
 extern void work_m_00000000000673670010_0142016982_init()
 {
-	static char *pe[] = {(void *)NetDecl_44_0,(void *)NetDecl_45_1,(void *)NetDecl_46_2,(void *)NetDecl_47_3,(void *)NetDecl_48_4,(void *)NetDecl_49_5,(void *)NetDecl_50_6,(void *)NetDecl_51_7,(void *)NetDecl_52_8,(void *)NetDecl_53_9,(void *)Cont_55_10,(void *)Cont_56_11,(void *)Cont_57_12,(void *)Cont_58_13,(void *)Cont_59_14,(void *)Cont_60_15,(void *)Cont_61_16,(void *)Cont_62_17,(void *)Cont_64_18,(void *)Cont_65_19,(void *)Cont_70_20,(void *)Cont_72_21};
+	static char *pe[] = {(void *)NetDecl_44_0,(void *)NetDecl_45_1,(void *)NetDecl_46_2,(void *)NetDecl_47_3,(void *)NetDecl_48_4,(void *)NetDecl_49_5,(void *)NetDecl_50_6,(void *)NetDecl_51_7,(void *)NetDecl_52_8,(void *)NetDecl_53_9,(void *)Cont_55_10,(void *)Cont_56_11,(void *)Cont_57_12,(void *)Cont_58_13,(void *)Cont_59_14,(void *)Cont_60_15,(void *)Cont_61_16,(void *)Cont_62_17,(void *)Cont_64_18,(void *)Cont_66_19,(void *)Cont_71_20,(void *)Cont_73_21};
 	xsi_register_didat("work_m_00000000000673670010_0142016982", "isim/mips_test_isim_beh.exe.sim/work/m_00000000000673670010_0142016982.didat");
 	xsi_register_executes(pe);
 }

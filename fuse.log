@@ -28,7 +28,7 @@ WARNING:HDLCompiler:1016 - "G:/ComputerOrganization/CPU/Execution.v" Line 54: Po
 WARNING:HDLCompiler:1016 - "G:/ComputerOrganization/CPU/Controller.v" Line 49: Port RegWrite is not connected to this instance
 Completed static elaboration
 Fuse Memory Usage: 179960 KB
-Fuse CPU Usage: 1093 ms
+Fuse CPU Usage: 593 ms
 Compiling module IM
 Compiling module IF_ID
 Compiling module Fetch
@@ -66,4 +66,4 @@ Waiting for 25 sub-compilation(s) to finish...
 Compiled 32 Verilog Units
 Built simulation executable G:/ComputerOrganization/CPU/mips_test_isim_beh.exe
 Fuse Memory Usage: 188344 KB
-Fuse CPU Usage: 1452 ms
+Fuse CPU Usage: 812 ms
