@@ -1,3 +1,4 @@
+verilog work "WB_Ext.v"
 verilog work "mux.v"
 verilog work "Control.v"
 verilog work "WB.v"

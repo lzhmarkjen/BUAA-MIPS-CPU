@@ -38,21 +38,24 @@ module Memory(
 	
 	wire MemRead,MemWrite;
 	wire [31:0]RD3,WData;
+	wire [3:0]WriteBE;
 	
 	Memory_Controller MC(
 	.Instr3(Instr3),
 	.MemRead(MemRead),
-	.MemWrite(MemWrite)
+	.MemWrite(MemWrite),
+	.WriteBE(WriteBE)
 	);
 /////////////////////	Controller
 	DM dm(
-	.A(Result3[11:2]),
+	.A(Result3[13:2]),
 	.WData(WData),
 	.clk(clk),
 	.reset(reset),
 	.MemRead(MemRead),
 	.MemWrite(MemWrite),
-	.PC(PC3),//
+	.PC(PC3),
+	.WriteBE(WriteBE),//
 	.RD(RD3)
 	);
 //////////////////////	DM

@@ -97,15 +97,15 @@ module InstrCoder(
 	assign Op = Instr[31:26];
 	assign Func = Instr[5:0];
 	
-	assign cal_r = ADD | ADDU | SUB | SUBU | SLL | STL | SRA | SLLV | SRLV | SRAV | AND | OR | XOR | NOR | SLT | SLTU ;
-	assign cal_i = ADDI | ADDIU | ANDI | ORI | XORI | LUI | SLTI | SLTIU;
-	assign branch= BEQ | BNE | BLEZ | BGTZ | BLTZ | BGEZ ;
-	assign load  = LB | LBU | LH | LHU | LW;
-	assign store = SB | SH | SW;
-	assign jr    = JR;
-	assign link  = JAL | JALR;
-	assign gg = MULT | MULTU | DIV | DIVU | MFHI | MFLO | MTHI | MTLO;
-	assign jump = J | JAL | JALR | JR;
+	assign cal_r = `ADD | `ADDU | `SUB | `SUBU | `SLL | `SLT | `SRA | `SLLV | `SRLV | `SRAV | `AND | `OR | `XOR | `NOR | `SLT | `SLTU ;
+	assign cal_i = `ADDI | `ADDIU | `ANDI | `ORI | `XORI | `LUI | `SLTI | `SLTIU;
+	assign branch= `BEQ | `BNE | `BLEZ | `BGTZ | `BLTZ | `BGEZ ;
+	assign load  = `LB | `LBU | `LH | `LHU | `LW;
+	assign store = `SB | `SH | `SW;
+	assign jr    = `JR;
+	assign link  = `JAL | `JALR;
+	assign gg = `MULT | `MULTU | `DIV | `DIVU | `MFHI | `MFLO | `MTHI | `MTLO;
+	assign jump = `J | `JAL | `JALR | `JR;
 	
 	assign RegWrite = cal_r | cal_i | load | link;
 	assign WA = cal_r 		 ? Instr[`rd]:

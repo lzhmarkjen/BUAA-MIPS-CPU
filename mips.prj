@@ -1,3 +1,4 @@
+verilog work "WB_Ext.v"
 verilog work "TranspondMux.v"
 verilog work "pipline_reg.v"
 verilog work "mux.v"

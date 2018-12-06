@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Parameter xsthdpdir set to G:/ComputerOrganization/CPU/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Reading design: WriteBack.prj
 
@@ -39,27 +39,32 @@ TABLE OF CONTENTS
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
+Analyzing Verilog file "G:\ComputerOrganization\CPU\WB_Ext.v" into library work
+Parsing module <WB_Ext>.
 Analyzing Verilog file "G:\ComputerOrganization\CPU\mux.v" into library work
 Parsing module <RegDstmux>.
 Parsing module <ALUSrcmux>.
 Parsing module <MemtoRegmux>.
 Analyzing Verilog file "G:\ComputerOrganization\CPU\Control.v" into library work
 Parsing module <Decode_Controller>.
+ERROR:HDLCompiler:69 - "G:\ComputerOrganization\CPU\Control.v" Line 97: <Instr> is not declared.
+ERROR:HDLCompiler:69 - "G:\ComputerOrganization\CPU\Control.v" Line 103: <Instr> is not declared.
+ERROR:HDLCompiler:69 - "G:\ComputerOrganization\CPU\Control.v" Line 104: <RD_Small> is not declared.
+ERROR:HDLCompiler:69 - "G:\ComputerOrganization\CPU\Control.v" Line 105: <RD_Small> is not declared.
+ERROR:HDLCompiler:69 - "G:\ComputerOrganization\CPU\Control.v" Line 106: <Instr> is not declared.
+ERROR:HDLCompiler:598 - "G:\ComputerOrganization\CPU\Control.v" Line 81: Module <Decode_Controller> ignored due to previous errors.
 Parsing module <Execution_Controller>.
+ERROR:HDLCompiler:598 - "G:\ComputerOrganization\CPU\Control.v" Line 112: Module <Execution_Controller> ignored due to previous errors.
 Parsing module <Memory_Controller>.
+ERROR:HDLCompiler:598 - "G:\ComputerOrganization\CPU\Control.v" Line 150: Module <Memory_Controller> ignored due to previous errors.
 Parsing module <WriteBack_Controller>.
-Analyzing Verilog file "G:\ComputerOrganization\CPU\WB.v" into library work
-Parsing module <WriteBack>.
-
-
-Total REAL time to Xst completion: 3.00 secs
-Total CPU time to Xst completion: 2.60 secs
- 
+ERROR:HDLCompiler:598 - "G:\ComputerOrganization\CPU\Control.v" Line 180: Module <WriteBack_Controller> ignored due to previous errors.
+Verilog file G:\ComputerOrganization\CPU\Control.v ignored due to errors
 --> 
 
-Total memory usage is 225376 kilobytes
+Total memory usage is 224152 kilobytes
 
-Number of errors   :    0 (   0 filtered)
+Number of errors   :    9 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

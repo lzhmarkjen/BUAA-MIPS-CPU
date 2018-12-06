@@ -14,17 +14,17 @@
          <ClosedNode>/mips G:|ComputerOrganization|CPU|mips.v/datapath - datapath/decode - Decode</ClosedNode>
          <ClosedNode>/mips G:|ComputerOrganization|CPU|mips.v/datapath - datapath/execution - Execution</ClosedNode>
          <ClosedNode>/mips G:|ComputerOrganization|CPU|mips.v/datapath - datapath/fetch - Fetch</ClosedNode>
-         <ClosedNode>/mips G:|ComputerOrganization|CPU|mips.v/datapath - datapath/hazard - Hazard</ClosedNode>
          <ClosedNode>/mips G:|ComputerOrganization|CPU|mips.v/datapath - datapath/memory - Memory</ClosedNode>
+         <ClosedNode>/mips G:|ComputerOrganization|CPU|mips.v/datapath - datapath/writeback - WriteBack</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>MemtoRegmux - MemtoRegmux (G:/ComputerOrganization/CPU/mux.v)</SelectedItem>
+         <SelectedItem>mips (G:/ComputerOrganization/CPU/mips.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000016a000000020000000000000000000000000200000064ffffffff0000008100000003000000020000016a0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000151000000020000000000000000000000000200000064ffffffff000000810000000300000002000001510000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>MemtoRegmux - MemtoRegmux (G:/ComputerOrganization/CPU/mux.v)</CurrentItem>
+      <CurrentItem>mips (G:/ComputerOrganization/CPU/mips.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -74,13 +74,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem>Check Syntax</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000166000000010000000100000000000000000000000064ffffffff000000810000000000000001000001660000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000155000000010000000100000000000000000000000064ffffffff000000810000000000000001000001550000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>Check Syntax</CurrentItem>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000012d000000e101000000050100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>

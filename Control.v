@@ -79,31 +79,37 @@
 `define MTLO  (Op==6'b000000 & Func==6'b010011)
 /////////////////////////////////////////////////////////////////
 module Decode_Controller(
-	input RD_Equal,
+	input RD_AEqualB,
+	input RD_ASmall0,
+	input RD_AEqual0,
 	input [31:0]Instr1,
 	output [1:0]ExtOp,
 	output [1:0]PCSel
     );
 	
-	wire [5:0]Op,Func;
-	
-	assign Op = Instr1[31:26];
-	assign Func = Instr1[5:0];
+	wire [5:0] Op = Instr1[31:26];
+	wire [5:0] Func = Instr1[5:0];
+	wire [31:0] Instr = Instr1;
 	
 	assign ExtOp =
-		(Op == 6'b100011) ? 2'b10 :
-		(Op == 6'b101011) ? 2'b10 :
-		(Op == 6'b000100) ? 2'b11 :
-		(Op == 6'b001111) ? 2'b01 :
-		2'b00;
+		`LB   | `LBU | `LH | `LHU | `LW 				   ? 2'b10:
+		`SB   | `SH  | `SW 								   ? 2'b10:
+		`ADDI | `ADDIU 								      ? 2'b10:
+		`BEQ  | `BNE | `BLEZ | `BLTZ | `BGEZ | `BGTZ ? 2'b11:
+		`LUI 											         ? 2'b01:
+															        2'b00;
 	assign PCSel = 
-		(Op == 6'b000100 & RD_Equal == 1) ? 2'b01 :
-		(Op == 6'b000011) ? 2'b10 :
-		(Op == 6'b000010) ? 2'b10 :
-		(Op == 6'b000000 & Func == 6'b001000) ? 2'b11 :
-		2'b00;
+		`BEQ  &  RD_AEqualB		 			  ? 2'b01:
+		`BNE  & !RD_AEqualB 					  ? 2'b01:
+		`BLTZ &  RD_ASmall0  				  ? 2'b01:
+		`BLEZ & (RD_ASmall0  | RD_AEqual0) ? 2'b01:
+		`BGTZ & !RD_ASmall0 					  ? 2'b01:
+		`BGEZ & (!RD_ASmall0 | RD_AEqual0) ? 2'b01:
+		`J | `JAL | `JALR 					  ? 2'b10:
+		`JR 									     ? 2'b11:
+												       2'b00;
 endmodule
-
+/////////////////////////////////////////////////////////////////////////
 module Execution_Controller(
 	input [31:0]Instr2,
 	output [3:0]ALUOp,
@@ -111,70 +117,93 @@ module Execution_Controller(
 	output ALUSrc
 	);
 	
-	wire [5:0]Op,Func;
-	
-	assign Op = Instr2[31:26];
-	assign Func = Instr2[5:0];
+	wire [5:0] Op = Instr2[31:26];
+	wire [5:0] Func = Instr2[5:0];
 	
 	assign ALUOp = 
-		(Op == 6'b000000 & Func == 6'b100011) ? 4'b0110 :
-		(Op == 6'b001101) ? 4'b0001 :
-		(Op == 6'b000100) ? 4'b0110 :
-		4'b0010;
+		`AND 	| `ANDI  ? 4'b0000:
+		`OR 	| `ORI   ? 4'b0001:
+	   `SUB   | `SUBU ? 4'b0110:
+		`XOR	| `XORI  ? 4'b0100:
+		`NOR 			   ? 4'b0101:
+		`SLL	| `SLLV  ? 4'b1000:
+		`SRL 	| `SRLV  ? 4'b1001:
+		`SRA 	| `SRAV  ? 4'b1011:
+		`SLT 	| `SLTI  ? 4'b1100:
+		`SLTIU | `SLTU ? 4'b1101:
+							  4'b0010;
 	assign RegDst = 
-		(Op == 6'b000000 & Func == 6'b100001) ? 2'b01 :
-		(Op == 6'b000000 & Func == 6'b100011) ? 2'b01 :
-		(Op == 6'b000011) ? 2'b10 :
-		2'b00;
+		`ADD | `ADDU | `SUB | `SUBU 				     ? 2'b01:
+		`SLL | `SRL  | `SRA | `SLLV | `SRLV | `SRAV ? 2'b01:
+		`AND | `OR   | `XOR | `NOR 					  ? 2'b01:
+		`SLT | `SLTU 									     ? 2'b01:
+		`JALR 											     ? 2'b01:
+		`JAL 											        ? 2'b10:
+														          2'b00;
 	assign ALUSrc =
-			(Op == 6'b001101) ? 1'b1 :
-			(Op == 6'b100011) ? 1'b1 :
-			(Op == 6'b101011) ? 1'b1 :
-			(Op == 6'b001111) ? 1'b1 :
-			1'b0;
+			`LB | `LBU | `LH | `LHU | `LW | `SB | `SH | `SW 				  ? 1'b1:
+			`ADDI | `ADDIU | `ANDI | `ORI | `XORI | `LUI | `SLTI | `SLTIU ? 1'b1:
+																					          1'b0;
 endmodule
-
+///////////////////////////////////////////////////////////////////////
 module Memory_Controller(
 	input [31:0]Instr3,
 	output MemRead,
-	output MemWrite
+	output MemWrite,
+	output [3:0]WriteBE
 	);
 	
-	wire [5:0]Op,Func;
-	
-	assign Op = Instr3[31:26];
-	//assign Func = Instr3[5:0];
+	wire [5:0] Op = Instr3[31:26];
+	wire [5:0] Func = Instr3[5:0];
 	
 	assign MemRead =
-		(Op == 6'b100011) ? 1'b1 :
-		1'b0;
+		`LB | `LBU | `LH | `LHU | `LW ? 1'b1 :
+											     1'b0;
 	assign MemWrite = 
-		(Op == 6'b101011) ? 1'b1 :
-		1'b0;
+		`SB | `SH | `SW ? 1'b1 :
+							1'b0;
+	assign WriteBE = 
+		`SW 							 ? 4'b1111:
+		`SH & !Instr3[1:1] 		 ? 4'b0011:
+		`SH & Instr3[1:1]		    ? 4'b1100:
+		`SB & Instr3[1:0]==2'b00 ? 4'b0001:
+		`SB & Instr3[1:0]==2'b01 ? 4'b0010:
+		`SB & Instr3[1:0]==2'b10 ? 4'b0100:
+		`SB & Instr3[1:0]==2'b11 ? 4'b1000:
+										   4'b1111;
+		
 endmodule
-
+///////////////////////////////////////////////////////////
 module WriteBack_Controller(
 	input [31:0]Instr4,
 	output [1:0]MemtoReg,
-	output RegWrite
+	output RegWrite,
+	output [2:0] ReadBE
 	);
 	
-	wire [5:0]Op,Func;
-	
-	assign Op = Instr4[31:26];
-	assign Func = Instr4[5:0];
+	wire [5:0] Op = Instr4[31:26];
+	wire [5:0] Func = Instr4[5:0];
 	
 	assign MemtoReg = 
-		(Op == 6'b100011) ? 2'b01 :
-		(Op == 6'b000011) ? 2'b10 :
-		2'b00;
+		`LB | `LBU | `LH | `LHU | `LW ? 2'b01:
+		`JAL | `JALR 					   ? 2'b10:
+											     2'b00;
 		
 	assign RegWrite = 
-		(Op == 6'b000000 & Func == 6'b100001) ? 1'b1 :
-		(Op == 6'b000000 & Func == 6'b100011) ? 1'b1 :
-		(Op == 6'b001101) ? 1'b1 :
-		(Op == 6'b100011) ? 1'b1 :
-		(Op == 6'b001111) ? 1'b1 :
-		(Op == 6'b000011) ? 1'b1 :
-		1'b0;
+		`ADD | `ADDU | `SUB | `SUBU | `AND | `OR | `XOR | `NOR ? 1'b1:
+		`ADDI | `ADDIU | `ANDI | `ORI | `XORI | `LUI 		    ? 1'b1:
+		`SLL | `SRL | `SRA | `SLLV | `SRLV | `SRAV 			    ? 1'b1:
+		`LB | `LBU | `LH | `LHU | `LW 							    ? 1'b1:
+		`SLT | `SLTI | `SLTIU | `SLTU 							    ? 1'b1:
+		`JAL | `JALR 												       ? 1'b1:
+																		         1'b0;
+	
+	assign ReadBE = 
+		`LW  ? 3'b000:
+		`LBU ? 3'b001:
+		`LB  ? 3'b010:
+		`LHU ? 3'b011:
+		`LH  ? 3'b100:
+		       3'b000;
+		
 endmodule

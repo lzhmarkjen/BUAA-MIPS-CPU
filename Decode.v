@@ -44,17 +44,20 @@ module Decode(
 	
 	wire [31:0]imm32,RD1,RD2;
 	wire [1:0]ExtOp;
-	wire RD_Equal;
 	wire [31:0]A1,B1;
 	
-	assign RD_Equal = (A1 == B1);
+	wire RD_AEqualB = (A1 == B1);
+	wire RD_ASmall0 = (($signed(A1) < 0));
+	wire RD_AEqual0 = (A1 == 0);
 /////////////////		Comparater
 	assign PC_j = {PC1[31:28],Instr1[25:0],2'b00};
 	assign PC_jr = A1;
 	assign PC_beq = PC1 + 4 + imm32;
 //////////////////	PC Calculate
 	Decode_Controller DC(
-	.RD_Equal(RD_Equal),
+	.RD_AEqualB(RD_AEqualB),
+	.RD_ASmall0(RD_ASmall0),
+	.RD_AEqual0(RD_AEqual0),
 	.Instr1(Instr1),//
 	.ExtOp(ExtOp),
 	.PCSel(PCSel)

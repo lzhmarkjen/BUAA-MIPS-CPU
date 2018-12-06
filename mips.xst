@@ -1,9 +1,6 @@
-set -tmpdir "xst/projnav.tmp"
-set -xsthdpdir "xst"
-run
--ifn mips.prj
--ofn mips
--ofmt NGC
+set -tmpdir "G:/ComputerOrganization/CPU/xst/projnav.tmp"
+set -xsthdpdir "G:/ComputerOrganization/CPU/xst"
+run -compileonly yes
 -p xc6slx150-3-fgg676
 -top mips
 -opt_mode Speed
@@ -50,3 +47,4 @@ run
 -iob Auto
 -equivalent_register_removal YES
 -slice_utilization_ratio_maxmargin 5
+-ifn mips.prj
