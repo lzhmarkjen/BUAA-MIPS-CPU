@@ -50,7 +50,7 @@ static unsigned int ng25[] = {43U, 0U};
 
 
 
-static void NetDecl_184_0(char *t0)
+static void NetDecl_185_0(char *t0)
 {
     char t3[8];
     char *t1;
@@ -85,7 +85,7 @@ LAB0:    t1 = (t0 + 1720U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(184, ng0);
+LAB2:    xsi_set_current_line(185, ng0);
     t2 = (t0 + 600U);
     t4 = *((char **)t2);
     memset(t3, 0, 8);
@@ -126,7 +126,7 @@ LAB2:    xsi_set_current_line(184, ng0);
 LAB1:    return;
 }
 
-static void NetDecl_185_1(char *t0)
+static void NetDecl_186_1(char *t0)
 {
     char t3[8];
     char *t1;
@@ -161,7 +161,7 @@ LAB0:    t1 = (t0 + 1864U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(185, ng0);
+LAB2:    xsi_set_current_line(186, ng0);
     t2 = (t0 + 600U);
     t4 = *((char **)t2);
     memset(t3, 0, 8);
@@ -202,7 +202,7 @@ LAB2:    xsi_set_current_line(185, ng0);
 LAB1:    return;
 }
 
-static void Cont_187_2(char *t0)
+static void Cont_188_2(char *t0)
 {
     char t3[8];
     char t4[8];
@@ -580,7 +580,7 @@ LAB0:    t1 = (t0 + 2008U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(187, ng0);
+LAB2:    xsi_set_current_line(188, ng0);
     t2 = (t0 + 968U);
     t5 = *((char **)t2);
     t2 = ((char*)((ng1)));
@@ -1197,7 +1197,7 @@ LAB77:    memcpy(t222, t349, 8);
 
 }
 
-static void Cont_192_3(char *t0)
+static void Cont_193_3(char *t0)
 {
     char t3[8];
     char t4[8];
@@ -3439,7 +3439,7 @@ LAB0:    t1 = (t0 + 2152U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(192, ng0);
+LAB2:    xsi_set_current_line(193, ng0);
     t2 = (t0 + 968U);
     t5 = *((char **)t2);
     t2 = ((char*)((ng8)));
@@ -6976,7 +6976,7 @@ LAB397:    memcpy(t2086, t2213, 8);
 
 }
 
-static void Cont_201_4(char *t0)
+static void Cont_202_4(char *t0)
 {
     char t3[8];
     char t4[8];
@@ -7182,7 +7182,7 @@ LAB0:    t1 = (t0 + 2296U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(201, ng0);
+LAB2:    xsi_set_current_line(202, ng0);
     t2 = (t0 + 968U);
     t5 = *((char **)t2);
     t2 = ((char*)((ng5)));
@@ -7637,7 +7637,7 @@ LAB86:    memcpy(t146, t177, 8);
 
 extern void work_m_00000000001896668117_1332927856_init()
 {
-	static char *pe[] = {(void *)NetDecl_184_0,(void *)NetDecl_185_1,(void *)Cont_187_2,(void *)Cont_192_3,(void *)Cont_201_4};
+	static char *pe[] = {(void *)NetDecl_185_0,(void *)NetDecl_186_1,(void *)Cont_188_2,(void *)Cont_193_3,(void *)Cont_202_4};
 	xsi_register_didat("work_m_00000000001896668117_1332927856", "isim/mips_test_isim_beh.exe.sim/work/m_00000000001896668117_1332927856.didat");
 	xsi_register_executes(pe);
 }

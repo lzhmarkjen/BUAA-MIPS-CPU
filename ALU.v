@@ -41,13 +41,13 @@ module ALU(
 			4'b0110:
 				Result = A - B;
 			4'b1000:
-				Result = B << (A+shift_offset);
+				Result = B << (A[4:0]+shift_offset);
 			4'b1001:
-				Result = B >> (A+shift_offset);
+				Result = B >> (A[4:0]+shift_offset);
 			4'b1010:
-				Result = B <<< (A+shift_offset);
+				Result = B <<< (A[4:0]+shift_offset);
 			4'b1011:
-				Result = B >>> (A+shift_offset);//signed?
+				Result = $signed(B) >>> (A[4:0]+shift_offset);//signed?
 			4'b1100:
 				Result = ($signed(A)<$signed(B));
 			4'b1101:

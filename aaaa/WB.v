@@ -27,18 +27,28 @@ module WriteBack(
 	output [31:0]WD
     );
 	
-	wire [1:0]MemtoReg;
+	wire [1:0] MemtoReg;
+	wire [2:0] ReadBE;
+	wire [31:0] RD4out;
 	
 	WriteBack_Controller WC(
 	.Instr4(Instr4),
 	.MemtoReg(MemtoReg),
-	.RegWrite(RegWrite)
+	.RegWrite(RegWrite),
+	.ReadBE(ReadBE)
 	);
-//////////////////////		Controller
+/////////////////////////	Controller
+	WB_Ext wb_ext(
+	.A(Instr4[1:0]),
+	.RD4in(RD4),
+	.ReadBE(ReadBE),
+	.RD4out(RD4out)
+	);
+////////////////////////		Ext
 	MemtoRegmux MemtoRegmux(
 	.MemtoReg(MemtoReg),
 	.Result(Result4),
-	.RD(RD4),
+	.RD(RD4out),
 	.PC(PC4),
 	.WD(WD)
 	);

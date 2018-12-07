@@ -22,8 +22,8 @@ module ALU(
     input [31:0] A,
     input [31:0] B,
     input [3:0] ALUOp,
-    output reg [31:0] Result,
-    output reg Zero
+	 input [4:0] shift_offset,
+    output reg [31:0] Result
     );
 	
 	always@(*)begin
@@ -34,12 +34,24 @@ module ALU(
 				Result = A | B;
 			4'b0010:
 				Result = A + B;
-			4'b0011:
-				Result = $signed(A) + $signed(B);
-			4'b0110:begin
+			4'b0100:
+				Result = A ^ B;
+			4'b0101:
+				Result = ~(A | B);
+			4'b0110:
 				Result = A - B;
-				Zero = (A==B)? 1'b1:1'b0;
-			end
+			4'b1000:
+				Result = B << (A[4:0]+shift_offset);
+			4'b1001:
+				Result = B >> (A[4:0]+shift_offset);
+			4'b1010:
+				Result = B <<< (A[4:0]+shift_offset);
+			4'b1011:
+				Result = $signed(B) >>> (A[4:0]+shift_offset);//signed?
+			4'b1100:
+				Result = ($signed(A)<$signed(B));
+			4'b1101:
+				Result = (A < B);
 			default:
 				;
 		endcase

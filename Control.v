@@ -95,6 +95,7 @@ module Decode_Controller(
 		`LB   | `LBU | `LH | `LHU | `LW 				   ? 2'b10:
 		`SB   | `SH  | `SW 								   ? 2'b10:
 		`ADDI | `ADDIU 								      ? 2'b10:
+		`SLTI | `SLTIU											? 2'b10:
 		`BEQ  | `BNE | `BLEZ | `BLTZ | `BGEZ | `BGTZ ? 2'b11:
 		`LUI 											         ? 2'b01:
 															        2'b00;
@@ -103,8 +104,8 @@ module Decode_Controller(
 		`BNE  & !RD_AEqualB 					  ? 2'b01:
 		`BLTZ &  RD_ASmall0  				  ? 2'b01:
 		`BLEZ & (RD_ASmall0  | RD_AEqual0) ? 2'b01:
-		`BGTZ & !RD_ASmall0 					  ? 2'b01:
-		`BGEZ & (!RD_ASmall0 | RD_AEqual0) ? 2'b01:
+		`BGTZ & !(RD_ASmall0 | RD_AEqual0) ? 2'b01:
+		`BGEZ & !RD_ASmall0  				  ? 2'b01:
 		`J | `JAL | `JALR 					  ? 2'b10:
 		`JR 									     ? 2'b11:
 												       2'b00;
@@ -123,7 +124,7 @@ module Execution_Controller(
 	assign ALUOp = 
 		`AND 	| `ANDI  ? 4'b0000:
 		`OR 	| `ORI   ? 4'b0001:
-	   `SUB   | `SUBU ? 4'b0110:
+	   `SUB  | `SUBU  ? 4'b0110:
 		`XOR	| `XORI  ? 4'b0100:
 		`NOR 			   ? 4'b0101:
 		`SLL	| `SLLV  ? 4'b1000:

@@ -23,7 +23,7 @@ module IM(
     output reg[31:0] Instr
     );//size = 1K
 
-	reg [31:0] rom[1023:0];
+	reg [31:0] rom[4095:0];
 	//reg [9:0] im_addr=0;//10 bits im_addr
 	integer i;
 	wire [9:0]addr;
@@ -31,10 +31,10 @@ module IM(
 	reg [31:0]Instr_init;
 	
 	assign PC = PC0-32'h00003000;
-	assign addr = PC[11:2];
+	assign addr = PC[13:2];
 	
 	initial begin
-		for(i=0;i<1024;i=i+1)
+		for(i=0;i<4096;i=i+1)
 			rom[i] = 32'b0;
 		$readmemh("code.txt",rom);
 	end
