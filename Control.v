@@ -106,8 +106,8 @@ module Decode_Controller(
 		`BLEZ & (RD_ASmall0  | RD_AEqual0) ? 2'b01:
 		`BGTZ & !(RD_ASmall0 | RD_AEqual0) ? 2'b01:
 		`BGEZ & !RD_ASmall0  				  ? 2'b01:
-		`J | `JAL | `JALR 					  ? 2'b10:
-		`JR 									     ? 2'b11:
+		`J  | `JAL          					  ? 2'b10:
+		`JR | `JALR							     ? 2'b11:
 												       2'b00;
 endmodule
 /////////////////////////////////////////////////////////////////////////

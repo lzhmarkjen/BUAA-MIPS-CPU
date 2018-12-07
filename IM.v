@@ -26,12 +26,8 @@ module IM(
 	reg [31:0] rom[4095:0];
 	//reg [9:0] im_addr=0;//10 bits im_addr
 	integer i;
-	wire [9:0]addr;
-	wire [31:0]PC;
-	reg [31:0]Instr_init;
-	
-	assign PC = PC0-32'h00003000;
-	assign addr = PC[13:2];
+	wire [31:0] PC = PC0 - 32'h00003000;
+	wire [11:0] addr = PC[13:2];	
 	
 	initial begin
 		for(i=0;i<4096;i=i+1)
