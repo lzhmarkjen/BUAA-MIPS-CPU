@@ -29,6 +29,7 @@ module WriteBack(
 	
 	wire [1:0] MemtoReg;
 	wire [2:0] ReadBE;
+	wire [31:0] RD4out;
 	
 	WriteBack_Controller WC(
 	.Instr4(Instr4),

@@ -39,6 +39,12 @@ TABLE OF CONTENTS
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
+Analyzing Verilog file "G:\ComputerOrganization\CPU\TranspondMux.v" into library work
+Parsing module <MFRSD>.
+Parsing module <MFRTD>.
+Parsing module <MFRSE>.
+Parsing module <MFRTE>.
+Parsing module <MFRTM>.
 Analyzing Verilog file "G:\ComputerOrganization\CPU\pipline_reg.v" into library work
 Parsing module <IF_ID>.
 Parsing module <ID_EX>.
@@ -55,12 +61,12 @@ Analyzing Verilog file "G:\ComputerOrganization\CPU\Memory.v" into library work
 Parsing module <Memory>.
 
 
-Total REAL time to Xst completion: 3.00 secs
-Total CPU time to Xst completion: 2.53 secs
+Total REAL time to Xst completion: 2.00 secs
+Total CPU time to Xst completion: 2.46 secs
  
 --> 
 
-Total memory usage is 223776 kilobytes
+Total memory usage is 224160 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

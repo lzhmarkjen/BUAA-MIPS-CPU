@@ -5,10 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"G:/ComputerOrganization/CPU/Execution.v" Line 54: Port <arg fmt="%s" index="1">Zero</arg> is not connected to this instance
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"G:/ComputerOrganization/CPU/Controller.v" Line 49: Port <arg fmt="%s" index="1">RegWrite</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"G:/ComputerOrganization/CPU/Hazard.v" Line 49: Port <arg fmt="%s" index="1">RegWrite</arg> is not connected to this instance
 </msg>
 
 </messages>

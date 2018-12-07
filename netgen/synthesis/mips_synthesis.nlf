@@ -16,4 +16,4 @@ INFO:NetListWriters:633 - The generated Verilog netlist contains Xilinx UNISIM
    correct compilation and simulation. 
 Number of warnings: 0
 Number of info messages: 1
-Total memory usage is 157568 kilobytes
+Total memory usage is 157440 kilobytes

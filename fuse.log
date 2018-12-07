@@ -3,6 +3,7 @@ ISim P.20131013 (signature 0x8ef4fb42)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
+Analyzing Verilog file "G:/ComputerOrganization/CPU/WB_Ext.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/TranspondMux.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/pipline_reg.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/mux.v" into library work
@@ -15,20 +16,18 @@ Analyzing Verilog file "G:/ComputerOrganization/CPU/Control.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/ALU.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/WB.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/Memory.v" into library work
+Analyzing Verilog file "G:/ComputerOrganization/CPU/Hazard.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/Fetch.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/Execution.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/Decode.v" into library work
-Analyzing Verilog file "G:/ComputerOrganization/CPU/Controller.v" into library work
-Analyzing Verilog file "G:/ComputerOrganization/CPU/datapath.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/mips.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/mips_test.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:1016 - "G:/ComputerOrganization/CPU/Execution.v" Line 54: Port Zero is not connected to this instance
-WARNING:HDLCompiler:1016 - "G:/ComputerOrganization/CPU/Controller.v" Line 49: Port RegWrite is not connected to this instance
+WARNING:HDLCompiler:1016 - "G:/ComputerOrganization/CPU/Hazard.v" Line 49: Port RegWrite is not connected to this instance
 Completed static elaboration
-Fuse Memory Usage: 180216 KB
-Fuse CPU Usage: 499 ms
+Fuse Memory Usage: 180728 KB
+Fuse CPU Usage: 421 ms
 Compiling module IM
 Compiling module IF_ID
 Compiling module Fetch
@@ -53,11 +52,11 @@ Compiling module MFRTM
 Compiling module MEM_WB
 Compiling module Memory
 Compiling module WriteBack_Controller
+Compiling module WB_Ext
 Compiling module MemtoRegmux
 Compiling module WriteBack
 Compiling module InstrCoder
-Compiling module Controller
-Compiling module datapath
+Compiling module Hazard
 Compiling module mips
 Compiling module mips_test
 Compiling module glbl
@@ -65,5 +64,5 @@ Time Resolution for simulation is 1ps.
 Waiting for 25 sub-compilation(s) to finish...
 Compiled 32 Verilog Units
 Built simulation executable G:/ComputerOrganization/CPU/mips_test_isim_beh.exe
-Fuse Memory Usage: 188764 KB
-Fuse CPU Usage: 702 ms
+Fuse Memory Usage: 188252 KB
+Fuse CPU Usage: 640 ms

@@ -1,3 +1,4 @@
+verilog work "TranspondMux.v"
 verilog work "pipline_reg.v"
 verilog work "DM.v"
 verilog work "Control.v"

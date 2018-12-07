@@ -35,11 +35,27 @@ module DM(
 	wire [31:0]WD;
 	
 	assign RD = MemRead ? ram[A]:0;
-	//assign WA = 32'b0 + 4 * A;
-	assign WD[31:24] = WriteBE[3:3] ? WData[31:24]:8'b0;
-	assign WD[23:16] = WriteBE[2:2] ? WData[23:16]:8'b0;
-	assign WD[15:8]  = WriteBE[1:1] ? WData[15:8] :8'b0;
-	assign WD[7:0]   = WriteBE[0:0] ? WData[7:0]  :8'b0;
+	
+	assign WD[31:24] = WriteBE==4'b1111 ? WData[31:24]:
+							 WriteBE==4'b1100 ? WData[15:8]:
+							 WriteBE==4'b1000 ? WData[7:0]:
+													  ram[A][31:24];
+	
+	assign WD[23:16] = WriteBE==4'b1111 ? WData[23:16]:
+							 WriteBE==4'b1100 ? WData[7:0]:
+							 WriteBE==4'b0100 ? WData[7:0]:
+													  ram[A][23:16];
+	
+	assign WD[15:8]  = WriteBE==4'b1111 ? WData[15:8]:
+							 WriteBE==4'b0011 ? WData[15:8]:
+							 WriteBE==4'b0010 ? WData[7:0]:
+													  ram[A][15:8];
+	
+	assign WD[7:0]   = WriteBE==4'b1111 ? WData[7:0]:
+							 WriteBE==4'b0011 ? WData[7:0]:
+							 WriteBE==4'b0001 ? WData[7:0]:
+													  ram[A][7:0];
+	
 	
 	initial begin
 		for(i=0;i<4096;i=i+1)

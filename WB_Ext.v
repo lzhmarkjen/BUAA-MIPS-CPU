@@ -32,7 +32,7 @@ module WB_Ext(
 		ReadBE == 3'b001 ? { 24'b0             ,RD4Ext[ 7:0]}:
 		ReadBE == 3'b010 ? {{24{RD4Ext[7:7]}}  ,RD4Ext[ 7:0]}:
 		ReadBE == 3'b011 ? { 16'b0             ,RD4Ext[15:0]}:
-		ReadBE == 3'b001 ? {{16{RD4Ext[15:15]}},RD4Ext[15:0]}:
+		ReadBE == 3'b100 ? {{16{RD4Ext[15:15]}},RD4Ext[15:0]}:
 		RD4Ext;
 
 endmodule
