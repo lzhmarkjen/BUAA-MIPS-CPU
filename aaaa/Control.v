@@ -106,8 +106,8 @@ module Decode_Controller(
 		`BLEZ & (RD_ASmall0  | RD_AEqual0) ? 2'b01:
 		`BGTZ & !(RD_ASmall0 | RD_AEqual0) ? 2'b01:
 		`BGEZ & !RD_ASmall0  				  ? 2'b01:
-		`J | `JAL | `JALR 					  ? 2'b10:
-		`JR 									     ? 2'b11:
+		`J  | `JAL          					  ? 2'b10:
+		`JR | `JALR							     ? 2'b11:
 												       2'b00;
 endmodule
 /////////////////////////////////////////////////////////////////////////
@@ -149,6 +149,7 @@ endmodule
 ///////////////////////////////////////////////////////////////////////
 module Memory_Controller(
 	input [31:0]Instr3,
+	input [1:0]Addr,
 	output MemRead,
 	output MemWrite,
 	output [3:0]WriteBE
@@ -165,12 +166,12 @@ module Memory_Controller(
 							1'b0;
 	assign WriteBE = 
 		`SW 							 ? 4'b1111:
-		`SH & !Instr3[1:1] 		 ? 4'b0011:
-		`SH & Instr3[1:1]		    ? 4'b1100:
-		`SB & Instr3[1:0]==2'b00 ? 4'b0001:
-		`SB & Instr3[1:0]==2'b01 ? 4'b0010:
-		`SB & Instr3[1:0]==2'b10 ? 4'b0100:
-		`SB & Instr3[1:0]==2'b11 ? 4'b1000:
+		`SH & !Addr[1:1] 		 ? 4'b0011:
+		`SH & Addr[1:1]		    ? 4'b1100:
+		`SB & Addr[1:0]==2'b00 ? 4'b0001:
+		`SB & Addr[1:0]==2'b01 ? 4'b0010:
+		`SB & Addr[1:0]==2'b10 ? 4'b0100:
+		`SB & Addr[1:0]==2'b11 ? 4'b1000:
 										   4'b1111;
 		
 endmodule

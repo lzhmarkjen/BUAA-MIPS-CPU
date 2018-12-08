@@ -76,6 +76,7 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Memory.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="Memory.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="Memory.xst"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="MultModule_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="PC.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="PC.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="PC.xst"/>
@@ -125,7 +126,7 @@
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="mips_ngdbuild.xrpt"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="mips_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="mips_summary.html"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="mips_test_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="mips_test_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="mips_test_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="mips_test_isim_beh.wdb"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="mips_test_stx_beh.prj"/>
@@ -144,7 +145,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1544183043" xil_pn:in_ck="-6286070646245504762" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1544183043">
+    <transform xil_pn:end_ts="1544269302" xil_pn:in_ck="-5415885362151189518" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1544269302">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ALU.v"/>
@@ -159,6 +160,7 @@
       <outfile xil_pn:name="IM.v"/>
       <outfile xil_pn:name="InstrCoder.v"/>
       <outfile xil_pn:name="Memory.v"/>
+      <outfile xil_pn:name="MultModule.v"/>
       <outfile xil_pn:name="TranspondMux.v"/>
       <outfile xil_pn:name="WB.v"/>
       <outfile xil_pn:name="WB_Ext.v"/>
@@ -167,11 +169,11 @@
       <outfile xil_pn:name="mux.v"/>
       <outfile xil_pn:name="pipline_reg.v"/>
     </transform>
-    <transform xil_pn:end_ts="1544177688" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="7116480837836703951" xil_pn:start_ts="1544177688">
+    <transform xil_pn:end_ts="1544269096" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="7116480837836703951" xil_pn:start_ts="1544269096">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1544177688" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="3807392595531357837" xil_pn:start_ts="1544177688">
+    <transform xil_pn:end_ts="1544269096" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="3807392595531357837" xil_pn:start_ts="1544269096">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -179,7 +181,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1544183043" xil_pn:in_ck="-6286070646245504762" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1544183043">
+    <transform xil_pn:end_ts="1544269302" xil_pn:in_ck="-5415885362151189518" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1544269302">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ALU.v"/>
@@ -194,6 +196,7 @@
       <outfile xil_pn:name="IM.v"/>
       <outfile xil_pn:name="InstrCoder.v"/>
       <outfile xil_pn:name="Memory.v"/>
+      <outfile xil_pn:name="MultModule.v"/>
       <outfile xil_pn:name="TranspondMux.v"/>
       <outfile xil_pn:name="WB.v"/>
       <outfile xil_pn:name="WB_Ext.v"/>
@@ -202,7 +205,7 @@
       <outfile xil_pn:name="mux.v"/>
       <outfile xil_pn:name="pipline_reg.v"/>
     </transform>
-    <transform xil_pn:end_ts="1544183048" xil_pn:in_ck="-6286070646245504762" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1375850586314952989" xil_pn:start_ts="1544183043">
+    <transform xil_pn:end_ts="1544269307" xil_pn:in_ck="-5415885362151189518" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1375850586314952989" xil_pn:start_ts="1544269302">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="fuse.log"/>
@@ -212,7 +215,7 @@
       <outfile xil_pn:name="mips_test_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1544183048" xil_pn:in_ck="3486157011236793762" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7248151530696428544" xil_pn:start_ts="1544183048">
+    <transform xil_pn:end_ts="1544269307" xil_pn:in_ck="6029119829890176345" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7248151530696428544" xil_pn:start_ts="1544269307">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="isim.cmd"/>
@@ -251,8 +254,12 @@
       <status xil_pn:value="AbortedRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="mips.lso"/>
       <outfile xil_pn:name="mips.ngc"/>
@@ -261,7 +268,6 @@
       <outfile xil_pn:name="mips.syr"/>
       <outfile xil_pn:name="mips.xst"/>
       <outfile xil_pn:name="mips_stx_beh.prj"/>
-      <outfile xil_pn:name="mips_test_beh.prj"/>
       <outfile xil_pn:name="mips_test_stx_beh.prj"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
@@ -275,6 +281,7 @@
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="InputRemoved"/>
@@ -292,6 +299,7 @@
     <transform xil_pn:end_ts="1544152651" xil_pn:in_ck="4785535742559" xil_pn:name="TRAN_postSynthesisSimModel" xil_pn:prop_ck="8206572036329982349" xil_pn:start_ts="1544152648">
       <status xil_pn:value="AbortedRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="netgen"/>
       <outfile xil_pn:name="netgen/synthesis/mips_synthesis.nlf"/>
       <outfile xil_pn:name="netgen/synthesis/mips_synthesis.v"/>

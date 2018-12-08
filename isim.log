@@ -13,19 +13,22 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-                  45@00003000: $ 1 <= 0000000c
-                  55@00003004: $ 2 <= 00000004
-                  55@00003008: *00000004 <= 00040000
-                  75@0000300c: $ 3 <= 00000004
-                  95@00003010: $ 4 <= 00000040
-                 105@00003014: $ 4 <= 00000012
-                 115@00003018: $ 5 <= 00000001
-                 145@00003020: $ 5 <= 00000125
-                 155@0000302c: $31 <= 00000002
-                 165@00003030: $ 6 <= 00003040
-                 185@00003034: $ 5 <= 0000303c
-                 205@00003038: $ 7 <= 000024eb
-                 215@00003040: $ 8 <= 00000008
-                 225@00003044: $ 9 <= 00000080
-                 255@0000304c: $ 9 <= 0000303e
-                 265@00003050: $ 3 <= 00000607
+                  45@00003000: $22 <= 0000003c
+                  55@00003004: $ 5 <= 000002c9
+                  65@00003008: $ 5 <= fffffd37
+                 125@00003020: $ 6 <= fffffd37
+ISim P.20131013 (signature 0x8ef4fb42)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+                  45@00003000: $22 <= 0000003c
+                  55@00003004: $ 5 <= 000002c9
+                  65@00003008: $ 5 <= fffffd37
+                 125@00003020: $ 6 <= fffffd37
+                 135@00003024: $ 7 <= 0000003c

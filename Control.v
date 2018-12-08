@@ -115,7 +115,8 @@ module Execution_Controller(
 	input [31:0]Instr2,
 	output [3:0]ALUOp,
 	output [1:0]RegDst,
-	output ALUSrc
+	output ALUSrc,
+	output ALUMultSel
 	);
 	
 	wire [5:0] Op = Instr2[31:26];
@@ -140,15 +141,19 @@ module Execution_Controller(
 		`SLT | `SLTU 									     ? 2'b01:
 		`JALR 											     ? 2'b01:
 		`JAL 											        ? 2'b10:
+		`MFHI | `MFLO										  ? 2'b01:
 														          2'b00;
 	assign ALUSrc =
 			`LB | `LBU | `LH | `LHU | `LW | `SB | `SH | `SW 				  ? 1'b1:
 			`ADDI | `ADDIU | `ANDI | `ORI | `XORI | `LUI | `SLTI | `SLTIU ? 1'b1:
 																					          1'b0;
+	assign ALUMultSel = 
+			`MFHI | `MFLO ? 1'b1:1'b0;
 endmodule
 ///////////////////////////////////////////////////////////////////////
 module Memory_Controller(
 	input [31:0]Instr3,
+	input [1:0]Addr,
 	output MemRead,
 	output MemWrite,
 	output [3:0]WriteBE
@@ -165,12 +170,12 @@ module Memory_Controller(
 							1'b0;
 	assign WriteBE = 
 		`SW 							 ? 4'b1111:
-		`SH & !Instr3[1:1] 		 ? 4'b0011:
-		`SH & Instr3[1:1]		    ? 4'b1100:
-		`SB & Instr3[1:0]==2'b00 ? 4'b0001:
-		`SB & Instr3[1:0]==2'b01 ? 4'b0010:
-		`SB & Instr3[1:0]==2'b10 ? 4'b0100:
-		`SB & Instr3[1:0]==2'b11 ? 4'b1000:
+		`SH & !Addr[1:1] 		 ? 4'b0011:
+		`SH & Addr[1:1]		    ? 4'b1100:
+		`SB & Addr[1:0]==2'b00 ? 4'b0001:
+		`SB & Addr[1:0]==2'b01 ? 4'b0010:
+		`SB & Addr[1:0]==2'b10 ? 4'b0100:
+		`SB & Addr[1:0]==2'b11 ? 4'b1000:
 										   4'b1111;
 		
 endmodule
@@ -197,6 +202,7 @@ module WriteBack_Controller(
 		`LB | `LBU | `LH | `LHU | `LW 							    ? 1'b1:
 		`SLT | `SLTI | `SLTIU | `SLTU 							    ? 1'b1:
 		`JAL | `JALR 												       ? 1'b1:
+		`MFHI | `MFLO														 ? 1'b1:
 																		         1'b0;
 	
 	assign ReadBE = 

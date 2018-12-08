@@ -38,17 +38,22 @@ module Execution(
 	output [31:0]imm32_3
     );
 	
-	wire [31:0]Result2,A,B,B2;
+	wire [31:0]Result2in,A,B,B2,Result2out;
 	wire ALUSrc;
 	wire [3:0]ALUOp;
 	wire [1:0]RegDst;
 	wire [4:0]WA2;
 	
+	wire Start,Busy;
+	wire [31:0]HILO;
+	wire ALUMultSel;
+	
 	Execution_Controller EC(
 	.Instr2(Instr2),
 	.ALUOp(ALUOp),
 	.ALUSrc(ALUSrc),
-	.RegDst(RegDst)
+	.RegDst(RegDst),
+	.ALUMultSel(ALUMultSel)
 	);
 /////////////////		Controller
 	ALU alu(
@@ -56,9 +61,20 @@ module Execution(
 	.B(B),
 	.ALUOp(ALUOp),
 	.shift_offset(Instr2[10:6]),
-	.Result(Result2)
+	.Result(Result2in)
 	);
 //////////////////	ALU
+	MultModule MultModule(
+	.clk(clk),
+	.reset(reset),
+	.Instr2(Instr2),
+	.A(A),
+	.B2(B2),
+	.Start(Start),
+	.HILO(HILO),
+	.Busy(Busy)
+	);
+//////////////////		MULT
 	ALUSrcmux ALUSrcmux(
 	.ALUSrc(ALUSrc),
 	.RD2(B2),
@@ -71,6 +87,13 @@ module Execution(
 	.Rt(Instr2[20:16]),
 	.Rd(Instr2[15:11]),
 	.WA(WA2)
+	);
+	
+	ALUMultmux ALUMultmux(
+	.Result2(Result2in),
+	.HILO(HILO),
+	.ALUMultSel(ALUMultSel),
+	.Result2out(Result2out)
 	);
 /////////////////		Mux
 	MFRSE mfrse(
@@ -91,7 +114,7 @@ module Execution(
 	EX_MEM ex_mem(
 	.PC2(PC2),
 	.Instr2(Instr2),
-	.Result2(Result2),
+	.Result2(Result2out),
 	.B2(B2),
 	.WA2(WA2),
 	.clk(clk),

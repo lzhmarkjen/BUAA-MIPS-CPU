@@ -47,6 +47,16 @@ module ALUSrcmux(
 	assign B = ALUSrc==1 ? imm32 : RD2;
 endmodule
 
+module ALUMultmux(
+	input [31:0] Result2,
+	input [31:0] HILO,
+	input ALUMultSel,
+	output [31:0] Result2out
+	);
+	
+	assign Result2out = ALUMultSel ? HILO : Result2;
+endmodule
+
 module MemtoRegmux(
 	input [1:0]MemtoReg,
 	input [31:0]Result,

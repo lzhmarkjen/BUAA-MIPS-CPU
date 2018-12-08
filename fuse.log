@@ -1,4 +1,4 @@
-Running: G:\ComputerOrganization\ISE\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o G:/ComputerOrganization/CPU/mips_test_isim_beh.exe -prj G:/ComputerOrganization/CPU/mips_test_beh.prj work.mips_test work.glbl 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "G:/ComputerOrganization/CPU/mips_test_isim_beh.exe" -prj "G:/ComputerOrganization/CPU/mips_test_beh.prj" "work.mips_test" "work.glbl" 
 ISim P.20131013 (signature 0x8ef4fb42)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
@@ -7,6 +7,7 @@ Analyzing Verilog file "G:/ComputerOrganization/CPU/WB_Ext.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/TranspondMux.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/pipline_reg.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/mux.v" into library work
+Analyzing Verilog file "G:/ComputerOrganization/CPU/MultModule.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/InstrCoder.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/IM.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/GRF.v" into library work
@@ -27,7 +28,7 @@ Starting static elaboration
 WARNING:HDLCompiler:1016 - "G:/ComputerOrganization/CPU/Hazard.v" Line 49: Port RegWrite is not connected to this instance
 Completed static elaboration
 Fuse Memory Usage: 180984 KB
-Fuse CPU Usage: 483 ms
+Fuse CPU Usage: 467 ms
 Compiling module IM
 Compiling module IF_ID
 Compiling module Fetch
@@ -40,8 +41,10 @@ Compiling module ID_EX
 Compiling module Decode
 Compiling module Execution_Controller
 Compiling module ALU
+Compiling module MultModule
 Compiling module ALUSrcmux
 Compiling module RegDstmux
+Compiling module ALUMultmux
 Compiling module MFRSE
 Compiling module MFRTE
 Compiling module EX_MEM
@@ -61,8 +64,8 @@ Compiling module mips
 Compiling module mips_test
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 25 sub-compilation(s) to finish...
-Compiled 32 Verilog Units
+Waiting for 27 sub-compilation(s) to finish...
+Compiled 34 Verilog Units
 Built simulation executable G:/ComputerOrganization/CPU/mips_test_isim_beh.exe
-Fuse Memory Usage: 188508 KB
-Fuse CPU Usage: 718 ms
+Fuse Memory Usage: 188344 KB
+Fuse CPU Usage: 702 ms

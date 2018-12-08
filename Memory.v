@@ -42,6 +42,7 @@ module Memory(
 	
 	Memory_Controller MC(
 	.Instr3(Instr3),
+	.Addr(Result3[1:0]),
 	.MemRead(MemRead),
 	.MemWrite(MemWrite),
 	.WriteBE(WriteBE)

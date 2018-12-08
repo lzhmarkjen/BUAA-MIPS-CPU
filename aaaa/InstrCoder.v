@@ -97,26 +97,28 @@ module InstrCoder(
 	assign Op = Instr[31:26];
 	assign Func = Instr[5:0];
 	
-	assign cal_r = `ADD | `ADDU | `SUB | `SUBU | `SLL | `SLT | `SRA | `SLLV | `SRLV | `SRAV | `AND | `OR | `XOR | `NOR | `SLT | `SLTU ;
-	assign cal_i = `ADDI | `ADDIU | `ANDI | `ORI | `XORI | `LUI | `SLTI | `SLTIU;
-	assign branch= `BEQ | `BNE | `BLEZ | `BGTZ | `BLTZ | `BGEZ ;
-	assign load  = `LB | `LBU | `LH | `LHU | `LW;
-	assign store = `SB | `SH | `SW;
-	assign jr    = `JR;
-	assign link  = `JAL | `JALR;
+	assign cal_r   = `ADD | `ADDU | `SUB | `SUBU | `SLL | `SRL | `SRA | `SLLV | `SRLV | `SRAV | `AND | `OR | `XOR | `NOR | `SLT | `SLTU ;
+	assign cal_i   = `ADDI | `ADDIU | `ANDI | `ORI | `XORI | `LUI | `SLTI | `SLTIU;
+	assign branch  = `BEQ | `BNE | `BLEZ | `BGTZ | `BLTZ | `BGEZ ;
+	assign load    = `LB | `LBU | `LH | `LHU | `LW;
+	assign store   = `SB | `SH | `SW;
+	assign jr      = `JR | `JALR;
+	assign link    = `JAL;
+	assign linkreg = `JALR;
 	assign gg = `MULT | `MULTU | `DIV | `DIVU | `MFHI | `MFLO | `MTHI | `MTLO;
-	assign jump = `J | `JAL | `JALR | `JR;
+	//assign jump = `J | `JAL | `JALR | `JR;
 	
-	assign RegWrite = cal_r | cal_i | load | link;
-	assign WA = cal_r 		 ? Instr[`rd]:
-					(cal_i|load) ? Instr[`rt]:
-					link			 ?	5'b11111  :
-												5'b0;
+	assign RegWrite = cal_r | cal_i | load | link | linkreg;
+	
+	assign WA = (cal_r|linkreg) ? Instr[`rd]:
+					(cal_i|load)    ? Instr[`rt]:
+					link			    ?	5'b11111  :
+												   5'b0;
 
 	assign MemRead  = load ? 1'b1:1'b0;
 	
 	assign Res = (cal_r | cal_i) ? `ALU:
 					 load            ?  `DM:
-					 link				  ?  `DM:
+					 (link | linkreg)?  `DM:
 											2'b00;//指令的写寄存器的结果从哪里来
 endmodule

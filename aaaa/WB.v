@@ -39,7 +39,7 @@ module WriteBack(
 	);
 /////////////////////////	Controller
 	WB_Ext wb_ext(
-	.A(Instr4[1:0]),
+	.A(Result4[1:0]),
 	.RD4in(RD4),
 	.ReadBE(ReadBE),
 	.RD4out(RD4out)
