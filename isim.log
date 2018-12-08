@@ -1,5 +1,5 @@
 ISim log file
-Running: G:\ComputerOrganization\CPU\mips_test_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb G:/ComputerOrganization/CPU/mips_test_isim_beh.wdb 
+Running: G:\ComputerOrganization\CPU\MultModule_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb G:/ComputerOrganization/CPU/MultModule_isim_beh.wdb 
 ISim P.20131013 (signature 0x8ef4fb42)
 ----------------------------------------------------------------------
 WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
@@ -13,22 +13,3 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-                  45@00003000: $22 <= 0000003c
-                  55@00003004: $ 5 <= 000002c9
-                  65@00003008: $ 5 <= fffffd37
-                 125@00003020: $ 6 <= fffffd37
-ISim P.20131013 (signature 0x8ef4fb42)
-----------------------------------------------------------------------
-WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
-
-
-----------------------------------------------------------------------
-This is a Full version of ISim.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-Finished circuit initialization process.
-                  45@00003000: $22 <= 0000003c
-                  55@00003004: $ 5 <= 000002c9
-                  65@00003008: $ 5 <= fffffd37
-                 125@00003020: $ 6 <= fffffd37
-                 135@00003024: $ 7 <= 0000003c

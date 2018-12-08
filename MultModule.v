@@ -37,35 +37,75 @@ module MultModule(
     output reg Busy
     );
 	
-	reg [3:0]count;
+	reg [4:0]count;
 	reg [31:0] HI,LO;
+	reg [31:0] ans_HI,ans_LO;
 	
 	wire [5:0] Op = Instr2[31:26];
 	wire [5:0] Func = Instr2[5:0];
 	
 	assign HILO = `MFHI ?    HI:
 					  `MFLO ?    LO:
-							    32'b0;
+							    32'b0;//output HILO mux
 	
 	initial begin
 		HI = 0;
 		LO = 0;
 		Busy = 0;
-		count = 0;
+		count = 1;
+		ans_HI = 0;
+		ans_LO = 0;
 	end
 	
 	always @(posedge clk)begin
 		if(reset)begin
-			HI = 0;
-			LO = 0;
-			Busy = 0;
-			count = 0;
+			HI <= 0;
+			LO <= 0;
+			ans_HI <= 0;
+			ans_LO <= 0;
 		end
-		else begin
-			if(`MTHI)
+		else if(`MTHI)
 				HI <= A;
-			else if(`MTLO)
+		else if(`MTLO)
 				LO <= A;
+				
+		else if(`MULT & Start & !Busy)begin
+			{ans_HI,ans_LO} = $signed(A) * $signed(B2);
+			Busy <= 1;
+		end
+		else if(`MULTU & Start & !Busy)begin
+			{ans_HI,ans_LO} = A * B2;
+			Busy <= 1;
+		end
+		else if(`DIV & Start & !Busy)begin
+			{ans_HI,ans_LO} = $signed(A) / $signed(B2);
+			Busy <= 1;
+		end
+		else if(`DIVU & Start & !Busy)begin
+			{ans_HI,ans_LO} = A / B2;
+			Busy <= 1;
+		end
+	end
+//////////////////////////////////////////////////
+	always @(posedge clk)begin
+		if(reset)begin
+			count <= 1;
+			Busy <= 0;
+		end
+		else if(Busy)begin
+			count <= count + 1;
+			if(count == 4'd5 & (`MULT | `MULTU))begin
+				count <= 1;
+				Busy <= 0;
+				HI <= ans_HI;
+				LO <= ans_LO;
+			end
+			else if(count == 4'd10 & (`DIV | `DIVU))begin
+				count <= 1;
+				Busy <= 0;
+				HI <= ans_HI;
+				LO <= ans_LO;
+			end
 		end
 	end
 endmodule

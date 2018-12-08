@@ -89,8 +89,8 @@ module InstrCoder(
 	 output link,
 	 output RegWrite,
 	 output [4:0]WA,
-	 output MemRead,
-	 output [1:0]Res
+	 output [1:0]Res,
+	 output mt
     );
 	
 	wire [5:0]Op,Func;
@@ -105,20 +105,23 @@ module InstrCoder(
 	assign jr      = `JR | `JALR;
 	assign link    = `JAL;
 	assign linkreg = `JALR;
-	assign gg = `MULT | `MULTU | `DIV | `DIVU | `MFHI | `MFLO | `MTHI | `MTLO;
+	assign mult = `MULT | `MULTU | `DIV | `DIVU ;
+	assign mf      = `MFHI | `MFLO;
+
 	//assign jump = `J | `JAL | `JALR | `JR;
 	
-	assign RegWrite = cal_r | cal_i | load | link | linkreg;
+	assign RegWrite = cal_r | cal_i | load | link | linkreg | mf;
 	
-	assign WA = (cal_r|linkreg) ? Instr[`rd]:
-					(cal_i|load)    ? Instr[`rt]:
-					link			    ?	5'b11111  :
-												   5'b0;
-
-	assign MemRead  = load ? 1'b1:1'b0;
+	assign WA = (cal_r|linkreg|mf) ? Instr[`rd]:
+					(cal_i|load)       ? Instr[`rt]:
+					link			       ?	  5'b11111:
+												      5'b0;
 	
-	assign Res = (cal_r | cal_i) ? `ALU:
-					 load            ?  `DM:
-					 (link | linkreg)?  `DM:
-											2'b00;//指令的写寄存器的结果从哪里来
+	assign Res = (cal_r|cal_i|mf) ? `ALU:
+					 load             ?  `DM:
+					 (link | linkreg) ?  `DM:
+											 2'b00;//指令的写寄存器的结果从哪里来
+	
+	assign mt = (`MTHI | `MTLO) ? 1'b1:
+											1'b0;
 endmodule

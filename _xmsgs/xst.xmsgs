@@ -5,58 +5,5 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1670" delta="new" >"G:\ComputerOrganization\CPU\IM.v" Line 35: Signal &lt;<arg fmt="%s" index="1">rom</arg>&gt; in initial block is partially initialized.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"G:\ComputerOrganization\CPU\Hazard.v" Line 49: Port <arg fmt="%s" index="1">RegWrite</arg> is not connected to this instance
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"G:\ComputerOrganization\CPU\InstrCoder.v" Line 108: Assignment to <arg fmt="%s" index="1">gg</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"G:\ComputerOrganization\CPU\Hazard.v" Line 49: Assignment to <arg fmt="%s" index="1">link_D</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"G:\ComputerOrganization\CPU\Hazard.v" Line 50: Assignment to <arg fmt="%s" index="1">cal_r_E</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"G:\ComputerOrganization\CPU\Hazard.v" Line 51: Assignment to <arg fmt="%s" index="1">cal_r_M</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"G:\ComputerOrganization\CPU\Hazard.v" Line 52: Assignment to <arg fmt="%s" index="1">cal_r_W</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">G:\ComputerOrganization\CPU\mips.v</arg>&quot; line <arg fmt="%d" index="2">44</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">fetch</arg>&gt; of block &lt;<arg fmt="%s" index="4">Fetch</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mips</arg>&gt;. Underlying logic will be removed.
-</msg>
-
-<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">G:\ComputerOrganization\CPU\mips.v</arg>&quot; line <arg fmt="%d" index="2">58</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">decode</arg>&gt; of block &lt;<arg fmt="%s" index="4">Decode</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mips</arg>&gt;. Underlying logic will be removed.
-</msg>
-
-<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">G:\ComputerOrganization\CPU\mips.v</arg>&quot; line <arg fmt="%d" index="2">82</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">execution</arg>&gt; of block &lt;<arg fmt="%s" index="4">Execution</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mips</arg>&gt;. Underlying logic will be removed.
-</msg>
-
-<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">G:\ComputerOrganization\CPU\mips.v</arg>&quot; line <arg fmt="%d" index="2">102</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">memory</arg>&gt; of block &lt;<arg fmt="%s" index="4">Memory</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mips</arg>&gt;. Underlying logic will be removed.
-</msg>
-
-<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">G:\ComputerOrganization\CPU\mips.v</arg>&quot; line <arg fmt="%d" index="2">120</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">writeback</arg>&gt; of block &lt;<arg fmt="%s" index="4">WriteBack</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mips</arg>&gt;. Underlying logic will be removed.
-</msg>
-
-<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">G:\ComputerOrganization\CPU\mips.v</arg>&quot; line <arg fmt="%d" index="2">129</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">hazard</arg>&gt; of block &lt;<arg fmt="%s" index="4">Hazard</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mips</arg>&gt;. Underlying logic will be removed.
-</msg>
-
-<msg type="warning" file="Xst" num="2999" delta="new" >Signal &apos;<arg fmt="%s" index="1">rom</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">IM</arg>&apos;, is tied to its initial value.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">PC</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">Instr2&lt;25:6&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">Instr3&lt;25:2&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">PC</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
 </messages>
+

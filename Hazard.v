@@ -39,21 +39,21 @@ module Hazard(
 	 output [1:0] ForwardRTE,
 	 output ForwardRTM
 	 );
-	wire cal_r_D,cal_i_D,branch_D,load_D,store_D,jr_D,link_D;
-	wire cal_r_E,cal_i_E,branch_E,load_E,store_E,jr_E,link_E,RegWrite_E,MemRead_E;
-	wire cal_r_M,cal_i_M,branch_M,load_M,store_M,jr_M,link_M,RegWrite_M,MemRead_M;
-	wire cal_r_W,cal_i_W,branch_W,load_W,store_W,jr_W,link_W,RegWrite_W,MemRead_W;
-	wire [4:0]WA_E,WA_M,WA_W;
-	wire [1:0]Res_E,Res_M,Res_W;
+	wire cal_r_D,cal_i_D,branch_D,load_D,store_D,jr_D,link_D,RegWrite_D,mt_D;
+	wire cal_r_E,cal_i_E,branch_E,load_E,store_E,jr_E,link_E,RegWrite_E,mt_E;
+	wire cal_r_M,cal_i_M,branch_M,load_M,store_M,jr_M,link_M,RegWrite_M,mt_M;
+	wire cal_r_W,cal_i_W,branch_W,load_W,store_W,jr_W,link_W,RegWrite_W,mt_W;
+	wire [4:0]WA_D,WA_E,WA_M,WA_W;
+	wire [1:0]Res_D,Res_E,Res_M,Res_W;
 	
-	InstrCoder Coder_D (Instr1,cal_r_D,cal_i_D,branch_D,load_D,store_D,jr_D,link_D);
-	InstrCoder Coder_E (Instr2,cal_r_E,cal_i_E,branch_E,load_E,store_E,jr_E,link_E,RegWrite_E,WA_E,MemRead_E,Res_E);
-	InstrCoder Coder_M (Instr3,cal_r_M,cal_i_M,branch_M,load_M,store_M,jr_M,link_M,RegWrite_M,WA_M,MemRead_M,Res_M);
-	InstrCoder Coder_W (Instr4,cal_r_W,cal_i_W,branch_W,load_W,store_W,jr_W,link_W,RegWrite_W,WA_W,MemRead_W,Res_W);
+	InstrCoder Coder_D (Instr1,cal_r_D,cal_i_D,branch_D,load_D,store_D,jr_D,link_D,RegWrite_D,WA_D,Res_D,mt_D);
+	InstrCoder Coder_E (Instr2,cal_r_E,cal_i_E,branch_E,load_E,store_E,jr_E,link_E,RegWrite_E,WA_E,Res_E,mt_E);
+	InstrCoder Coder_M (Instr3,cal_r_M,cal_i_M,branch_M,load_M,store_M,jr_M,link_M,RegWrite_M,WA_M,Res_M,mt_M);
+	InstrCoder Coder_W (Instr4,cal_r_W,cal_i_W,branch_W,load_W,store_W,jr_W,link_W,RegWrite_W,WA_W,Res_W,mt_W);
 //////////翻译指令成类型
 
 	wire Tuse_rs0 = branch_D | jr_D;//rs的Tuse为0
-	wire Tuse_rs1 = cal_r_D | cal_i_D | load_D | store_D;//rs的Tuse为1
+	wire Tuse_rs1 = cal_r_D | cal_i_D | load_D | store_D | mt_D;//rs的Tuse为1
 	wire Tuse_rt0 = branch_D;//rt的Tuse为0
 	wire Tuse_rt1 = cal_r_D;//rt的Tuse为1
 	
