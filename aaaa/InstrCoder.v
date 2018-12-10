@@ -91,6 +91,7 @@ module InstrCoder(
 	 output [4:0]WA,
 	 output [1:0]Res,
 	 output mt,
+	 output mf,
 	 output mult
     );
 	
@@ -108,6 +109,7 @@ module InstrCoder(
 	assign linkreg = `JALR;
 	assign mult = `MULT | `MULTU | `DIV | `DIVU ;
 	assign mf      = `MFHI | `MFLO;
+	assign mt		= `MTHI | `MTLO;
 
 	//assign jump = `J | `JAL | `JALR | `JR;
 	
@@ -122,7 +124,4 @@ module InstrCoder(
 					 load             ?  `DM:
 					 (link | linkreg) ?  `DM:
 											 2'b00;//指令的写寄存器的结果从哪里来
-	
-	assign mt = (`MTHI | `MTLO) ? 1'b1:
-											1'b0;
 endmodule

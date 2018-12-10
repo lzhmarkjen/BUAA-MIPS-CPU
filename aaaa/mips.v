@@ -29,8 +29,7 @@ module mips(
 	wire [31:0]PC_j,PC_jr,PC_beq;
 	wire [4:0]WA3,WA4;
 	wire [1:0]PCSel;
-	wire PCWrtie;
-	wire RegWrite_E,RegWrite_M,RegWrite_W;
+	wire RegWrite_W;
 /////////////////////////////////////////////////
 	wire PC_En,IF_ID_En,ID_EX_Clr,IF_ID_Clr,Stall;
 	assign PC_En = ~Stall;

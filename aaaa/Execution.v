@@ -46,7 +46,6 @@ module Execution(
 	wire [1:0]RegDst;
 	wire [4:0]WA2;
 	
-	wire Start,Busy;
 	wire [31:0]HILO;
 	wire ALUMultSel;
 	

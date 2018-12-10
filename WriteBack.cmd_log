@@ -1,0 +1,2 @@
+vhdtdtfi -lib work G:/ComputerOrganization/CPU/WB.v -lang verilog -prj CPU -o WriteBack.spl -module WriteBack -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 WriteBack.spl G:/ComputerOrganization/CPU/WriteBack.sym 

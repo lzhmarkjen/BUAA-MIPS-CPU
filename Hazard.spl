@@ -1,0 +1,20 @@
+[Inputs]
+clk
+reset
+Busy
+Start2
+=Instr1[31:0]=
+=Instr2[31:0]=
+=Instr3[31:0]=
+=Instr4[31:0]=
+[Outputs]
+Stall
+ForwardRTM
+=ForwardRSD[1:0]=
+=ForwardRTD[1:0]=
+=ForwardRSE[1:0]=
+=ForwardRTE[1:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel Hazard
+

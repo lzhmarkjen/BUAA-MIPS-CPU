@@ -1,0 +1,12 @@
+[Inputs]
+=PC4[31:0]=
+=Instr4[31:0]=
+=Result4[31:0]=
+=RD4[31:0]=
+[Outputs]
+RegWrite
+=WD[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel WriteBack
+

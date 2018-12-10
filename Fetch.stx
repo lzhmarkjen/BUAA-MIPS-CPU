@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.25 secs
  
 --> Parameter xsthdpdir set to G:/ComputerOrganization/CPU/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.25 secs
  
 --> Reading design: Fetch.prj
 
@@ -50,12 +50,12 @@ Analyzing Verilog file "G:\ComputerOrganization\CPU\Fetch.v" into library work
 Parsing module <Fetch>.
 
 
-Total REAL time to Xst completion: 3.00 secs
-Total CPU time to Xst completion: 2.64 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 5.02 secs
  
 --> 
 
-Total memory usage is 225760 kilobytes
+Total memory usage is 225312 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

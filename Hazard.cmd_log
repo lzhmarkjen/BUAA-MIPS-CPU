@@ -1,0 +1,2 @@
+vhdtdtfi -lib work G:/ComputerOrganization/CPU/Hazard.v -lang verilog -prj CPU -o Hazard.spl -module Hazard -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 Hazard.spl G:/ComputerOrganization/CPU/Hazard.sym 

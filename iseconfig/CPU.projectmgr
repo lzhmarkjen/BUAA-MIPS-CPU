@@ -22,19 +22,20 @@
          <ClosedNode>/mips G:|ComputerOrganization|CPU|mips.v/datapath - datapath/hazard - Hazard</ClosedNode>
          <ClosedNode>/mips G:|ComputerOrganization|CPU|mips.v/datapath - datapath/writeback - WriteBack</ClosedNode>
          <ClosedNode>/mips G:|ComputerOrganization|CPU|mips.v/decode - Decode</ClosedNode>
+         <ClosedNode>/mips G:|ComputerOrganization|CPU|mips.v/execution - Execution</ClosedNode>
          <ClosedNode>/mips G:|ComputerOrganization|CPU|mips.v/fetch - Fetch</ClosedNode>
          <ClosedNode>/mips G:|ComputerOrganization|CPU|mips.v/hazard - Hazard</ClosedNode>
          <ClosedNode>/mips G:|ComputerOrganization|CPU|mips.v/memory - Memory</ClosedNode>
          <ClosedNode>/mips G:|ComputerOrganization|CPU|mips.v/writeback - WriteBack</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>MultModule - MultModule (G:/ComputerOrganization/CPU/MultModule.v)</SelectedItem>
+         <SelectedItem>mips (G:/ComputerOrganization/CPU/mips.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000163000000020000000000000000000000000200000064ffffffff000000810000000300000002000001630000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000011f000000020000000000000000000000000200000064ffffffff0000008100000003000000020000011f0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>MultModule - MultModule (G:/ComputerOrganization/CPU/MultModule.v)</CurrentItem>
+      <CurrentItem>mips (G:/ComputerOrganization/CPU/mips.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -77,20 +78,19 @@
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
          <ClosedNode>Configure Target Device</ClosedNode>
-         <ClosedNode>Design Utilities</ClosedNode>
          <ClosedNode>Implement Design/Map</ClosedNode>
          <ClosedNode>Implement Design/Place &amp; Route</ClosedNode>
          <ClosedNode>Implement Design/Translate</ClosedNode>
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Check Syntax</SelectedItem>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000166000000010000000100000000000000000000000064ffffffff000000810000000000000001000001660000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000155000000010000000100000000000000000000000064ffffffff000000810000000000000001000001550000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Check Syntax</CurrentItem>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000012d000000e101000000050100000002</SourceProcessView>
    <CurrentView>Behavioral Simulation</CurrentView>
@@ -103,33 +103,33 @@
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/datapath - datapath/fetch - Fetch</ClosedNode>
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/datapath - datapath/writeback - WriteBack</ClosedNode>
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/decode - Decode</ClosedNode>
+         <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/execution - Execution</ClosedNode>
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/fetch - Fetch</ClosedNode>
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/hazard - Hazard</ClosedNode>
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/memory - Memory</ClosedNode>
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/writeback - WriteBack</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>MultModule - MultModule (G:/ComputerOrganization/CPU/MultModule.v)</SelectedItem>
+         <SelectedItem>mips_test (G:/ComputerOrganization/CPU/mips_test.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000177000000020000000000000000000000000200000064ffffffff000000810000000300000002000001770000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000133000000020000000000000000000000000200000064ffffffff000000810000000300000002000001330000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>MultModule - MultModule (G:/ComputerOrganization/CPU/MultModule.v)</CurrentItem>
+      <CurrentItem>mips_test (G:/ComputerOrganization/CPU/mips_test.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
-         <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem>Compile HDL Simulation Libraries</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000166000000010000000100000000000000000000000064ffffffff000000810000000000000001000001660000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem>Compile HDL Simulation Libraries</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>

@@ -41,35 +41,37 @@ module Hazard(
 	 output [1:0] ForwardRTE,
 	 output ForwardRTM
 	 );
-	wire cal_r_D,cal_i_D,branch_D,load_D,store_D,jr_D,link_D,RegWrite_D,mt_D,mult_D;
-	wire cal_r_E,cal_i_E,branch_E,load_E,store_E,jr_E,link_E,RegWrite_E;
-	wire cal_r_M,cal_i_M,branch_M,load_M,store_M,jr_M,link_M,RegWrite_M;
-	wire cal_r_W,cal_i_W,branch_W,load_W,store_W,jr_W,link_W,RegWrite_W;
+	wire cal_r_D,cal_i_D,branch_D,load_D,store_D,jr_D,link_D,RegWrite_D,mt_D,mf_D,mult_D;
+	wire cal_r_E,cal_i_E,branch_E,load_E,store_E,jr_E,link_E,RegWrite_E,mt_E,mf_E,mult_E;
+	wire cal_r_M,cal_i_M,branch_M,load_M,store_M,jr_M,link_M,RegWrite_M,mt_M,mf_M,mult_M;
+	wire cal_r_W,cal_i_W,branch_W,load_W,store_W,jr_W,link_W,RegWrite_W,mt_W,mf_W,mult_W;
 	wire [4:0]WA_D,WA_E,WA_M,WA_W;
 	wire [1:0]Res_D,Res_E,Res_M,Res_W;
 	
-	InstrCoder Coder_D (Instr1,cal_r_D,cal_i_D,branch_D,load_D,store_D,jr_D,link_D,RegWrite_D,WA_D,Res_D,mt_D,mult_D);
-	InstrCoder Coder_E (Instr2,cal_r_E,cal_i_E,branch_E,load_E,store_E,jr_E,link_E,RegWrite_E,WA_E,Res_E);
-	InstrCoder Coder_M (Instr3,cal_r_M,cal_i_M,branch_M,load_M,store_M,jr_M,link_M,RegWrite_M,WA_M,Res_M);
-	InstrCoder Coder_W (Instr4,cal_r_W,cal_i_W,branch_W,load_W,store_W,jr_W,link_W,RegWrite_W,WA_W,Res_W);
-//////////翻译指令成类型
+	InstrCoder Coder_D (Instr1,cal_r_D,cal_i_D,branch_D,load_D,store_D,jr_D,link_D,RegWrite_D,WA_D,Res_D,mt_D,mf_D,mult_D);
+	InstrCoder Coder_E (Instr2,cal_r_E,cal_i_E,branch_E,load_E,store_E,jr_E,link_E,RegWrite_E,WA_E,Res_E,mt_E,mf_E,mult_E);
+	InstrCoder Coder_M (Instr3,cal_r_M,cal_i_M,branch_M,load_M,store_M,jr_M,link_M,RegWrite_M,WA_M,Res_M,mt_M,mf_M,mult_M);
+	InstrCoder Coder_W (Instr4,cal_r_W,cal_i_W,branch_W,load_W,store_W,jr_W,link_W,RegWrite_W,WA_W,Res_W,mt_W,mf_W,mult_W);
+///////////////////////////////////////////////////////////////////////////////////////////////////翻译指令成类型
 
 	wire Tuse_rs0 = branch_D | jr_D;//rs的Tuse为0
 	wire Tuse_rs1 = cal_r_D | cal_i_D | load_D | store_D | mt_D | mult_D;//rs的Tuse为1
 	wire Tuse_rt0 = branch_D;//rt的Tuse为0
 	wire Tuse_rt1 = cal_r_D | mult_D;//rt的Tuse为1
 	
-	assign Stall_rs = Tuse_rs0 & Res_E==`ALU & Instr1[`rs]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://D E冲突 需要ALU结果
-							Tuse_rs0 & Res_E==`DM  & Instr1[`rs]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://D E冲突 需要DM结果
-							Tuse_rs0 & Res_M==`DM  & Instr1[`rs]==WA_M & WA_M!=5'b0 & RegWrite_M ? 1'b1://D M冲突 需要DM结果
-							Tuse_rs1 & Res_E==`DM  & Instr1[`rs]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://E M冲突 需要DM结果
-																														  1'b0;
-	assign Stall_rt = Tuse_rt0 & Res_E==`ALU & Instr1[`rt]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://D E冲突 需要ALU结果
-							Tuse_rt0 & Res_E==`DM  & Instr1[`rt]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://D E冲突 需要DM结果
-							Tuse_rt0 & Res_M==`DM  & Instr1[`rt]==WA_M & WA_M!=5'b0 & RegWrite_M ? 1'b1://D M冲突 需要DM结果
-							Tuse_rt1 & Res_E==`DM  & Instr1[`rt]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://E M冲突 需要DM结果
-																														  1'b0;
-	assign Stall = Stall_rs | Stall_rt | Start2 | Busy;
+	wire Stall_rs = Tuse_rs0 & Res_E==`ALU & Instr1[`rs]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://D E冲突 需要ALU结果
+						 Tuse_rs0 & Res_E==`DM  & Instr1[`rs]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://D E冲突 需要DM结果
+						 Tuse_rs0 & Res_M==`DM  & Instr1[`rs]==WA_M & WA_M!=5'b0 & RegWrite_M ? 1'b1://D M冲突 需要DM结果
+						 Tuse_rs1 & Res_E==`DM  & Instr1[`rs]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://E M冲突 需要DM结果
+																														1'b0;
+	wire Stall_rt = Tuse_rt0 & Res_E==`ALU & Instr1[`rt]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://D E冲突 需要ALU结果
+						 Tuse_rt0 & Res_E==`DM  & Instr1[`rt]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://D E冲突 需要DM结果
+						 Tuse_rt0 & Res_M==`DM  & Instr1[`rt]==WA_M & WA_M!=5'b0 & RegWrite_M ? 1'b1://D M冲突 需要DM结果
+						 Tuse_rt1 & Res_E==`DM  & Instr1[`rt]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://E M冲突 需要DM结果
+																													   1'b0;
+	wire Stall_mult = (Start2 | Busy) & (mult_D | mt_D | mf_D);//在D级只阻塞mult类型的指令
+	
+	assign Stall = Stall_rs | Stall_rt | Stall_mult;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	assign ForwardRSD = Instr1[`rs]==WA_M & WA_M!=5'b0 & RegWrite_M & Res_M==`ALU ? 2'd1:2'd0;//修改了GRF使得W级和D级的冲突取消
 	assign ForwardRTD = Instr1[`rt]==WA_M & WA_M!=5'b0 & RegWrite_M & Res_M==`ALU ? 2'd1:2'd0;

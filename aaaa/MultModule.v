@@ -37,7 +37,7 @@ module MultModule(
     output reg Busy
     );
 	
-	reg [4:0]count;
+	reg [3:0]count;
 	reg [31:0] HI,LO;
 	reg [31:0] ans_HI,ans_LO;
 	reg _time;
@@ -65,8 +65,8 @@ module MultModule(
 		if(reset)begin
 			HI <= 0;
 			LO <= 0;
-			ans_HI <= 0;
-			ans_LO <= 0;
+			ans_HI = 0;
+			ans_LO = 0;
 		end
 		else if(`MTHI)
 				HI <= A;
@@ -76,7 +76,7 @@ module MultModule(
 		else if(Start & !Busy)begin
 			Busy <= 1;
 			if(`MULT)begin
-				{ans_HI,ans_LO} = $signed(A) * $signed(B2);
+			{ans_HI,ans_LO} = $signed(A) * $signed(B2);
 				_time <= 0;
 			end
 			else if(`MULTU)begin
@@ -106,24 +106,6 @@ module MultModule(
 				_time <=1;
 			end
 		end
-		/*
-		else if(`MULT & Start & !Busy)begin
-			{ans_HI,ans_LO} = $signed(A) * $signed(B2);
-			Busy <= 1;
-		end
-		else if(`MULTU & Start & !Busy)begin
-			{ans_HI,ans_LO} = A * B2;
-			Busy <= 1;
-		end
-		else if(`DIV & Start & !Busy)begin
-			{ans_HI,ans_LO} = $signed(A) / $signed(B2);
-			Busy <= 1;
-		end
-		else if(`DIVU & Start & !Busy)begin
-			{ans_HI,ans_LO} = A / B2;
-			Busy <= 1;
-		end
-		*/
 	end
 //////////////////////////////////////////////////////////
 	always @(posedge clk)begin

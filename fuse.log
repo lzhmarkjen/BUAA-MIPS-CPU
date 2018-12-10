@@ -20,18 +20,14 @@ Analyzing Verilog file "G:/ComputerOrganization/CPU/Memory.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/Hazard.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/Fetch.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/Execution.v" into library work
-WARNING:HDLCompiler:751 - "G:/ComputerOrganization/CPU/Execution.v" Line 49: Redeclaration of ansi port Start is not allowed
 Analyzing Verilog file "G:/ComputerOrganization/CPU/Decode.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/mips.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/mips_test.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:1016 - "G:/ComputerOrganization/CPU/Hazard.v" Line 52: Port mt is not connected to this instance
-WARNING:HDLCompiler:1016 - "G:/ComputerOrganization/CPU/Hazard.v" Line 53: Port mt is not connected to this instance
-WARNING:HDLCompiler:1016 - "G:/ComputerOrganization/CPU/Hazard.v" Line 54: Port mt is not connected to this instance
 Completed static elaboration
 Fuse Memory Usage: 180984 KB
-Fuse CPU Usage: 889 ms
+Fuse CPU Usage: 421 ms
 Compiling module IM
 Compiling module IF_ID
 Compiling module Fetch
@@ -71,4 +67,4 @@ Waiting for 27 sub-compilation(s) to finish...
 Compiled 34 Verilog Units
 Built simulation executable G:/ComputerOrganization/CPU/mips_test_isim_beh.exe
 Fuse Memory Usage: 188344 KB
-Fuse CPU Usage: 1249 ms
+Fuse CPU Usage: 655 ms
