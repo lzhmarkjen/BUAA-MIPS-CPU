@@ -39,12 +39,14 @@ module Decode(
 	output [1:0] PCSel,
 	output [31:0] PC_j,
 	output [31:0] PC_jr,
-	output [31:0] PC_beq
+	output [31:0] PC_beq,
+	output Start2
     );
 	
 	wire [31:0]imm32,RD1,RD2;
 	wire [1:0]ExtOp;
 	wire [31:0]A1,B1;
+	wire Start1;
 	
 	wire RD_AEqualB = (A1 == B1);
 	wire RD_ASmall0 = (($signed(A1) < 0));
@@ -60,7 +62,8 @@ module Decode(
 	.RD_AEqual0(RD_AEqual0),
 	.Instr1(Instr1),//
 	.ExtOp(ExtOp),
-	.PCSel(PCSel)
+	.PCSel(PCSel),
+	.Start1(Start1)
 	);
 //////////////////	Controller
 
@@ -105,12 +108,14 @@ module Decode(
 	.reset(reset|ID_EX_Clr),
 	.imm32_1(imm32),
 	.A1(A1),
-	.B1(B1),//
+	.B1(B1),
+	.Start1(Start1),//
 	.PC2(PC2),
 	.Instr2(Instr2),
 	.imm32_2(imm32_2),
 	.A2(A2),
-	.B2(B2)
+	.B2(B2),
+	.Start2(Start2)
 	);
 //////////////////	Store
 endmodule

@@ -26,6 +26,7 @@ module Execution(
 	input [31:0]Instr2,
 	input clk,
 	input reset,
+	input Start,
 	input [31:0]Result3in,//Transpond
 	input [1:0]ForwardRSE,
 	input [1:0]ForwardRTE,
@@ -35,7 +36,8 @@ module Execution(
 	output [31:0]B3,
 	output [31:0]Instr3,
 	output [4:0]WA3,
-	output [31:0]imm32_3
+	output [31:0]imm32_3,
+	output Busy
     );
 	
 	wire [31:0]Result2in,A,B,B2,Result2out;

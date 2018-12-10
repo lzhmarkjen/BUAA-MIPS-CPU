@@ -84,7 +84,8 @@ module Decode_Controller(
 	input RD_AEqual0,
 	input [31:0]Instr1,
 	output [1:0]ExtOp,
-	output [1:0]PCSel
+	output [1:0]PCSel,
+	output Start1
     );
 	
 	wire [5:0] Op = Instr1[31:26];
@@ -109,6 +110,8 @@ module Decode_Controller(
 		`J  | `JAL          					  ? 2'b10:
 		`JR | `JALR							     ? 2'b11:
 												       2'b00;
+														
+	assign Start1 = `MULT | `MULTU | `DIV | `DIVU;
 endmodule
 /////////////////////////////////////////////////////////////////////////
 module Execution_Controller(

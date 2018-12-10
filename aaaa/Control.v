@@ -84,7 +84,8 @@ module Decode_Controller(
 	input RD_AEqual0,
 	input [31:0]Instr1,
 	output [1:0]ExtOp,
-	output [1:0]PCSel
+	output [1:0]PCSel,
+	output Start1
     );
 	
 	wire [5:0] Op = Instr1[31:26];
@@ -109,13 +110,16 @@ module Decode_Controller(
 		`J  | `JAL          					  ? 2'b10:
 		`JR | `JALR							     ? 2'b11:
 												       2'b00;
+														
+	assign Start1 = `MULT | `MULTU | `DIV | `DIVU;
 endmodule
 /////////////////////////////////////////////////////////////////////////
 module Execution_Controller(
 	input [31:0]Instr2,
 	output [3:0]ALUOp,
 	output [1:0]RegDst,
-	output ALUSrc
+	output ALUSrc,
+	output ALUMultSel
 	);
 	
 	wire [5:0] Op = Instr2[31:26];
@@ -140,11 +144,14 @@ module Execution_Controller(
 		`SLT | `SLTU 									     ? 2'b01:
 		`JALR 											     ? 2'b01:
 		`JAL 											        ? 2'b10:
+		`MFHI | `MFLO										  ? 2'b01:
 														          2'b00;
 	assign ALUSrc =
 			`LB | `LBU | `LH | `LHU | `LW | `SB | `SH | `SW 				  ? 1'b1:
 			`ADDI | `ADDIU | `ANDI | `ORI | `XORI | `LUI | `SLTI | `SLTIU ? 1'b1:
 																					          1'b0;
+	assign ALUMultSel = 
+			`MFHI | `MFLO ? 1'b1:1'b0;
 endmodule
 ///////////////////////////////////////////////////////////////////////
 module Memory_Controller(
@@ -198,6 +205,7 @@ module WriteBack_Controller(
 		`LB | `LBU | `LH | `LHU | `LW 							    ? 1'b1:
 		`SLT | `SLTI | `SLTIU | `SLTU 							    ? 1'b1:
 		`JAL | `JALR 												       ? 1'b1:
+		`MFHI | `MFLO														 ? 1'b1:
 																		         1'b0;
 	
 	assign ReadBE = 

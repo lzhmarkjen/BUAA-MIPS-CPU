@@ -51,11 +51,13 @@ module ID_EX(
 	input [31:0]imm32_1,
 	input [31:0]A1,
 	input [31:0]B1,
+	input Start1,
 	output reg [31:0]PC2,
 	output reg [31:0]Instr2,
 	output reg [31:0]imm32_2,
 	output reg [31:0]A2,
-	output reg [31:0]B2
+	output reg [31:0]B2,
+	output reg Start2
 	);
 	initial begin
 		PC2 = 0;
@@ -63,6 +65,7 @@ module ID_EX(
 		imm32_2 = 0;
 		A2 =0;
 		B2 =0;
+		Start2 = 0;
 	end
 	always@(posedge clk)begin
 		if(reset)begin
@@ -71,6 +74,7 @@ module ID_EX(
 			imm32_2 <= 0;
 			A2 <=0;
 			B2 <=0;
+			Start2 <= 0;
 		end
 		else begin
 			PC2 <= PC1;
@@ -78,6 +82,7 @@ module ID_EX(
 			imm32_2 <= imm32_1;
 			A2 <= A1;
 			B2 <= B1;
+			Start2 <= Start1;
 		end
 	end
 endmodule

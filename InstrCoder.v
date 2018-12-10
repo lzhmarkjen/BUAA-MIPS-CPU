@@ -90,7 +90,8 @@ module InstrCoder(
 	 output RegWrite,
 	 output [4:0]WA,
 	 output [1:0]Res,
-	 output mt
+	 output mt,
+	 output mult
     );
 	
 	wire [5:0]Op,Func;

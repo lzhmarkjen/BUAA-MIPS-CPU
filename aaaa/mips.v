@@ -40,6 +40,9 @@ module mips(
 
 	wire [1:0]ForwardRTD,ForwardRSD,ForwardRSE,ForwardRTE;
 	wire ForwardRTM;
+	
+	wire Start2;
+	wire Busy;
 /////////////////////////////////////////////		Transpond Wire
 	Fetch fetch(
 	.clk(clk),
@@ -76,7 +79,8 @@ module mips(
 	.PCSel(PCSel),
 	.PC_j(PC_j),
 	.PC_jr(PC_jr),
-	.PC_beq(PC_beq)
+	.PC_beq(PC_beq),
+	.Start2(Start2)
 	);
 	
 	Execution execution(
@@ -87,6 +91,7 @@ module mips(
 	.Instr2(Instr2),
 	.clk(clk),
 	.reset(reset),
+	.Start(Start2),
 	.Result3in(Result3),//Transpond
 	.ForwardRSE(ForwardRSE),
 	.ForwardRTE(ForwardRTE),
@@ -96,7 +101,8 @@ module mips(
 	.B3(B3),
 	.Instr3(Instr3),
 	.WA3(WA3),
-	.imm32_3(imm32_3)
+	.imm32_3(imm32_3),
+	.Busy(Busy)
 	);
 	
 	Memory memory(
@@ -133,6 +139,8 @@ Hazard hazard (
     .Instr2(Instr2), 
     .Instr3(Instr3), 
     .Instr4(Instr4), 
+	 .Busy(Busy),
+	 .Start2(Start2),//
     .Stall(Stall), 
     .ForwardRSD(ForwardRSD), 
     .ForwardRTD(ForwardRTD), 

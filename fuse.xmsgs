@@ -5,5 +5,17 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="751" delta="unknown" >"G:/ComputerOrganization/CPU/Execution.v" Line 49: Redeclaration of ansi port <arg fmt="%s" index="1">Start</arg> is not allowed
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"G:/ComputerOrganization/CPU/Hazard.v" Line 52: Port <arg fmt="%s" index="1">mt</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"G:/ComputerOrganization/CPU/Hazard.v" Line 53: Port <arg fmt="%s" index="1">mt</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"G:/ComputerOrganization/CPU/Hazard.v" Line 54: Port <arg fmt="%s" index="1">mt</arg> is not connected to this instance
+</msg>
+
 </messages>
 
