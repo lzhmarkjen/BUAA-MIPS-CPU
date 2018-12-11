@@ -105,18 +105,17 @@
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/decode - Decode</ClosedNode>
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/execution - Execution</ClosedNode>
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/fetch - Fetch</ClosedNode>
-         <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/hazard - Hazard</ClosedNode>
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/memory - Memory</ClosedNode>
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/writeback - WriteBack</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>writeback - WriteBack (G:/ComputerOrganization/CPU/WB.v)</SelectedItem>
+         <SelectedItem>decode - Decode (G:/ComputerOrganization/CPU/Decode.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000133000000020000000000000000000000000200000064ffffffff000000810000000300000002000001330000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000151000000020000000000000000000000000200000064ffffffff000000810000000300000002000001510000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>writeback - WriteBack (G:/ComputerOrganization/CPU/WB.v)</CurrentItem>
+      <CurrentItem>decode - Decode (G:/ComputerOrganization/CPU/Decode.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>

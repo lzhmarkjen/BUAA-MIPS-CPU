@@ -13,14 +13,9 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-                  45@00003000: $ 1 <= 00001234
-                  55@00003004: $ 2 <= 00000023
-                  85@00003010: $ 3 <= 00000023
-                  95@00003014: $ 4 <= fffe0000
-                 115@0000301c: $ 1 <= 00010000
-                 125@00003024: $ 3 <= 00030000
-                 205@0000302c: $ 5 <= 00010000
-                 215@00003030: $ 5 <= 0001aaaa
+                  45@00003000: $ 1 <= 80000000
+                  75@00003008: $ 2 <= 00020000
+                  85@00003010: $ 4 <= 00040000
 ISim P.20131013 (signature 0x8ef4fb42)
 ----------------------------------------------------------------------
 WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
@@ -31,29 +26,6 @@ This is a Full version of ISim.
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-                  45@00003000: $ 1 <= 00001234
-                  55@00003004: $ 2 <= 00000023
-                  85@00003010: $ 3 <= 00000023
-                  95@00003014: $ 4 <= fffe0000
-                 115@0000301c: $ 1 <= 00010000
-                 125@00003024: $ 3 <= 00030000
-                 205@0000302c: $ 5 <= 00010000
-                 215@00003030: $ 5 <= 0001aaaa
-ISim P.20131013 (signature 0x8ef4fb42)
-----------------------------------------------------------------------
-WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
-
-
-----------------------------------------------------------------------
-This is a Full version of ISim.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-Finished circuit initialization process.
-                  45@00003000: $ 1 <= 00001234
-                  55@00003004: $ 2 <= 00000023
-                  85@00003010: $ 3 <= 00000023
-                  95@00003014: $ 4 <= fffe0000
-                 115@0000301c: $ 1 <= 00010000
-                 125@00003024: $ 3 <= 00030000
-                 205@0000302c: $ 5 <= 00010000
-                 215@00003030: $ 5 <= 0001aaaa
+                  45@00003000: $ 1 <= 80000000
+                  75@00003008: $ 2 <= 00020000
+                  85@00003010: $ 4 <= 00040000

@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.70 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.71 secs
  
 --> Reading design: mips.prj
 
@@ -257,122 +257,3 @@ Driver 0: output signal HI[3] of instance Flip-flop (HI).
 Driver 1: output signal HI[3] of instance Flip-flop (_i000079).
 Driver 0: output signal HI[2] of instance Flip-flop (HI).
 Driver 1: output signal HI[2] of instance Flip-flop (_i000079).
-Driver 0: output signal HI[1] of instance Flip-flop (HI).
-Driver 1: output signal HI[1] of instance Flip-flop (_i000079).
-Driver 0: output signal HI[0] of instance Flip-flop (HI).
-Driver 1: output signal HI[0] of instance Flip-flop (_i000079).
-Driver 0: output signal LO[31] of instance Flip-flop (LO).
-Driver 1: output signal LO[31] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[30] of instance Flip-flop (LO).
-Driver 1: output signal LO[30] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[29] of instance Flip-flop (LO).
-Driver 1: output signal LO[29] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[28] of instance Flip-flop (LO).
-Driver 1: output signal LO[28] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[27] of instance Flip-flop (LO).
-Driver 1: output signal LO[27] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[26] of instance Flip-flop (LO).
-Driver 1: output signal LO[26] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[25] of instance Flip-flop (LO).
-Driver 1: output signal LO[25] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[24] of instance Flip-flop (LO).
-Driver 1: output signal LO[24] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[23] of instance Flip-flop (LO).
-Driver 1: output signal LO[23] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[22] of instance Flip-flop (LO).
-Driver 1: output signal LO[22] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[21] of instance Flip-flop (LO).
-Driver 1: output signal LO[21] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[20] of instance Flip-flop (LO).
-Driver 1: output signal LO[20] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[19] of instance Flip-flop (LO).
-Driver 1: output signal LO[19] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[18] of instance Flip-flop (LO).
-Driver 1: output signal LO[18] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[17] of instance Flip-flop (LO).
-Driver 1: output signal LO[17] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[16] of instance Flip-flop (LO).
-Driver 1: output signal LO[16] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[15] of instance Flip-flop (LO).
-Driver 1: output signal LO[15] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[14] of instance Flip-flop (LO).
-Driver 1: output signal LO[14] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[13] of instance Flip-flop (LO).
-Driver 1: output signal LO[13] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[12] of instance Flip-flop (LO).
-Driver 1: output signal LO[12] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[11] of instance Flip-flop (LO).
-Driver 1: output signal LO[11] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[10] of instance Flip-flop (LO).
-Driver 1: output signal LO[10] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[9] of instance Flip-flop (LO).
-Driver 1: output signal LO[9] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[8] of instance Flip-flop (LO).
-Driver 1: output signal LO[8] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[7] of instance Flip-flop (LO).
-Driver 1: output signal LO[7] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[6] of instance Flip-flop (LO).
-Driver 1: output signal LO[6] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[5] of instance Flip-flop (LO).
-Driver 1: output signal LO[5] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[4] of instance Flip-flop (LO).
-Driver 1: output signal LO[4] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[3] of instance Flip-flop (LO).
-Driver 1: output signal LO[3] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[2] of instance Flip-flop (LO).
-Driver 1: output signal LO[2] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[1] of instance Flip-flop (LO).
-Driver 1: output signal LO[1] of instance Flip-flop (_i000081).
-Driver 0: output signal LO[0] of instance Flip-flop (LO).
-Driver 1: output signal LO[0] of instance Flip-flop (_i000081).
-Driver 0: output signal _time of instance Flip-Flop (_time).
-Driver 1: output signal _time of instance Flip-Flop (_i000077).
-Module MultModule remains a blackbox, due to errors in its contents
-WARNING:HDLCompiler:1499 - "G:\ComputerOrganization\CPU\MultModule.v" Line 29: Empty module <MultModule> remains a black box.
-
-Elaborating module <ALUSrcmux>.
-
-Elaborating module <RegDstmux>.
-
-Elaborating module <ALUMultmux>.
-
-Elaborating module <MFRSE>.
-
-Elaborating module <MFRTE>.
-
-Elaborating module <EX_MEM>.
-
-Elaborating module <Memory>.
-
-Elaborating module <Memory_Controller>.
-
-Elaborating module <DM>.
-"G:\ComputerOrganization\CPU\DM.v" Line 72. $display  32'b................................ 32'b000000000000000000............00 32'b................................
-
-Elaborating module <MFRTM>.
-
-Elaborating module <MEM_WB>.
-
-Elaborating module <WriteBack>.
-
-Elaborating module <WriteBack_Controller>.
-
-Elaborating module <WB_Ext>.
-
-Elaborating module <MemtoRegmux>.
-
-Elaborating module <Hazard>.
-
-Elaborating module <InstrCoder>.
-WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\Hazard.v" Line 51: Assignment to link_D ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\Hazard.v" Line 52: Assignment to cal_r_E ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\Hazard.v" Line 53: Assignment to cal_r_M ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\Hazard.v" Line 54: Assignment to cal_r_W ignored, since the identifier is never used
---> 
-
-Total memory usage is 1040192 kilobytes
-
-Number of errors   :    1 (   0 filtered)
-Number of warnings :    7 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
-

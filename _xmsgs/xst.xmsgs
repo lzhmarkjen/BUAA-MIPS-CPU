@@ -14,20 +14,4 @@
 <msg type="error" file="HDLCompiler" num="1401" delta="old" >"G:\ComputerOrganization\CPU\MultModule.v" Line 64: Signal <arg fmt="%s" index="1">Busy</arg> in unit <arg fmt="%s" index="2">MultModule</arg> is connected to following multiple drivers:
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1499" delta="old" >"G:\ComputerOrganization\CPU\MultModule.v" Line 29: Empty module &lt;<arg fmt="%s" index="1">MultModule</arg>&gt; remains a black box.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"G:\ComputerOrganization\CPU\Hazard.v" Line 51: Assignment to <arg fmt="%s" index="1">link_D</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"G:\ComputerOrganization\CPU\Hazard.v" Line 52: Assignment to <arg fmt="%s" index="1">cal_r_E</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"G:\ComputerOrganization\CPU\Hazard.v" Line 53: Assignment to <arg fmt="%s" index="1">cal_r_M</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"G:\ComputerOrganization\CPU\Hazard.v" Line 54: Assignment to <arg fmt="%s" index="1">cal_r_W</arg> ignored, since the identifier is never used
-</msg>
-
 </messages>
-

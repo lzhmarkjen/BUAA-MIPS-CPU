@@ -27,7 +27,7 @@ Analyzing Verilog file "G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//verilog/src
 Starting static elaboration
 Completed static elaboration
 Fuse Memory Usage: 180984 KB
-Fuse CPU Usage: 421 ms
+Fuse CPU Usage: 936 ms
 Compiling module IM
 Compiling module IF_ID
 Compiling module Fetch
@@ -67,4 +67,4 @@ Waiting for 27 sub-compilation(s) to finish...
 Compiled 34 Verilog Units
 Built simulation executable G:/ComputerOrganization/CPU/mips_test_isim_beh.exe
 Fuse Memory Usage: 188344 KB
-Fuse CPU Usage: 655 ms
+Fuse CPU Usage: 1374 ms
