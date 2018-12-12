@@ -50,6 +50,7 @@ module Decode(
 	
 	wire RD_AEqualB = (A1 == B1);
 	wire RD_ASmall0 = (($signed(A1) < 0));
+	//wire RD_AEqual0 = ($signed(A1) == 0);
 	wire RD_AEqual0 = (A1 == 0);
 /////////////////		Comparater
 	assign PC_j = {PC1[31:28],Instr1[25:0],2'b00};

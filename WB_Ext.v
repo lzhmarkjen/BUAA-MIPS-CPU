@@ -19,13 +19,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module WB_Ext(
-	input [1:0] A,
+	input [1:0] _byte,
 	input [31:0] RD4in,
 	input [2:0] ReadBE,
 	output [31:0] RD4out
     );
 	 
-	wire [31:0] RD4Ext = RD4in>>(8*A);
+	wire [31:0] RD4Ext = RD4in>>(8*_byte);
 	
 	assign RD4out = 
 		ReadBE == 3'b000 ? RD4Ext:

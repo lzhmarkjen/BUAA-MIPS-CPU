@@ -47,7 +47,7 @@ module ALU(
 			4'b1010:
 				Result = B <<< (A[4:0]+shift_offset);
 			4'b1011:
-				Result = $signed(B) >>> (A[4:0]+shift_offset);//signed?
+				Result = $signed(B) >>> (A[4:0]+shift_offset);
 			4'b1100:
 				Result = ($signed(A)<$signed(B));
 			4'b1101:

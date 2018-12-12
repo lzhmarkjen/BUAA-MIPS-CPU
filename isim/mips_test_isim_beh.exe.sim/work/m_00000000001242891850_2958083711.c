@@ -881,9 +881,9 @@ LAB86:    memcpy(t190, t221, 8);
 }
 
 
-extern void work_m_00000000000050785656_2958083711_init()
+extern void work_m_00000000001242891850_2958083711_init()
 {
 	static char *pe[] = {(void *)NetDecl_28_0,(void *)Cont_30_1};
-	xsi_register_didat("work_m_00000000000050785656_2958083711", "isim/mips_test_isim_beh.exe.sim/work/m_00000000000050785656_2958083711.didat");
+	xsi_register_didat("work_m_00000000001242891850_2958083711", "isim/mips_test_isim_beh.exe.sim/work/m_00000000001242891850_2958083711.didat");
 	xsi_register_executes(pe);
 }
