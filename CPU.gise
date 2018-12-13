@@ -107,6 +107,11 @@
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="Stall_Controller.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="Stall_Controller.xst"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Stall_Controller_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Timer_Counter.prj"/>
+    <file xil_pn:fileType="FILE_SPL" xil_pn:name="Timer_Counter.spl"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="Timer_Counter.stx"/>
+    <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="Timer_Counter.sym" xil_pn:origination="imported"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="Timer_Counter.xst"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Transpond_Controller.prj"/>
     <file xil_pn:fileType="FILE_SPL" xil_pn:name="Transpond_Controller.spl"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="Transpond_Controller.stx"/>
@@ -177,6 +182,11 @@
     <transform xil_pn:end_ts="1544585600" xil_pn:in_ck="-5415885362151189518" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1544585600">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="ALU.v"/>
       <outfile xil_pn:name="Control.v"/>
       <outfile xil_pn:name="DM.v"/>
@@ -213,6 +223,11 @@
     <transform xil_pn:end_ts="1544585600" xil_pn:in_ck="-5415885362151189518" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1544585600">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="ALU.v"/>
       <outfile xil_pn:name="Control.v"/>
       <outfile xil_pn:name="DM.v"/>
@@ -237,7 +252,10 @@
     <transform xil_pn:end_ts="1544616912" xil_pn:in_ck="-5415885362151189518" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1375850586314952989" xil_pn:start_ts="1544616907">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
@@ -249,6 +267,7 @@
     <transform xil_pn:end_ts="1544619219" xil_pn:in_ck="8462547519363018564" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7248151530696428544" xil_pn:start_ts="1544619219">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="isim.cmd"/>
@@ -289,6 +308,7 @@
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>

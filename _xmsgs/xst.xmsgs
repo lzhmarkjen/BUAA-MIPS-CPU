@@ -5,13 +5,5 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1670" delta="old" >"G:\ComputerOrganization\CPU\IM.v" Line 35: Signal &lt;<arg fmt="%s" index="1">rom</arg>&gt; in initial block is partially initialized.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="413" delta="old" >"G:\ComputerOrganization\CPU\MultModule.v" Line 118: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="1401" delta="old" >"G:\ComputerOrganization\CPU\MultModule.v" Line 64: Signal <arg fmt="%s" index="1">Busy</arg> in unit <arg fmt="%s" index="2">MultModule</arg> is connected to following multiple drivers:
-</msg>
-
 </messages>
+

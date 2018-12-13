@@ -33,11 +33,12 @@ module Memory(
 	output [31:0]Result4,
 	output [4:0]WA4,
 	output [31:0]PC4,
-	output [31:0]Instr4
+	output [31:0]Instr4,
+	output [31:0]WData
     );
 	
 	wire MemRead,MemWrite;
-	wire [31:0]RD3,WData;
+	wire [31:0]RD3;
 	wire [3:0]WriteBE;
 	
 	Memory_Controller MC(

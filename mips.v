@@ -20,14 +20,27 @@
 //////////////////////////////////////////////////////////////////////////////////
 module mips(
     input clk,
-    input reset
+    input reset,
+	 output [31:0] PrAddr,
+	 output [3:0] PrBE,
+	 output [31:0] PrWD,
+	 output [31:0] PrRD,
+	 //input [31:0] PrRD
+	 output PrWe,
+	 input [7:2] HWInt
+	 
     );
 	
+	assign PrAddr = Result3;
+	assign PrWD = WData;
+	assign PrRD  = WD;
+//////////////////////////////////////////////////
 	wire [31:0]PC1,Instr1,PC2,Instr2,PC3,Instr3,PC4,Instr4;
 	wire [31:0]WD,RD4,Result3,Result4;
 	wire [31:0]A2,B2,B3,imm32_2,imm32_3;
 	wire [31:0]PC_j,PC_jr,PC_beq;
 	wire [4:0]WA3,WA4;
+	wire [31:0]WData;
 	wire [1:0]PCSel;
 	wire RegWrite_W;
 /////////////////////////////////////////////////
@@ -119,7 +132,8 @@ module mips(
 	.Result4(Result4),
 	.WA4(WA4),
 	.PC4(PC4),
-	.Instr4(Instr4)
+	.Instr4(Instr4),
+	.WData(WData)
 	);
 	
 	WriteBack writeback(
@@ -131,7 +145,7 @@ module mips(
 	.WD(WD)
 	);
 //////////////////////	module
-Hazard hazard (
+	Hazard hazard (
     .clk(clk), 
     .reset(reset), 
     .Instr1(Instr1), 
