@@ -38,6 +38,10 @@ module mips_test;
 		// Initialize Inputs
 		clk = 0;
 		reset=0;
+		#85;
+		reset=1;
+		#10;
+		reset=0;
 	end
       
 		always #5 clk=~clk;
