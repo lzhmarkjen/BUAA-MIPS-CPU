@@ -1,0 +1,17 @@
+
+
+
+// Instantiate the module
+cpu instance_name (
+    .clk(clk), 
+    .reset(reset), 
+    .HWInt(HWInt), 
+    .PrAddr(PrAddr), 
+    .PrBE(PrBE), 
+    .PrWD(PrWD), 
+    .PrRD(PrRD), 
+    .PrWe(PrWe), 
+    .HWInt(HWInt)
+    );
+
+

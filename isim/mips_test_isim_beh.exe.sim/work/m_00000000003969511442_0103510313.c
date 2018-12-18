@@ -142,14 +142,10 @@ LAB8:    goto LAB2;
 
 LAB6:    xsi_set_current_line(71, ng0);
 
-LAB9:    xsi_set_current_line(72, ng0);
+LAB9:    xsi_set_current_line(73, ng0);
     t11 = ((char*)((ng1)));
-    t12 = (t0 + 1472);
+    t12 = (t0 + 1564);
     xsi_vlogvar_wait_assign_value(t12, t11, 0, 0, 32, 0LL);
-    xsi_set_current_line(73, ng0);
-    t2 = ((char*)((ng1)));
-    t3 = (t0 + 1564);
-    xsi_vlogvar_wait_assign_value(t3, t2, 0, 0, 32, 0LL);
     xsi_set_current_line(74, ng0);
     t2 = ((char*)((ng1)));
     t3 = (t0 + 1656);

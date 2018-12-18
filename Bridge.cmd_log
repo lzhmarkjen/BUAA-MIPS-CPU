@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj CPU -o G:/ComputerOrganization/CPU/Bridge.tfi -lib work G:/ComputerOrganization/CPU//Bridge.v -module Bridge -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

@@ -77,6 +77,9 @@
 `define MFLO  (Op==6'b000000 & Func==6'b010010)
 `define MTHI  (Op==6'b000000 & Func==6'b010001)
 `define MTLO  (Op==6'b000000 & Func==6'b010011)
+`define ERET  (Op==6'b010000 & Func==6'b011000)
+`define MFC0  (Op==6'b010000 & Instr[25:21]==5'b00000)
+`define MTC0  (Op==6'b010000 & Instr[25:21]==5'b00100)
 /////////////////////////////////////////////////////////////////
 module InstrCoder(
     input [31:0] Instr,
@@ -92,12 +95,13 @@ module InstrCoder(
 	 output [1:0]Res,
 	 output mt,
 	 output mf,
-	 output mult
+	 output mult,
+	 output eret,
+	 output mtc0
     );
 	
-	wire [5:0]Op,Func;
-	assign Op = Instr[31:26];
-	assign Func = Instr[5:0];
+	wire [5:0] Op = Instr[31:26];
+	wire [5:0] Func = Instr[5:0];
 	
 	assign cal_r   = `ADD | `ADDU | `SUB | `SUBU | `SLL | `SRL | `SRA | `SLLV | `SRLV | `SRAV | `AND | `OR | `XOR | `NOR | `SLT | `SLTU ;
 	assign cal_i   = `ADDI | `ADDIU | `ANDI | `ORI | `XORI | `LUI | `SLTI | `SLTIU;
@@ -110,18 +114,22 @@ module InstrCoder(
 	assign mult = `MULT | `MULTU | `DIV | `DIVU ;
 	assign mf      = `MFHI | `MFLO;
 	assign mt		= `MTHI | `MTLO;
+	assign eret    = `ERET;
+	assign mfc0    = `MFC0;
+	assign mtc0    = `MTC0;
 
 	//assign jump = `J | `JAL | `JALR | `JR;
 	
-	assign RegWrite = cal_r | cal_i | load | link | linkreg | mf;
+	assign RegWrite = cal_r | cal_i | load | link | linkreg | mf | mfc0;
 	
 	assign WA = (cal_r|linkreg|mf) ? Instr[`rd]:
-					(cal_i|load)       ? Instr[`rt]:
+					(cal_i|load|mfc0)  ? Instr[`rt]:
 					link			       ?	  5'b11111:
 												      5'b0;
 	
-	assign Res = (cal_r|cal_i|mf) ? `ALU:
-					 load             ?  `DM:
+	assign Res = (cal_r|cal_i)    ? `ALU:
+					 mf					? `ALU:
+					 (load | mfc0)    ?  `DM:
 					 (link | linkreg) ?  `DM:
 											 2'b00;//指令的写寄存器的结果从哪里来
 endmodule

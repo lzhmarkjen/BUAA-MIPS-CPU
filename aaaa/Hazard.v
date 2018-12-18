@@ -26,8 +26,6 @@
 `define ALU 2'b01
 `define DM  2'b10
 module Hazard(
-    input clk,
-	 input reset,
 	 input [31:0]Instr1,
 	 input [31:0]Instr2,
 	 input [31:0]Instr3,
@@ -48,8 +46,11 @@ module Hazard(
 	wire [4:0]WA_D,WA_E,WA_M,WA_W;
 	wire [1:0]Res_D,Res_E,Res_M,Res_W;
 	
-	InstrCoder Coder_D (Instr1,cal_r_D,cal_i_D,branch_D,load_D,store_D,jr_D,link_D,RegWrite_D,WA_D,Res_D,mt_D,mf_D,mult_D);
-	InstrCoder Coder_E (Instr2,cal_r_E,cal_i_E,branch_E,load_E,store_E,jr_E,link_E,RegWrite_E,WA_E,Res_E,mt_E,mf_E,mult_E);
+	wire eret_D,mtc0_D;
+	wire eret_E,mtc0_E;
+	
+	InstrCoder Coder_D (Instr1,cal_r_D,cal_i_D,branch_D,load_D,store_D,jr_D,link_D,RegWrite_D,WA_D,Res_D,mt_D,mf_D,mult_D,eret_D,mtc0_D);
+	InstrCoder Coder_E (Instr2,cal_r_E,cal_i_E,branch_E,load_E,store_E,jr_E,link_E,RegWrite_E,WA_E,Res_E,mt_E,mf_E,mult_E,eret_E,mtc0_E);
 	InstrCoder Coder_M (Instr3,cal_r_M,cal_i_M,branch_M,load_M,store_M,jr_M,link_M,RegWrite_M,WA_M,Res_M,mt_M,mf_M,mult_M);
 	InstrCoder Coder_W (Instr4,cal_r_W,cal_i_W,branch_W,load_W,store_W,jr_W,link_W,RegWrite_W,WA_W,Res_W,mt_W,mf_W,mult_W);
 ///////////////////////////////////////////////////////////////////////////////////////////////////翻译指令成类型
@@ -71,7 +72,9 @@ module Hazard(
 																													   1'b0;
 	wire Stall_mult = (Start2 | Busy) & (mult_D | mt_D | mf_D);//在D级只阻塞mult类型的指令
 	
-	assign Stall = Stall_rs | Stall_rt | Stall_mult;
+	wire Stall_eret = eret_D & mtc0_E;
+	
+	assign Stall = Stall_rs | Stall_rt | Stall_mult | Stall_eret;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	assign ForwardRSD = Instr1[`rs]==WA_M & WA_M!=5'b0 & RegWrite_M & Res_M==`ALU ? 2'd1:2'd0;//修改了GRF使得W级和D级的冲突取消
 	assign ForwardRTD = Instr1[`rt]==WA_M & WA_M!=5'b0 & RegWrite_M & Res_M==`ALU ? 2'd1:2'd0;

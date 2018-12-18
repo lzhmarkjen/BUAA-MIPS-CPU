@@ -77,14 +77,18 @@
 `define MFLO  (Op==6'b000000 & Func==6'b010010)
 `define MTHI  (Op==6'b000000 & Func==6'b010001)
 `define MTLO  (Op==6'b000000 & Func==6'b010011)
+`define ERET  (Op==6'b010000 & Func==6'b011000)
+`define MFC0  (Op==6'b010000 & Instr[25:21]==5'b00000)
+`define MTC0  (Op==6'b010000 & Instr[25:21]==5'b00100)
 /////////////////////////////////////////////////////////////////
 module Decode_Controller(
 	input RD_AEqualB,
 	input RD_ASmall0,
 	input RD_AEqual0,
 	input [31:0]Instr1,
+	input IntReq,
 	output [1:0]ExtOp,
-	output [1:0]PCSel,
+	output [2:0]PCSel,
 	output Start1
     );
 	
@@ -101,15 +105,17 @@ module Decode_Controller(
 		`LUI 											         ? 2'b01:
 															        2'b00;
 	assign PCSel = 
-		`BEQ  &  RD_AEqualB		 			  ? 2'b01:
-		`BNE  & !RD_AEqualB 					  ? 2'b01:
-		`BLTZ &  RD_ASmall0  				  ? 2'b01:
-		`BLEZ & (RD_ASmall0  | RD_AEqual0) ? 2'b01:
-		`BGTZ & !(RD_ASmall0 | RD_AEqual0) ? 2'b01:
-		`BGEZ & !RD_ASmall0  				  ? 2'b01:
-		`J  | `JAL          					  ? 2'b10:
-		`JR | `JALR							     ? 2'b11:
-												       2'b00;
+		IntReq									  ? 3'b101://中断最优先
+		`BEQ  &  RD_AEqualB		 			  ? 3'b001:
+		`BNE  & !RD_AEqualB 					  ? 3'b001:
+		`BLTZ &  RD_ASmall0  				  ? 3'b001:
+		`BLEZ & (RD_ASmall0  | RD_AEqual0) ? 3'b001:
+		`BGTZ & !(RD_ASmall0 | RD_AEqual0) ? 3'b001:
+		`BGEZ & !RD_ASmall0  				  ? 3'b001:
+		`J  | `JAL          					  ? 3'b010:
+		`JR | `JALR							     ? 3'b011:
+		`ERET                              ? 3'b111:
+												       3'b000;
 														
 	assign Start1 = `MULT | `MULTU | `DIV | `DIVU;
 endmodule
@@ -119,24 +125,32 @@ module Execution_Controller(
 	output [3:0]ALUOp,
 	output [1:0]RegDst,
 	output ALUSrc,
-	output ALUMultSel
+	output [1:0] ALUMultSel,
+	output eret_reset
 	);
 	
 	wire [5:0] Op = Instr2[31:26];
 	wire [5:0] Func = Instr2[5:0];
+	wire [31:0] Instr = Instr2;
 	
 	assign ALUOp = 
-		`AND 	| `ANDI  ? 4'b0000:
-		`OR 	| `ORI   ? 4'b0001:
-	   `SUB  | `SUBU  ? 4'b0110:
-		`XOR	| `XORI  ? 4'b0100:
-		`NOR 			   ? 4'b0101:
-		`SLL	| `SLLV  ? 4'b1000:
-		`SRL 	| `SRLV  ? 4'b1001:
-		`SRA 	| `SRAV  ? 4'b1011:
-		`SLT 	| `SLTI  ? 4'b1100:
-		`SLTIU | `SLTU ? 4'b1101:
-							  4'b0010;
+		`AND 	| `ANDI   ? 4'b0000:
+		`OR 	| `ORI    ? 4'b0001:
+		`ADD	| `ADDI	 ? 4'b0010:
+		`ADDU	| `ADDIU	 ? 4'b0011:
+	   `SUB  		    ? 4'b0110:
+		`SUBU				 ? 4'b0111:
+		`LB | `LH | `LW ? 4'b0010:
+		`LBU | `LHU     ? 4'b0010:
+		`SB | `SH | `SW ? 4'b0010:
+		`XOR	| `XORI   ? 4'b0100:
+		`NOR 			    ? 4'b0101:
+		`SLL	| `SLLV   ? 4'b1000:
+		`SRL 	| `SRLV   ? 4'b1001:
+		`SRA 	| `SRAV   ? 4'b1011:
+		`SLT 	| `SLTI   ? 4'b1100:
+		`SLTIU | `SLTU  ? 4'b1101:
+							   4'b0011;
 	assign RegDst = 
 		`ADD | `ADDU | `SUB | `SUBU 				     ? 2'b01:
 		`SLL | `SRL  | `SRA | `SLLV | `SRLV | `SRAV ? 2'b01:
@@ -151,7 +165,11 @@ module Execution_Controller(
 			`ADDI | `ADDIU | `ANDI | `ORI | `XORI | `LUI | `SLTI | `SLTIU ? 1'b1:
 																					          1'b0;
 	assign ALUMultSel = 
-			`MFHI | `MFLO ? 1'b1:1'b0;
+			`MFHI | `MFLO ? 2'b01:
+			`MFC0         ? 2'b10:
+								 2'b00;
+	
+	assign eret_reset = `ERET;
 endmodule
 ///////////////////////////////////////////////////////////////////////
 module Memory_Controller(
@@ -159,11 +177,13 @@ module Memory_Controller(
 	input [1:0]Addr,
 	output MemRead,
 	output MemWrite,
-	output [3:0]WriteBE
+	output [3:0]WriteBE,
+	output CP0WE 
 	);
 	
 	wire [5:0] Op = Instr3[31:26];
 	wire [5:0] Func = Instr3[5:0];
+	wire [31:0] Instr = Instr3;
 	
 	assign MemRead =
 		`LB | `LBU | `LH | `LHU | `LW ? 1'b1 :
@@ -172,14 +192,16 @@ module Memory_Controller(
 		`SB | `SH | `SW ? 1'b1 :
 							1'b0;
 	assign WriteBE = 
-		`SW 							 ? 4'b1111:
-		`SH & !Addr[1:1] 		 ? 4'b0011:
-		`SH & Addr[1:1]		    ? 4'b1100:
+		`SW 						  ? 4'b1111:
+		`SH & !Addr[1:1] 		  ? 4'b0011:
+		`SH & Addr[1:1]		  ? 4'b1100:
 		`SB & Addr[1:0]==2'b00 ? 4'b0001:
 		`SB & Addr[1:0]==2'b01 ? 4'b0010:
 		`SB & Addr[1:0]==2'b10 ? 4'b0100:
 		`SB & Addr[1:0]==2'b11 ? 4'b1000:
-										   4'b1111;
+										 4'b1111;
+											
+		assign CP0WE = `MTC0;
 		
 endmodule
 ///////////////////////////////////////////////////////////
@@ -192,9 +214,11 @@ module WriteBack_Controller(
 	
 	wire [5:0] Op = Instr4[31:26];
 	wire [5:0] Func = Instr4[5:0];
+	wire [31:0] Instr = Instr4;
 	
 	assign MemtoReg = 
 		`LB | `LBU | `LH | `LHU | `LW ? 2'b01:
+		`MFC0									? 2'b11:
 		`JAL | `JALR 					   ? 2'b10:
 											     2'b00;
 		
@@ -206,6 +230,7 @@ module WriteBack_Controller(
 		`SLT | `SLTI | `SLTIU | `SLTU 							    ? 1'b1:
 		`JAL | `JALR 												       ? 1'b1:
 		`MFHI | `MFLO														 ? 1'b1:
+		`MFC0                                                  ? 1'b1:
 																		         1'b0;
 	
 	assign ReadBE = 
@@ -215,5 +240,4 @@ module WriteBack_Controller(
 		`LHU ? 3'b011:
 		`LH  ? 3'b100:
 		       3'b000;
-		
 endmodule

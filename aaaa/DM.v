@@ -70,6 +70,7 @@ module DM(
 			else if(MemWrite)begin
 				ram[A] <= WD;
 				$display("%d@%h: *%h <= %h", $time, PC, (32'b0 + 4 * A),WD);
+				//$display("@%h: *%h <= %h", PC, (32'b0 + 4 * A),WD);
 			end
 	end
 	

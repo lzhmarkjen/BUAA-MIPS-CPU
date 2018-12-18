@@ -47,6 +47,7 @@ module ALUSrcmux(
 	assign B = ALUSrc==1 ? imm32 : RD2;
 endmodule
 
+/*
 module ALUMultmux(
 	input [31:0] Result2,
 	input [31:0] HILO,
@@ -56,12 +57,14 @@ module ALUMultmux(
 	
 	assign Result2out = ALUMultSel ? HILO : Result2;
 endmodule
+*/
 
 module MemtoRegmux(
 	input [1:0]MemtoReg,
 	input [31:0]Result,
 	input [31:0]RD,
 	input [31:0]PC,
+	input [31:0]DOut,
 	output reg [31:0]WD
 	);
 	
@@ -73,6 +76,8 @@ module MemtoRegmux(
 				WD = RD;
 			2'b10:
 				WD = PC + 8;//if consider delay branch,PC+8;if not PC+4
+			2'b11:
+				WD = DOut;
 		endcase
 	end
 endmodule

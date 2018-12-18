@@ -5,5 +5,11 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"G:/ComputerOrganization/CPU/Hazard.v" Line 54: Port <arg fmt="%s" index="1">eret</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"G:/ComputerOrganization/CPU/Hazard.v" Line 55: Port <arg fmt="%s" index="1">eret</arg> is not connected to this instance
+</msg>
+
 </messages>
 

@@ -18,8 +18,62 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+`define LB    (Op==6'b100000)
+`define LBU   (Op==6'b100100)
+`define LH    (Op==6'b100001)
+`define LHU   (Op==6'b100101)
+`define LW    (Op==6'b100011)
+`define SB    (Op==6'b101000)
+`define SH    (Op==6'b101001)
+`define SW    (Op==6'b101011)
+`define ADD   (Op==6'b000000 & Func==6'b100000)
+`define ADDU  (Op==6'b000000 & Func==6'b100001)
+`define SUB   (Op==6'b000000 & Func==6'b100010)
+`define SUBU  (Op==6'b000000 & Func==6'b100011)
+`define SLL   (Op==6'b000000 & Func==6'b000000)
+`define SRL   (Op==6'b000000 & Func==6'b000010)
+`define SRA   (Op==6'b000000 & Func==6'b000011)
+`define SLLV  (Op==6'b000000 & Func==6'b000100)
+`define SRLV  (Op==6'b000000 & Func==6'b000110)
+`define SRAV  (Op==6'b000000 & Func==6'b000111)
+`define AND   (Op==6'b000000 & Func==6'b100100)
+`define OR    (Op==6'b000000 & Func==6'b100101)
+`define XOR   (Op==6'b000000 & Func==6'b100110)
+`define NOR   (Op==6'b000000 & Func==6'b100111)
+`define ADDI  (Op==6'b001000)
+`define ADDIU (Op==6'b001001)
+`define ANDI  (Op==6'b001100)
+`define ORI   (Op==6'b001101)
+`define XORI  (Op==6'b001110)
+`define LUI   (Op==6'b001111)
+`define SLT   (Op==6'b000000 & Func==6'b101010)
+`define SLTI  (Op==6'b001010)
+`define SLTIU (Op==6'b001011)
+`define SLTU  (Op==6'b000000 & Func==6'b101011)
+`define BEQ   (Op==6'b000100)
+`define BNE   (Op==6'b000101)
+`define BLEZ  (Op==6'b000110)
+`define BGTZ  (Op==6'b000111)
+`define BLTZ  (Op==6'b000001)
+`define BGEZ  (Op==6'b000001)
+`define J     (Op==6'b000010)
+`define JAL   (Op==6'b000011)
+`define JALR  (Op==6'b000000 & Func==6'b001001)
+`define JR    (Op==6'b000000 & Func==6'b001000)
+`define MULT  (Op==6'b000000 & Func==6'b011000)
+`define MULTU (Op==6'b000000 & Func==6'b011001)
+`define DIV   (Op==6'b000000 & Func==6'b011010)
+`define DIVU  (Op==6'b000000 & Func==6'b011011)
+`define MFHI  (Op==6'b000000 & Func==6'b010000)
+`define MFLO  (Op==6'b000000 & Func==6'b010010)
+`define MTHI  (Op==6'b000000 & Func==6'b010001)
+`define MTLO  (Op==6'b000000 & Func==6'b010011)
+`define ERET  (Op==6'b010000 & Func==6'b011000)
+`define MFC0  (Op==6'b010000)
+`define MTC0  (Op==6'b010000)
+////////////////////////////////////////////////////////////////
 module Decode(
-	input [31:0]Instr1,
+	input [31:0]Instr1old,//假如旧版指令1为未定义指令，则Instr1为nop
 	input [31:0]PC1,
 	input clk,
 	input reset,
@@ -28,6 +82,7 @@ module Decode(
 	input RegWrite,
 	input ID_EX_Clr,
 	input [31:0]PC4,
+	input IntReq,
 	input [1:0]ForwardRSD,//Transpond
 	input [1:0]ForwardRTD,
 	input [31:0]Result3,//Transpond
@@ -36,21 +91,22 @@ module Decode(
 	output [31:0] A2,
 	output [31:0] B2,
 	output [31:0] imm32_2,
-	output [1:0] PCSel,
+	output [2:0] PCSel,
 	output [31:0] PC_j,
 	output [31:0] PC_jr,
 	output [31:0] PC_beq,
-	output Start2
+	output Start2,
+	output RI
     );
 	
 	wire [31:0]imm32,RD1,RD2;
 	wire [1:0]ExtOp;
 	wire [31:0]A1,B1;
 	wire Start1;
+	wire [31:0]Instr1;
 	
 	wire RD_AEqualB = (A1 == B1);
 	wire RD_ASmall0 = (($signed(A1) < 0));
-	//wire RD_AEqual0 = ($signed(A1) == 0);
 	wire RD_AEqual0 = (A1 == 0);
 /////////////////		Comparater
 	assign PC_j = {PC1[31:28],Instr1[25:0],2'b00};
@@ -61,7 +117,8 @@ module Decode(
 	.RD_AEqualB(RD_AEqualB),
 	.RD_ASmall0(RD_ASmall0),
 	.RD_AEqual0(RD_AEqual0),
-	.Instr1(Instr1),//
+	.Instr1(Instr1),
+	.IntReq(IntReq),//
 	.ExtOp(ExtOp),
 	.PCSel(PCSel),
 	.Start1(Start1)
@@ -106,7 +163,7 @@ module Decode(
 	.PC1(PC1),
 	.Instr1(Instr1),
 	.clk(clk),
-	.reset(reset|ID_EX_Clr),
+	.reset(reset | ID_EX_Clr | IntReq),
 	.imm32_1(imm32),
 	.A1(A1),
 	.B1(B1),
@@ -119,4 +176,22 @@ module Decode(
 	.Start2(Start2)
 	);
 //////////////////	Store
+	wire [5:0] Op = Instr1old[31:26];//判断旧版Instr1是否为未定义指令
+	wire [5:0] Func = Instr1old[5:0];
+	
+	wire un_RI = `LB | `LBU | `LH | `LHU | `LW | `SB | `SH | `SW | 
+							   `ADD | `ADDU | `SUB | `SUBU |
+							   `SLL | `SRL | `SRA | `SLLV | `SRLV | `SRAV |
+							   `AND | `OR | `NOR | `XOR |
+							   `ADDI | `ADDIU | `ANDI | `ORI | `XORI | `LUI |
+							   `SLT | `SLTI | `SLTIU | `SLTU |
+							   `BEQ | `BNE | `BLEZ | `BGTZ | `BLTZ | `BGEZ |
+							   `J | `JAL | `JALR | `JR |
+							   `MULT | `MULTU | `DIV | `DIVU |
+							   `MFHI | `MFLO | `MTHI | `MTLO |
+								`MFC0 | `MTC0 | `ERET;
+	assign RI = ~un_RI;//若RI则表示未定义
+	
+	assign Instr1 = RI ? 32'b0:Instr1old;//如果指令未定义，则将其视为nop
+///////////////////////		Exception part
 endmodule

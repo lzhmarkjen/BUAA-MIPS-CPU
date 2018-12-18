@@ -33,7 +33,7 @@ module IF_ID(
 	end
 	always@(posedge clk)begin
 		if(reset)begin
-			PC1 <= 0;
+			//PC1 <= 0;
 			Instr1 <= 0;
 		end
 		else if(IF_ID_En)begin
@@ -42,7 +42,7 @@ module IF_ID(
 		end
 	end
 endmodule
-
+////////////////////////////////////////////////////////
 module ID_EX(
 	input [31:0]PC1,
 	input [31:0]Instr1,
@@ -69,7 +69,7 @@ module ID_EX(
 	end
 	always@(posedge clk)begin
 		if(reset)begin
-			PC2 <= 0;
+			//PC2 <= 0;
 			Instr2 <= 0;
 			imm32_2 <= 0;
 			A2 <=0;
@@ -86,7 +86,7 @@ module ID_EX(
 		end
 	end
 endmodule
-
+////////////////////////////////////////////////////////////////
 module EX_MEM(
 	input [31:0]PC2,
 	input [31:0]Result2,
@@ -113,7 +113,7 @@ module EX_MEM(
 	end
 	always@(posedge clk)begin
 		if(reset)begin
-			PC3 <= 0;
+			//PC3 <= 0;
 			Result3 <= 0;
 			B3 <= 0;
 			WA3 <= 0;
@@ -130,20 +130,23 @@ module EX_MEM(
 		end
 	end
 endmodule
-
+//////////////////////////////////////////////////////////
 module MEM_WB(
 	input [31:0]PC3,
 	input [31:0]Instr3,
 	input [31:0]RD3,
 	input [31:0]Result3,
 	input [4:0]WA3,
+	input [31:0]DOut3,
 	input clk,
 	input reset,
+	input MEM_WB_En,
 	output reg [31:0]PC4,
 	output reg [31:0]Instr4,
 	output reg [31:0]RD4,
 	output reg [31:0]Result4,
-	output reg [4:0]WA4
+	output reg [4:0]WA4,
+	output reg [31:0]DOut4
 	);
 	initial begin
 		PC4 = 0;
@@ -151,23 +154,43 @@ module MEM_WB(
 		RD4 = 0;
 		Result4 = 0;
 		WA4 = 0;
+		DOut4 = 0;
 	end
 	always@(posedge clk)begin
 		if(reset)begin
-			PC4 <= 0;
+			//PC4 <= 0;
 			Instr4 <= 0;
 			RD4 <= 0;
 			Result4 <= 0;
 			WA4 <= 0;
+			DOut4 <= 0;
 		end
-		else begin
+		else if(MEM_WB_En)begin
 			PC4 <= PC3;
 			Instr4 <= Instr3;
 			RD4 <= RD3;
 			Result4 <= Result3;
 			WA4 <= WA3;
+			DOut4 <= DOut3;
 		end
 	end
 endmodule
-
+/////////////////////////////////////////////////////
+module ExcReg(
+	input clk,
+	input reset,
+	input [4:0] ExcCodein,
+	output reg [4:0] ExcCodeout
+	);
 	
+	initial
+		ExcCodeout = 0;
+	
+	always @(posedge clk)begin
+		if(reset)
+			ExcCodeout <= 0;
+		else
+			ExcCodeout <= ExcCodein;
+	end
+endmodule
+///////////////////////////////////////////////////////

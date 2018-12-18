@@ -1,4 +1,4 @@
-Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "G:/ComputerOrganization/CPU/mips_test_isim_beh.exe" -prj "G:/ComputerOrganization/CPU/mips_test_beh.prj" "work.mips_test" "work.glbl" 
+Running: G:\ComputerOrganization\ISE\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o G:/ComputerOrganization/CPU/mips_test_isim_beh.exe -prj G:/ComputerOrganization/CPU/mips_test_beh.prj work.mips_test work.glbl 
 ISim P.20131013 (signature 0x8ef4fb42)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
@@ -20,14 +20,21 @@ Analyzing Verilog file "G:/ComputerOrganization/CPU/Memory.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/Hazard.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/Fetch.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/Execution.v" into library work
+Analyzing Verilog file "G:/ComputerOrganization/CPU/Exception_Detector.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/Decode.v" into library work
+Analyzing Verilog file "G:/ComputerOrganization/CPU/Coprocessor0.v" into library work
+Analyzing Verilog file "G:/ComputerOrganization/CPU/Timer_Counter.v" into library work
+Analyzing Verilog file "G:/ComputerOrganization/CPU/cpu.v" into library work
+Analyzing Verilog file "G:/ComputerOrganization/CPU/Bridge.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/mips.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/CPU/mips_test.v" into library work
 Analyzing Verilog file "G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
+WARNING:HDLCompiler:1016 - "G:/ComputerOrganization/CPU/Hazard.v" Line 54: Port eret is not connected to this instance
+WARNING:HDLCompiler:1016 - "G:/ComputerOrganization/CPU/Hazard.v" Line 55: Port eret is not connected to this instance
 Completed static elaboration
-Fuse Memory Usage: 180344 KB
-Fuse CPU Usage: 530 ms
+Fuse Memory Usage: 180216 KB
+Fuse CPU Usage: 531 ms
 Compiling module IM
 Compiling module IF_ID
 Compiling module Fetch
@@ -43,7 +50,6 @@ Compiling module ALU
 Compiling module MultModule
 Compiling module ALUSrcmux
 Compiling module RegDstmux
-Compiling module ALUMultmux
 Compiling module MFRSE
 Compiling module MFRTE
 Compiling module EX_MEM
@@ -59,12 +65,18 @@ Compiling module MemtoRegmux
 Compiling module WriteBack
 Compiling module InstrCoder
 Compiling module Hazard
+Compiling module ExcReg
+Compiling module Exception
+Compiling module Coprocessor0
+Compiling module cpu
+Compiling module Bridge
+Compiling module Timer_Counter
 Compiling module mips
 Compiling module mips_test
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 27 sub-compilation(s) to finish...
-Compiled 34 Verilog Units
+Waiting for 32 sub-compilation(s) to finish...
+Compiled 39 Verilog Units
 Built simulation executable G:/ComputerOrganization/CPU/mips_test_isim_beh.exe
-Fuse Memory Usage: 188728 KB
-Fuse CPU Usage: 780 ms
+Fuse Memory Usage: 189404 KB
+Fuse CPU Usage: 905 ms

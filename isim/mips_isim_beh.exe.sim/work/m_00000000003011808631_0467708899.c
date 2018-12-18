@@ -28,6 +28,9 @@ static int ng3[] = {4096, 0};
 static unsigned int ng4[] = {0U, 0U};
 static int ng5[] = {1, 0};
 static const char *ng6 = "code.txt";
+static const char *ng7 = "code_handler.txt";
+static int ng8[] = {1120, 0};
+static int ng9[] = {2047, 0};
 
 
 
@@ -210,6 +213,11 @@ LAB3:    t1 = (t0 + 1196);
 LAB5:    xsi_set_current_line(35, ng0);
     t1 = (t0 + 1104);
     xsi_vlogfile_readmemh(ng6, 0, t1, 0, 0, 0, 0);
+    xsi_set_current_line(36, ng0);
+    t1 = (t0 + 1104);
+    t2 = ((char*)((ng8)));
+    t3 = ((char*)((ng9)));
+    xsi_vlogfile_readmemh(ng7, 0, t1, 1, *((unsigned int *)t2), 1, *((unsigned int *)t3));
 
 LAB1:    return;
 LAB4:    xsi_set_current_line(34, ng0);
@@ -255,7 +263,7 @@ LAB6:    t32 = *((unsigned int *)t14);
 
 }
 
-static void Always_38_3(char *t0)
+static void Always_39_3(char *t0)
 {
     char t7[8];
     char *t1;
@@ -280,7 +288,7 @@ LAB0:    t1 = (t0 + 2152U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(38, ng0);
+LAB2:    xsi_set_current_line(39, ng0);
     t2 = (t0 + 2364);
     *((int *)t2) = 1;
     t3 = (t0 + 2180);
@@ -288,9 +296,9 @@ LAB2:    xsi_set_current_line(38, ng0);
     *((char **)t1) = &&LAB4;
 
 LAB1:    return;
-LAB4:    xsi_set_current_line(38, ng0);
+LAB4:    xsi_set_current_line(39, ng0);
 
-LAB5:    xsi_set_current_line(39, ng0);
+LAB5:    xsi_set_current_line(40, ng0);
     t4 = (t0 + 1104);
     t5 = (t4 + 36U);
     t6 = *((char **)t5);
@@ -312,7 +320,7 @@ LAB5:    xsi_set_current_line(39, ng0);
 
 extern void work_m_00000000003011808631_0467708899_init()
 {
-	static char *pe[] = {(void *)NetDecl_29_0,(void *)NetDecl_30_1,(void *)Initial_32_2,(void *)Always_38_3};
+	static char *pe[] = {(void *)NetDecl_29_0,(void *)NetDecl_30_1,(void *)Initial_32_2,(void *)Always_39_3};
 	xsi_register_didat("work_m_00000000003011808631_0467708899", "isim/mips_isim_beh.exe.sim/work/m_00000000003011808631_0467708899.didat");
 	xsi_register_executes(pe);
 }

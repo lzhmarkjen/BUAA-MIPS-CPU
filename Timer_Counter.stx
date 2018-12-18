@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.39 secs
  
 --> Parameter xsthdpdir set to G:/ComputerOrganization/CPU/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.39 secs
  
 --> Reading design: Timer_Counter.prj
 
@@ -43,12 +43,12 @@ Analyzing Verilog file "G:\ComputerOrganization\CPU\Timer_Counter.v" into librar
 Parsing module <Timer_Counter>.
 
 
-Total REAL time to Xst completion: 2.00 secs
-Total CPU time to Xst completion: 2.62 secs
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 3.38 secs
  
 --> 
 
-Total memory usage is 224864 kilobytes
+Total memory usage is 224356 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

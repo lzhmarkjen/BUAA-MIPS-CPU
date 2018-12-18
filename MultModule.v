@@ -33,6 +33,8 @@ module MultModule(
     input [31:0] A,
     input [31:0] B2,
     input Start,
+	 input IntReq,
+	 input Rollback,
     output [31:0] HILO,
     output reg Busy
     );
@@ -41,6 +43,8 @@ module MultModule(
 	reg [31:0] HI,LO;
 	reg [31:0] ans_HI,ans_LO;
 	reg _time;
+	
+	reg [31:0]HI_save,LO_save;
 	
 	wire [5:0] Op = Instr2[31:26];
 	wire [5:0] Func = Instr2[5:0];
@@ -57,26 +61,37 @@ module MultModule(
 		ans_HI = 0;
 		ans_LO = 0;
 		_time = 0;
-		HI = 0;
-		LO = 0;
+		HI_save = 0;
+		LO_save = 0;
 	end
 	
 	always @(posedge clk)begin
+		HI_save <= HI;
+		LO_save <= LO;//将当前HI,LO先作备份,以防下一个周期的Rollback
 		if(reset)begin
 			HI <= 0;
 			LO <= 0;
 			ans_HI = 0;
 			ans_LO = 0;
 		end
+		
+		else if(Rollback)begin//如果mult family在W级，则回滚结果
+			//ans_HI = HI;
+			//ans_LO = LO;
+			HI <= HI_save;
+			LO <= LO_save;
+		end
+		else if(IntReq)//如果mult family在E级，则不启动乘除读写
+			;
 		else if(`MTHI)
-				HI <= A;
+			HI <= A;
 		else if(`MTLO)
-				LO <= A;
+			LO <= A;
 			
-		else if(Start & !Busy)begin
+		else if(Start & !Busy)begin//开始运算
 			Busy <= 1;
 			if(`MULT)begin
-			{ans_HI,ans_LO} = $signed(A) * $signed(B2);
+				{ans_HI,ans_LO} = $signed(A) * $signed(B2);
 				_time <= 0;
 			end
 			else if(`MULTU)begin
@@ -85,8 +100,8 @@ module MultModule(
 			end
 			else if(`DIV)begin
 				if(B2 == 32'b0)begin
-					ans_LO = 0;
-					ans_HI = 0;
+					ans_LO = LO;
+					ans_HI = HI;
 				end
 				else begin
 					ans_LO = $signed(A) / $signed(B2);
@@ -96,8 +111,8 @@ module MultModule(
 			end
 			else if(`DIVU)begin
 				if(B2 == 32'b0)begin
-					ans_LO = 0;
-					ans_HI = 0;
+					ans_LO = LO;
+					ans_HI = HI;
 				end
 				else begin
 					ans_LO = A / B2;
@@ -114,8 +129,13 @@ module MultModule(
 			Busy <= 0;
 			_time <= 0;
 		end
+		else if(Rollback)begin//回滚时,模拟计时清空
+			count <= 1;
+			Busy <= 0;
+			_time <= 0;
+		end
 		else if(Busy)begin
-			count <= count + 1;
+			count <= count + 4'd1;
 			if(count == 4'd5 & !_time)begin
 				count <= 1;
 				Busy <= 0;

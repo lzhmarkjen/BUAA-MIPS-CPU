@@ -18,6 +18,18 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+`define LB    (Op==6'b100000)
+`define LBU   (Op==6'b100100)
+`define LH    (Op==6'b100001)
+`define LHU   (Op==6'b100101)
+`define LW    (Op==6'b100011)
+`define SB    (Op==6'b101000)
+`define SH    (Op==6'b101001)
+`define SW    (Op==6'b101011)
+`define ADD   (Op==6'b000000 & Func==6'b100000)
+`define ADDI  (Op==6'b001000)
+`define SUB   (Op==6'b000000 & Func==6'b100010)
+///////////////////////////////////////////////////
 module Execution(
 	input [31:0]PC2,
 	input [31:0]A2in,
@@ -26,6 +38,8 @@ module Execution(
 	input [31:0]Instr2,
 	input clk,
 	input reset,
+	input IntReq,
+	input Rollback,
 	input Start,
 	input [31:0]Result3in,//Transpond
 	input [1:0]ForwardRSE,
@@ -37,7 +51,11 @@ module Execution(
 	output [31:0]Instr3,
 	output [4:0]WA3,
 	output [31:0]imm32_3,
-	output Busy
+	output Busy,
+	output Ov,
+	output ADEL,
+	output ADES,
+	output eret_reset
     );
 	
 	wire [31:0]Result2in,A,B,B2,Result2out;
@@ -47,14 +65,15 @@ module Execution(
 	wire [4:0]WA2;
 	
 	wire [31:0]HILO;
-	wire ALUMultSel;
+	wire [1:0]ALUMultSel;
 	
 	Execution_Controller EC(
 	.Instr2(Instr2),
 	.ALUOp(ALUOp),
 	.ALUSrc(ALUSrc),
 	.RegDst(RegDst),
-	.ALUMultSel(ALUMultSel)
+	.ALUMultSel(ALUMultSel),
+	.eret_reset(eret_reset)
 	);
 /////////////////		Controller
 	ALU alu(
@@ -62,16 +81,19 @@ module Execution(
 	.B(B),
 	.ALUOp(ALUOp),
 	.shift_offset(Instr2[10:6]),
-	.Result(Result2in)
+	.Result(Result2in),
+	.Overflow(Overflow)
 	);
 //////////////////	ALU
-	MultModule MultModule(
+	MultModule XALU(
 	.clk(clk),
 	.reset(reset),
 	.Instr2(Instr2),
 	.A(A),
 	.B2(B2),
 	.Start(Start),
+	.IntReq(IntReq),
+	.Rollback(Rollback),
 	.HILO(HILO),
 	.Busy(Busy)
 	);
@@ -90,12 +112,15 @@ module Execution(
 	.WA(WA2)
 	);
 	
-	ALUMultmux ALUMultmux(
+	/*ALUMultmux ALUMultmux(
 	.Result2(Result2in),
 	.HILO(HILO),
 	.ALUMultSel(ALUMultSel),
 	.Result2out(Result2out)
-	);
+	);*/
+	assign Result2out = ALUMultSel==2'b01 ?      HILO:
+							  ALUMultSel==2'b00 ? Result2in:
+														 Result2in;
 /////////////////		Mux
 	MFRSE mfrse(
 	.ForwardRSE(ForwardRSE),
@@ -119,7 +144,7 @@ module Execution(
 	.B2(B2),
 	.WA2(WA2),
 	.clk(clk),
-	.reset(reset),
+	.reset(reset | IntReq),
 	.imm32_2(imm32_2),//
 	.PC3(PC3),
 	.Instr3(Instr3),
@@ -128,5 +153,17 @@ module Execution(
 	.WA3(WA3),
 	.imm32_3(imm32_3)
 	);
-//////////////////	Store
+/////////////////////////////	Store
+	wire [5:0] Op = Instr2[31:26];
+	wire [5:0] Func = Instr2[5:0];
+	
+	wire load     = `LB | `LBU | `LH | `LHU | `LW;
+	wire store    = `SB | `SH | `SW;
+		
+	assign Ov = (`ADD | `ADDI | `SUB) & Overflow;
+	
+	assign ADEL = load  & Overflow;
+	
+	assign ADES = store & Overflow;
+/////////////////////////////////	Exception part
 endmodule

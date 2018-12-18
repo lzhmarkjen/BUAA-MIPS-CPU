@@ -23,6 +23,7 @@ module WriteBack(
 	input [31:0]Instr4,
 	input [31:0]Result4,
 	input [31:0]RD4,
+	input [31:0]DOut,
 	output RegWrite,
 	output [31:0]WD
     );
@@ -50,6 +51,7 @@ module WriteBack(
 	.Result(Result4),
 	.RD(RD4out),
 	.PC(PC4),
+	.DOut(DOut),
 	.WD(WD)
 	);
 //////////////////////		Mux

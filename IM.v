@@ -33,6 +33,7 @@ module IM(
 		for(i=0;i<4096;i=i+1)
 			rom[i] = 32'b0;
 		$readmemh("code.txt",rom);
+		$readmemh("code_handler.txt",rom,1120,2047);
 	end
 	
 	always @(*)begin//im_addr = PC0[11:2];
