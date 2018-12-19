@@ -38,6 +38,7 @@
 `define MTHI  (Op3==6'b000000 & Func3==6'b010001)
 `define MTLO  (Op3==6'b000000 & Func3==6'b010011)
 `define MTC0  (Op3==6'b010000 & Instr3[25:21]==5'b00100)
+`define ERET  (Op3==6'b010000 & Func3==6'b011000)
 
 `define Int  0
 `define AdEL 4
@@ -45,7 +46,7 @@
 `define RI   10
 `define Ov   12
 `define im 15:10//中断允许位 1允许该外设中断
-`define exl 1:1//1进入异常不允许再中断
+`define exl 1:1//1进入异常不允许再IntReq
 `define ie 0:0//全局中断使能 1允许中断
 `define bd 31:31
 module Coprocessor0(
@@ -118,7 +119,7 @@ module Coprocessor0(
 			else if(EXLSet)
 				SR[`exl] <= 1'b1;
 				
-			else if(EXLClr)
+			else if(EXLClr | `ERET)//如果ERET在M级，则重置EXL为0
 				SR[`exl] <= 1'b0;
 				
 			else if(IntReq)begin//发生了中断或异常

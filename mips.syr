@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Reading design: mips.prj
 
@@ -425,7 +425,7 @@ Elaborating module <Bridge>.
 Elaborating module <Timer_Counter>.
 --> 
 
-Total memory usage is 1040132 kilobytes
+Total memory usage is 1040196 kilobytes
 
 Number of errors   :    1 (   0 filtered)
 Number of warnings :   41 (   0 filtered)

@@ -72,8 +72,8 @@ module Memory(
 	.CP0WE(CP0WE)
 	);
 	
-	assign MemWrite = MemWriteold & !ADEL & !ADES;//无异常才能写
-	wire [4:0] WA3new = IntReq==0 ? WA3:5'b0;//如果该指令为受害指令,则改地址为0
+	assign MemWrite = MemWriteold & !ADEL & !ADES & !IntReq;//DM无异常才能写(这样就不会写DM了)
+	wire [4:0] WA3new = IntReq==0 ? WA3:5'b0;//如果该指令是写GRF,且为受害指令,则改地址为0(这样就不会再写寄存器了)
 /////////////////////	Controller
 	DM dm(
 	.A(Result3[13:2]),

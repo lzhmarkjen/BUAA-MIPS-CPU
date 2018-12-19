@@ -80,7 +80,7 @@ module Fetch(
 /////////////////	Store part
 	assign PC_Exc = PC0[1:0]!=2'b00    ? 1'b1://PC没有与4对齐
 						 PC0 < 32'h00003000 ? 1'b1://超出范围
-						 PC0 > 32'h00004ffc ? 1'b1://超出范围
+						 PC0 > 32'h00004FFC ? 1'b1://超出范围
 													 1'b0;
 	
 	assign Instr0new = PC_Exc ? 32'b0:Instr0;//假如取指报错，则该指令视为nop

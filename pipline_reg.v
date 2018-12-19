@@ -165,7 +165,7 @@ module MEM_WB(
 			WA4 <= 0;
 			DOut4 <= 0;
 		end
-		else if(MEM_WB_En)begin
+		else begin
 			PC4 <= PC3;
 			Instr4 <= Instr3;
 			RD4 <= RD3;

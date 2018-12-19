@@ -50,6 +50,8 @@ static void Cont_75_0(char *t0)
     char t12[8];
     char t44[8];
     char t53[8];
+    char t85[8];
+    char t94[8];
     char *t1;
     char *t2;
     char *t3;
@@ -130,20 +132,59 @@ static void Cont_75_0(char *t0)
     unsigned int t82;
     unsigned int t83;
     unsigned int t84;
-    char *t85;
     char *t86;
     char *t87;
-    char *t88;
-    char *t89;
+    unsigned int t88;
+    unsigned int t89;
     unsigned int t90;
     unsigned int t91;
-    char *t92;
-    unsigned int t93;
-    unsigned int t94;
-    char *t95;
+    unsigned int t92;
+    char *t93;
+    unsigned int t95;
     unsigned int t96;
     unsigned int t97;
     char *t98;
+    char *t99;
+    char *t100;
+    unsigned int t101;
+    unsigned int t102;
+    unsigned int t103;
+    unsigned int t104;
+    unsigned int t105;
+    unsigned int t106;
+    unsigned int t107;
+    char *t108;
+    char *t109;
+    unsigned int t110;
+    unsigned int t111;
+    unsigned int t112;
+    unsigned int t113;
+    unsigned int t114;
+    unsigned int t115;
+    unsigned int t116;
+    unsigned int t117;
+    int t118;
+    int t119;
+    unsigned int t120;
+    unsigned int t121;
+    unsigned int t122;
+    unsigned int t123;
+    unsigned int t124;
+    unsigned int t125;
+    char *t126;
+    char *t127;
+    char *t128;
+    char *t129;
+    char *t130;
+    unsigned int t131;
+    unsigned int t132;
+    char *t133;
+    unsigned int t134;
+    unsigned int t135;
+    char *t136;
+    unsigned int t137;
+    unsigned int t138;
+    char *t139;
 
 LAB0:    t1 = (t0 + 4480U);
     t2 = *((char **)t1);
@@ -227,27 +268,63 @@ LAB14:    t54 = *((unsigned int *)t12);
         goto LAB15;
 
 LAB16:
-LAB17:    t85 = (t0 + 6088);
-    t86 = (t85 + 32U);
+LAB17:    t86 = (t0 + 1244U);
     t87 = *((char **)t86);
-    t88 = (t87 + 40U);
-    t89 = *((char **)t88);
-    memset(t89, 0, 8);
-    t90 = 1U;
-    t91 = t90;
-    t92 = (t53 + 4);
-    t93 = *((unsigned int *)t53);
-    t90 = (t90 & t93);
-    t94 = *((unsigned int *)t92);
-    t91 = (t91 & t94);
-    t95 = (t89 + 4);
-    t96 = *((unsigned int *)t89);
-    *((unsigned int *)t89) = (t96 | t90);
-    t97 = *((unsigned int *)t95);
-    *((unsigned int *)t95) = (t97 | t91);
-    xsi_driver_vfirst_trans(t85, 0, 0);
-    t98 = (t0 + 5972);
-    *((int *)t98) = 1;
+    memset(t85, 0, 8);
+    t86 = (t87 + 4);
+    t88 = *((unsigned int *)t86);
+    t89 = (~(t88));
+    t90 = *((unsigned int *)t87);
+    t91 = (t90 & t89);
+    t92 = (t91 & 1U);
+    if (t92 != 0)
+        goto LAB21;
+
+LAB19:    if (*((unsigned int *)t86) == 0)
+        goto LAB18;
+
+LAB20:    t93 = (t85 + 4);
+    *((unsigned int *)t85) = 1;
+    *((unsigned int *)t93) = 1;
+
+LAB21:    t95 = *((unsigned int *)t53);
+    t96 = *((unsigned int *)t85);
+    t97 = (t95 & t96);
+    *((unsigned int *)t94) = t97;
+    t98 = (t53 + 4);
+    t99 = (t85 + 4);
+    t100 = (t94 + 4);
+    t101 = *((unsigned int *)t98);
+    t102 = *((unsigned int *)t99);
+    t103 = (t101 | t102);
+    *((unsigned int *)t100) = t103;
+    t104 = *((unsigned int *)t100);
+    t105 = (t104 != 0);
+    if (t105 == 1)
+        goto LAB22;
+
+LAB23:
+LAB24:    t126 = (t0 + 6088);
+    t127 = (t126 + 32U);
+    t128 = *((char **)t127);
+    t129 = (t128 + 40U);
+    t130 = *((char **)t129);
+    memset(t130, 0, 8);
+    t131 = 1U;
+    t132 = t131;
+    t133 = (t94 + 4);
+    t134 = *((unsigned int *)t94);
+    t131 = (t131 & t134);
+    t135 = *((unsigned int *)t133);
+    t132 = (t132 & t135);
+    t136 = (t130 + 4);
+    t137 = *((unsigned int *)t130);
+    *((unsigned int *)t130) = (t137 | t131);
+    t138 = *((unsigned int *)t136);
+    *((unsigned int *)t136) = (t138 | t132);
+    xsi_driver_vfirst_trans(t126, 0, 0);
+    t139 = (t0 + 5972);
+    *((int *)t139) = 1;
 
 LAB1:    return;
 LAB4:    *((unsigned int *)t4) = 1;
@@ -309,6 +386,36 @@ LAB15:    t65 = *((unsigned int *)t53);
     t84 = *((unsigned int *)t53);
     *((unsigned int *)t53) = (t84 & t80);
     goto LAB17;
+
+LAB18:    *((unsigned int *)t85) = 1;
+    goto LAB21;
+
+LAB22:    t106 = *((unsigned int *)t94);
+    t107 = *((unsigned int *)t100);
+    *((unsigned int *)t94) = (t106 | t107);
+    t108 = (t53 + 4);
+    t109 = (t85 + 4);
+    t110 = *((unsigned int *)t53);
+    t111 = (~(t110));
+    t112 = *((unsigned int *)t108);
+    t113 = (~(t112));
+    t114 = *((unsigned int *)t85);
+    t115 = (~(t114));
+    t116 = *((unsigned int *)t109);
+    t117 = (~(t116));
+    t118 = (t111 & t113);
+    t119 = (t115 & t117);
+    t120 = (~(t118));
+    t121 = (~(t119));
+    t122 = *((unsigned int *)t100);
+    *((unsigned int *)t100) = (t122 & t120);
+    t123 = *((unsigned int *)t100);
+    *((unsigned int *)t100) = (t123 & t121);
+    t124 = *((unsigned int *)t94);
+    *((unsigned int *)t94) = (t124 & t120);
+    t125 = *((unsigned int *)t94);
+    *((unsigned int *)t94) = (t125 & t121);
+    goto LAB24;
 
 }
 
