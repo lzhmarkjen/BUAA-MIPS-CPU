@@ -128,6 +128,7 @@
          <ClosedNode>/Timer_test G:|ComputerOrganization|CPU|Timer_test.v</ClosedNode>
          <ClosedNode>/mips G:|ComputerOrganization|CPU|mips.v</ClosedNode>
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/cpu - cpu/Exception - Exception</ClosedNode>
+         <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/cpu - cpu/decode - Decode</ClosedNode>
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/cpu - cpu/execution - Execution</ClosedNode>
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/cpu - cpu/fetch - Fetch</ClosedNode>
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/cpu - cpu/hazard - Hazard</ClosedNode>
@@ -145,13 +146,13 @@
          <ClosedNode>/mips_test G:|ComputerOrganization|CPU|mips_test.v/uut - mips/writeback - WriteBack</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>id_ex - ID_EX (G:/ComputerOrganization/CPU/pipline_reg.v)</SelectedItem>
+         <SelectedItem>decode - Decode (G:/ComputerOrganization/CPU/Decode.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >5</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000017f000000020000000000000000000000000200000064ffffffff0000008100000003000000020000017f0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>id_ex - ID_EX (G:/ComputerOrganization/CPU/pipline_reg.v)</CurrentItem>
+      <CurrentItem>decode - Decode (G:/ComputerOrganization/CPU/Decode.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>

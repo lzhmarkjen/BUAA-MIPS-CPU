@@ -55,8 +55,8 @@ module GRF(
 				Reg[i] <= 32'h0;
 		else if(RegWrite & WA!=5'b00000)begin//Reg[0] always stays 0
 				Reg[WA] <= WD;
-				//$display("%d@%h: $%d <= %h", $time, PC, WA,WD);
-				if(WA!=31)$display("@%h: $%d <= %h", PC, WA,WD);
+				$display("%d@%h: $%d <= %h", $time, PC, WA,WD);
+				//if(WA!=31)$display("@%h: $%d <= %h", PC, WA,WD);
 			end
 	end
 

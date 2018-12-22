@@ -39,7 +39,6 @@ module Memory(
 	input IntReq,
 	input [31:0]imm32_3,//useless
 	input [31:0]PrRD,
-	input MEM_WB_En,
 	input [31:0]WD,//Transpond
 	input ForwardRTM,//Transpond
 	output [31:0]RD4,
@@ -107,7 +106,6 @@ module Memory(
 	.DOut3(DOut),
 	.clk(clk),
 	.reset(reset),//IntReq±ðÇå
-	.MEM_WB_En(MEM_WB_En),
 	.PC4(PC4),
 	.Instr4(Instr4),
 	.RD4(RD4),
