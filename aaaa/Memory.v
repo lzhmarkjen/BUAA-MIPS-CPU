@@ -117,7 +117,7 @@ module Memory(
 	);
 //////////////////////		Store
 	wire [5:0] Op = Instr3[31:26];
-	assign range1 = (Result3 >= 32'h0000 & Result3 <= 32'h2FFC);//一般内存范围
+	assign range1 = (Result3 >= 32'h0000 & Result3 <= 32'h2FFF);//一般内存范围
 	assign range2 = (Result3 >= 32'h7F00 & Result3 <= 32'h7F0B) | (Result3 >= 32'h7F10 & Result3 <= 32'h7F1B);//计时器内存范围
 	assign WAisCOUNT = Result3==32'h7F08 | Result3==32'h7F18;//计时器中COUNT的地址
 	

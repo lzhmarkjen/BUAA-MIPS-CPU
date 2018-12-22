@@ -48,6 +48,7 @@ module ID_EX(
 	input [31:0]Instr1,
 	input clk,
 	input reset,
+	input Stall,
 	input [31:0]imm32_1,
 	input [31:0]A1,
 	input [31:0]B1,
@@ -70,6 +71,14 @@ module ID_EX(
 	always@(posedge clk)begin
 		if(reset)begin
 			//PC2 <= 0;
+			Instr2 <= 0;
+			imm32_2 <= 0;
+			A2 <=0;
+			B2 <=0;
+			Start2 <= 0;
+		end
+		else if(Stall)begin
+			PC2 <= PC1;
 			Instr2 <= 0;
 			imm32_2 <= 0;
 			A2 <=0;
@@ -140,7 +149,6 @@ module MEM_WB(
 	input [31:0]DOut3,
 	input clk,
 	input reset,
-	input MEM_WB_En,
 	output reg [31:0]PC4,
 	output reg [31:0]Instr4,
 	output reg [31:0]RD4,

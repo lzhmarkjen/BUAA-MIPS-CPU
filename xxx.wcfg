@@ -10,7 +10,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="26" />
+   <WVObjectSize size="32" />
    <wvobject fp_name="/mips_test/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -83,10 +83,18 @@
       <obj_property name="ObjectShortName">CAUSE[31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
+   <wvobject fp_name="/mips_test/uut/cpu/Cp0/ExcCode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ExcCode[6:2]</obj_property>
+      <obj_property name="ObjectShortName">ExcCode[6:2]</obj_property>
+   </wvobject>
    <wvobject fp_name="/mips_test/uut/cpu/Cp0/EPC" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">EPC[31:0]</obj_property>
       <obj_property name="ObjectShortName">EPC[31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_test/uut/cpu/PCSel" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">PCSel[2:0]</obj_property>
+      <obj_property name="ObjectShortName">PCSel[2:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/mips_test/uut/cpu/IntReq" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">IntReq</obj_property>
@@ -99,6 +107,26 @@
    <wvobject fp_name="/mips_test/uut/cpu/execution/Rollback" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">Rollback</obj_property>
       <obj_property name="ObjectShortName">Rollback</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_test/uut/cpu/execution/XALU/LO" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">LO[31:0]</obj_property>
+      <obj_property name="ObjectShortName">LO[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_test/uut/cpu/execution/XALU/HI" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">HI[31:0]</obj_property>
+      <obj_property name="ObjectShortName">HI[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_test/uut/cpu/execution/XALU/ans_LO" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ans_LO[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ans_LO[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_test/uut/cpu/execution/XALU/ans_HI" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ans_HI[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ans_HI[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/mips_test/uut/cpu/PC_Exc" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">PC_Exc</obj_property>

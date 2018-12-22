@@ -153,7 +153,6 @@ module cpu(
 	.reset(reset),
 	.IntReq(IntReq),
 	.WD(WD),
-	.MEM_WB_En(MEM_WB_En),
 	.PrRD(PrRD),//Transpond
 	.ForwardRTM(ForwardRTM),//Transpond
 	.RD4(RD4),
@@ -231,7 +230,6 @@ module cpu(
     .IntReq(IntReq), 
     .EPCout(EPC), 
     .DOut(DOut3),
-	 .MEM_WB_En(MEM_WB_En),
 	 .Rollback(Rollback)
     );
 //////////////////////////////////////  Coprocessor0

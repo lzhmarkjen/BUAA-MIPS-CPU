@@ -39,7 +39,6 @@ module Memory(
 	input IntReq,
 	input [31:0]imm32_3,//useless
 	input [31:0]PrRD,
-	input MEM_WB_En,
 	input [31:0]WD,//Transpond
 	input ForwardRTM,//Transpond
 	output [31:0]RD4,
@@ -107,7 +106,6 @@ module Memory(
 	.DOut3(DOut),
 	.clk(clk),
 	.reset(reset),//IntReq别清
-	.MEM_WB_En(MEM_WB_En),
 	.PC4(PC4),
 	.Instr4(Instr4),
 	.RD4(RD4),
@@ -117,7 +115,7 @@ module Memory(
 	);
 //////////////////////		Store
 	wire [5:0] Op = Instr3[31:26];
-	assign range1 = (Result3 >= 32'h0000 & Result3 <= 32'h2FFC);//一般内存范围
+	assign range1 = (Result3 >= 32'h0000 & Result3 <= 32'h2FFF);//一般内存范围
 	assign range2 = (Result3 >= 32'h7F00 & Result3 <= 32'h7F0B) | (Result3 >= 32'h7F10 & Result3 <= 32'h7F1B);//计时器内存范围
 	assign WAisCOUNT = Result3==32'h7F08 | Result3==32'h7F18;//计时器中COUNT的地址
 	

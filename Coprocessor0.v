@@ -66,7 +66,6 @@ module Coprocessor0(
     output IntReq,
     output [31:0] EPCout,
     output [31:0] DOut,
-	 output MEM_WB_En,
 	 output Rollback
     );
 	
@@ -93,8 +92,6 @@ module Coprocessor0(
 	//assign IntReq = IntReq1 | ExcInt ;
 	assign IntReq = HWIntReq | ExcInt;
 	
-	assign MEM_WB_En = ~((`JAL | `JALR) & IntReq);
-	
 	initial begin
 		SR = 0;
 		CAUSE = 0;
@@ -115,6 +112,8 @@ module Coprocessor0(
 				SR <= Din;
 			else if(CP0WE & AWrite==5'd14 & ~IntReq)//Write EPC
 				EPC <= Din;
+			//else if(CP0WE & AWrite==5'd13 & ~IntReq)//Write CAUSE #########	test only
+			//	CAUSE <= Din;
 				
 			else if(EXLSet)
 				SR[`exl] <= 1'b1;
@@ -138,6 +137,8 @@ module Coprocessor0(
 					CAUSE[`bd] <= 1'b0;
 				end
 			end
+			
+			
 		end
 	end
 	

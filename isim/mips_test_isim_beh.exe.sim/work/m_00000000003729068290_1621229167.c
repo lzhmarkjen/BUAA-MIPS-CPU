@@ -26,7 +26,8 @@ static unsigned int ng1[] = {0U, 0U};
 static int ng2[] = {0, 0};
 static int ng3[] = {32, 0};
 static int ng4[] = {1, 0};
-static const char *ng5 = "@%h: $%d <= %h";
+static int ng5[] = {31, 0};
+static const char *ng6 = "@%h: $%d <= %h";
 
 
 
@@ -1434,14 +1435,41 @@ LAB24:    xsi_set_current_line(57, ng0);
         goto LAB25;
 
 LAB26:    xsi_set_current_line(59, ng0);
-    t2 = (t0 + 1244U);
-    t3 = *((char **)t2);
     t2 = (t0 + 784U);
-    t4 = *((char **)t2);
-    t2 = (t0 + 876U);
-    t5 = *((char **)t2);
-    xsi_vlogfile_write(1, 0, 0, ng5, 4, t0, (char)118, t3, 32, (char)118, t4, 5, (char)118, t5, 32);
-    goto LAB23;
+    t3 = *((char **)t2);
+    t2 = ((char*)((ng5)));
+    memset(t13, 0, 8);
+    t4 = (t3 + 4);
+    t5 = (t2 + 4);
+    t6 = *((unsigned int *)t3);
+    t7 = *((unsigned int *)t2);
+    t8 = (t6 ^ t7);
+    t9 = *((unsigned int *)t4);
+    t10 = *((unsigned int *)t5);
+    t27 = (t9 ^ t10);
+    t30 = (t8 | t27);
+    t33 = *((unsigned int *)t4);
+    t34 = *((unsigned int *)t5);
+    t37 = (t33 | t34);
+    t38 = (~(t37));
+    t39 = (t30 & t38);
+    if (t39 != 0)
+        goto LAB28;
+
+LAB27:    if (t37 != 0)
+        goto LAB29;
+
+LAB30:    t12 = (t13 + 4);
+    t40 = *((unsigned int *)t12);
+    t41 = (~(t40));
+    t42 = *((unsigned int *)t13);
+    t43 = (t42 & t41);
+    t44 = (t43 != 0);
+    if (t44 > 0)
+        goto LAB31;
+
+LAB32:
+LAB33:    goto LAB23;
 
 LAB25:    t77 = *((unsigned int *)t16);
     t78 = *((unsigned int *)t69);
@@ -1449,6 +1477,24 @@ LAB25:    t77 = *((unsigned int *)t16);
     t80 = (t79 + 1);
     xsi_vlogvar_wait_assign_value(t22, t23, 0, *((unsigned int *)t69), t80, 0LL);
     goto LAB26;
+
+LAB28:    *((unsigned int *)t13) = 1;
+    goto LAB30;
+
+LAB29:    t11 = (t13 + 4);
+    *((unsigned int *)t13) = 1;
+    *((unsigned int *)t11) = 1;
+    goto LAB30;
+
+LAB31:    xsi_set_current_line(59, ng0);
+    t14 = (t0 + 1244U);
+    t17 = *((char **)t14);
+    t14 = (t0 + 784U);
+    t18 = *((char **)t14);
+    t14 = (t0 + 876U);
+    t19 = *((char **)t14);
+    xsi_vlogfile_write(1, 0, 0, ng6, 4, t0, (char)118, t17, 32, (char)118, t18, 5, (char)118, t19, 32);
+    goto LAB33;
 
 }
 

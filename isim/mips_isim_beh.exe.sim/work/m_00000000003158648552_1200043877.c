@@ -1263,9 +1263,9 @@ LAB4:    t16 = *((unsigned int *)t5);
 }
 
 
-extern void work_m_00000000002827418602_1200043877_init()
+extern void work_m_00000000003158648552_1200043877_init()
 {
 	static char *pe[] = {(void *)NetDecl_33_0,(void *)Cont_35_1,(void *)Cont_36_2,(void *)Cont_37_3,(void *)Cont_50_4,(void *)Cont_51_5,(void *)Cont_52_6,(void *)Cont_53_7,(void *)implSig1_execute,(void *)implSig2_execute};
-	xsi_register_didat("work_m_00000000002827418602_1200043877", "isim/mips_test_isim_beh.exe.sim/work/m_00000000002827418602_1200043877.didat");
+	xsi_register_didat("work_m_00000000003158648552_1200043877", "isim/mips_isim_beh.exe.sim/work/m_00000000003158648552_1200043877.didat");
 	xsi_register_executes(pe);
 }
