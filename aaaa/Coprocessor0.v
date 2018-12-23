@@ -38,7 +38,7 @@
 `define MTHI  (Op3==6'b000000 & Func3==6'b010001)
 `define MTLO  (Op3==6'b000000 & Func3==6'b010011)
 `define MTC0  (Op3==6'b010000 & Instr3[25:21]==5'b00100)
-`define ERET  (Op3==6'b010000 & Func3==6'b011000)
+`define ERET  (Op4==6'b010000 & Func4==6'b011000)
 
 `define Int  0
 `define AdEL 4
@@ -87,9 +87,8 @@ module Coprocessor0(
 	assign HWIntReq = |(HWInt[7:2] & SR[`im]) & SR[`ie] & !SR[`exl];//硬件中断
 	assign ExcInt  = ExcCodein!=5'b0 & !SR[`exl];//程序异常 & SR[`ie]
 	
-	wire [6:2]ExcCode = HWIntReq==0 ? ExcCodein:`Int;//中断大于异常
+	wire [6:2]ExcCode = HWIntReq==0 ? ExcCodein:`Int;//中断的ExcCode大于异常
 
-	//assign IntReq = IntReq1 | ExcInt ;
 	assign IntReq = HWIntReq | ExcInt;
 	
 	initial begin
@@ -118,7 +117,7 @@ module Coprocessor0(
 			else if(EXLSet)
 				SR[`exl] <= 1'b1;
 				
-			else if(EXLClr | `ERET)//如果ERET在M级，则重置EXL为0
+			else if(EXLClr | `ERET)//如果ERET在W级，则重置EXL为0
 				SR[`exl] <= 1'b0;
 				
 			else if(IntReq)begin//发生了中断或异常

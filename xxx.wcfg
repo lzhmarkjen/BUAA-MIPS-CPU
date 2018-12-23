@@ -10,7 +10,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="32" />
+   <WVObjectSize size="18" />
    <wvobject fp_name="/mips_test/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -92,68 +92,8 @@
       <obj_property name="ObjectShortName">EPC[31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/mips_test/uut/cpu/PCSel" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">PCSel[2:0]</obj_property>
-      <obj_property name="ObjectShortName">PCSel[2:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/mips_test/uut/cpu/IntReq" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">IntReq</obj_property>
       <obj_property name="ObjectShortName">IntReq</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mips_test/uut/cpu/execution/Start" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">Start</obj_property>
-      <obj_property name="ObjectShortName">Start</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mips_test/uut/cpu/execution/Rollback" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">Rollback</obj_property>
-      <obj_property name="ObjectShortName">Rollback</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mips_test/uut/cpu/execution/XALU/LO" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">LO[31:0]</obj_property>
-      <obj_property name="ObjectShortName">LO[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mips_test/uut/cpu/execution/XALU/HI" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">HI[31:0]</obj_property>
-      <obj_property name="ObjectShortName">HI[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mips_test/uut/cpu/execution/XALU/ans_LO" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">ans_LO[31:0]</obj_property>
-      <obj_property name="ObjectShortName">ans_LO[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mips_test/uut/cpu/execution/XALU/ans_HI" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">ans_HI[31:0]</obj_property>
-      <obj_property name="ObjectShortName">ans_HI[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mips_test/uut/cpu/PC_Exc" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">PC_Exc</obj_property>
-      <obj_property name="ObjectShortName">PC_Exc</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mips_test/uut/cpu/RI" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">RI</obj_property>
-      <obj_property name="ObjectShortName">RI</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mips_test/uut/cpu/Ov" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">Ov</obj_property>
-      <obj_property name="ObjectShortName">Ov</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mips_test/uut/cpu/ADEL_E" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">ADEL_E</obj_property>
-      <obj_property name="ObjectShortName">ADEL_E</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mips_test/uut/cpu/ADES_E" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">ADES_E</obj_property>
-      <obj_property name="ObjectShortName">ADES_E</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mips_test/uut/cpu/ADEL_M" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">ADEL_M</obj_property>
-      <obj_property name="ObjectShortName">ADEL_M</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mips_test/uut/cpu/ADES_M" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">ADES_M</obj_property>
-      <obj_property name="ObjectShortName">ADES_M</obj_property>
    </wvobject>
 </wave_config>
