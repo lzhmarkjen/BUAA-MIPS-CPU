@@ -26,12 +26,12 @@ static int ng1[] = {0, 0};
 
 
 
-static void Initial_194_0(char *t0)
+static void Initial_205_0(char *t0)
 {
     char *t1;
     char *t2;
 
-LAB0:    xsi_set_current_line(195, ng0);
+LAB0:    xsi_set_current_line(206, ng0);
     t1 = ((char*)((ng1)));
     t2 = (t0 + 1012);
     xsi_vlogvar_assign_value(t2, t1, 0, 0, 5);
@@ -39,7 +39,7 @@ LAB0:    xsi_set_current_line(195, ng0);
 LAB1:    return;
 }
 
-static void Always_197_1(char *t0)
+static void Always_208_1(char *t0)
 {
     char *t1;
     char *t2;
@@ -61,7 +61,7 @@ LAB0:    t1 = (t0 + 1680U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(197, ng0);
+LAB2:    xsi_set_current_line(208, ng0);
     t2 = (t0 + 1876);
     *((int *)t2) = 1;
     t3 = (t0 + 1708);
@@ -69,9 +69,9 @@ LAB2:    xsi_set_current_line(197, ng0);
     *((char **)t1) = &&LAB4;
 
 LAB1:    return;
-LAB4:    xsi_set_current_line(197, ng0);
+LAB4:    xsi_set_current_line(208, ng0);
 
-LAB5:    xsi_set_current_line(198, ng0);
+LAB5:    xsi_set_current_line(209, ng0);
     t4 = (t0 + 692U);
     t5 = *((char **)t4);
     t4 = (t5 + 4);
@@ -83,7 +83,7 @@ LAB5:    xsi_set_current_line(198, ng0);
     if (t10 > 0)
         goto LAB6;
 
-LAB7:    xsi_set_current_line(201, ng0);
+LAB7:    xsi_set_current_line(212, ng0);
     t2 = (t0 + 784U);
     t3 = *((char **)t2);
     t2 = (t0 + 1012);
@@ -91,7 +91,7 @@ LAB7:    xsi_set_current_line(201, ng0);
 
 LAB8:    goto LAB2;
 
-LAB6:    xsi_set_current_line(199, ng0);
+LAB6:    xsi_set_current_line(210, ng0);
     t11 = ((char*)((ng1)));
     t12 = (t0 + 1012);
     xsi_vlogvar_wait_assign_value(t12, t11, 0, 0, 5, 0LL);
@@ -102,7 +102,7 @@ LAB6:    xsi_set_current_line(199, ng0);
 
 extern void work_m_00000000000823318964_3449363174_init()
 {
-	static char *pe[] = {(void *)Initial_194_0,(void *)Always_197_1};
+	static char *pe[] = {(void *)Initial_205_0,(void *)Always_208_1};
 	xsi_register_didat("work_m_00000000000823318964_3449363174", "isim/mips_test_isim_beh.exe.sim/work/m_00000000000823318964_3449363174.didat");
 	xsi_register_executes(pe);
 }

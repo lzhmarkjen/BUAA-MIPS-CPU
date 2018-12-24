@@ -96,7 +96,8 @@ module Decode(
 	output [31:0] PC_jr,
 	output [31:0] PC_beq,
 	output Start2,
-	output RI
+	output RI,
+	output BD2
     );
 	
 	wire [31:0]imm32,RD1,RD2;
@@ -113,6 +114,12 @@ module Decode(
 	assign PC_jr = A1;
 	assign PC_beq = PC1 + 4 + imm32;
 //////////////////	PC Calculate
+	wire BD1 = Instr2[31:26]==6'b000100 | Instr2[31:26]==6'b000101 | Instr2[31:26]==6'b000110 | 
+				  Instr2[31:26]==6'b000111 | Instr2[31:26]==6'b000001 | Instr2[31:26]==6'b000001 | 
+				  Instr2[31:26]==6'b000010 | Instr2[31:26]==6'b000011 |
+				  Instr2[31:26]==6'b000000 & Instr2[5:0]==6'b001001 | 
+				  Instr2[31:26]==6'b000000 & Instr2[5:0]==6'b001000;//if D is delay branch
+//////////////////////////////////
 	Decode_Controller DC(
 	.RD_AEqualB(RD_AEqualB),
 	.RD_ASmall0(RD_ASmall0),
@@ -168,14 +175,18 @@ module Decode(
 	.imm32_1(imm32),
 	.A1(A1),
 	.B1(B1),
+	.BD1(BD1),
 	.Start1(Start1),//
 	.PC2(PC2),
 	.Instr2(Instr2),
 	.imm32_2(imm32_2),
 	.A2(A2),
 	.B2(B2),
+	.BD2(BD2),
 	.Start2(Start2)
 	);
+	
+	
 //////////////////	Store
 	wire [5:0] Op = Instr1old[31:26];//判断旧版Instr1是否为未定义指令
 	wire [5:0] Func = Instr1old[5:0];

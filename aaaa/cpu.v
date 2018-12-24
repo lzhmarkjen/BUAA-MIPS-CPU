@@ -111,7 +111,8 @@ module cpu(
 	.PC_jr(PC_jr),
 	.PC_beq(PC_beq),
 	.Start2(Start2),
-	.RI(RI)
+	.RI(RI),
+	.BD2(BD2)
 	);
 	
 	Execution execution(
@@ -125,6 +126,7 @@ module cpu(
 	.IntReq(IntReq),
 	.Rollback(Rollback),
 	.Start(Start2),
+	.BD2(BD2),
 	.Result3in(Result3),//Transpond
 	.ForwardRSE(ForwardRSE),
 	.ForwardRTE(ForwardRTE),
@@ -139,7 +141,8 @@ module cpu(
 	.Ov(Ov),
 	.ADEL(ADEL_E),
 	.ADES(ADES_E),
-	.eret_reset(eret_reset)//output if E is eret
+	.eret_reset(eret_reset),//output if E is eret
+	.BD3(BD3)
 	);
 	
 	Memory memory(
@@ -225,6 +228,7 @@ module cpu(
     .EXLClr(EXLClr),
     .clk(clk), 
     .reset(reset),
+	 .BD3(BD3),
 	 .Instr3(Instr3),
 	 .Instr4(Instr4),//
     .IntReq(IntReq), 

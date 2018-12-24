@@ -77,19 +77,22 @@
 <msg type="warning" file="HDLCompiler" num="572" delta="old" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 40: Macro &lt;<arg fmt="%s" index="1">MTC0</arg>&gt; is redefined.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="572" delta="old" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 42: Macro &lt;<arg fmt="%s" index="1">Int</arg>&gt; is redefined.
+<msg type="warning" file="HDLCompiler" num="572" delta="old" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 41: Macro &lt;<arg fmt="%s" index="1">ERET</arg>&gt; is redefined.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="572" delta="old" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 43: Macro &lt;<arg fmt="%s" index="1">AdEL</arg>&gt; is redefined.
+<msg type="warning" file="HDLCompiler" num="572" delta="old" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 43: Macro &lt;<arg fmt="%s" index="1">Int</arg>&gt; is redefined.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="572" delta="old" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 44: Macro &lt;<arg fmt="%s" index="1">AdES</arg>&gt; is redefined.
+<msg type="warning" file="HDLCompiler" num="572" delta="old" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 44: Macro &lt;<arg fmt="%s" index="1">AdEL</arg>&gt; is redefined.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="572" delta="old" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 45: Macro &lt;<arg fmt="%s" index="1">RI</arg>&gt; is redefined.
+<msg type="warning" file="HDLCompiler" num="572" delta="old" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 45: Macro &lt;<arg fmt="%s" index="1">AdES</arg>&gt; is redefined.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="572" delta="old" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 46: Macro &lt;<arg fmt="%s" index="1">Ov</arg>&gt; is redefined.
+<msg type="warning" file="HDLCompiler" num="572" delta="old" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 46: Macro &lt;<arg fmt="%s" index="1">RI</arg>&gt; is redefined.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="572" delta="old" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 47: Macro &lt;<arg fmt="%s" index="1">Ov</arg>&gt; is redefined.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1670" delta="new" >"G:\ComputerOrganization\CPU\IM.v" Line 35: Signal &lt;<arg fmt="%s" index="1">rom</arg>&gt; in initial block is partially initialized.
@@ -104,7 +107,7 @@
 <msg type="warning" file="HDLCompiler" num="1499" delta="new" >"G:\ComputerOrganization\CPU\MultModule.v" Line 29: Empty module &lt;<arg fmt="%s" index="1">MultModule</arg>&gt; remains a black box.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"G:\ComputerOrganization\CPU\cpu.v" Line 166: Assignment to <arg fmt="%s" index="1">MemRead</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"G:\ComputerOrganization\CPU\cpu.v" Line 168: Assignment to <arg fmt="%s" index="1">MemRead</arg> ignored, since the identifier is never used
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1016" delta="new" >"G:\ComputerOrganization\CPU\Hazard.v" Line 54: Port <arg fmt="%s" index="1">eret</arg> is not connected to this instance
@@ -125,10 +128,19 @@
 <msg type="warning" file="HDLCompiler" num="1127" delta="new" >"G:\ComputerOrganization\CPU\Hazard.v" Line 55: Assignment to <arg fmt="%s" index="1">cal_r_W</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="872" delta="new" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 97: Using initial value of <arg fmt="%s" index="1">PrID</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="872" delta="new" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 95: Using initial value of <arg fmt="%s" index="1">PrID</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="634" delta="new" >"G:\ComputerOrganization\CPU\cpu.v" Line 225: Net &lt;<arg fmt="%s" index="1">EXLSet</arg>&gt; does not have a driver.
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 152: Assignment to <arg fmt="%s" index="1">branch</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"G:\ComputerOrganization\CPU\Coprocessor0.v" Line 153: Assignment to <arg fmt="%s" index="1">jump</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="new" >"G:\ComputerOrganization\CPU\cpu.v" Line 227: Net &lt;<arg fmt="%s" index="1">EXLSet</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="new" >"G:\ComputerOrganization\CPU\cpu.v" Line 228: Net &lt;<arg fmt="%s" index="1">EXLClr</arg>&gt; does not have a driver.
 </msg>
 
 </messages>

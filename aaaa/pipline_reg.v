@@ -52,12 +52,14 @@ module ID_EX(
 	input [31:0]imm32_1,
 	input [31:0]A1,
 	input [31:0]B1,
+	input BD1,
 	input Start1,
 	output reg [31:0]PC2,
 	output reg [31:0]Instr2,
 	output reg [31:0]imm32_2,
 	output reg [31:0]A2,
 	output reg [31:0]B2,
+	output reg BD2,
 	output reg Start2
 	);
 	initial begin
@@ -67,6 +69,7 @@ module ID_EX(
 		A2 =0;
 		B2 =0;
 		Start2 = 0;
+		BD2 = 0;
 	end
 	always@(posedge clk)begin
 		if(reset)begin
@@ -76,6 +79,7 @@ module ID_EX(
 			A2 <=0;
 			B2 <=0;
 			Start2 <= 0;
+			BD2 <= 0;
 		end
 		else if(Stall)begin
 			PC2 <= PC1;
@@ -84,6 +88,7 @@ module ID_EX(
 			A2 <=0;
 			B2 <=0;
 			Start2 <= 0;
+			BD2 <= BD1;
 		end
 		else begin
 			PC2 <= PC1;
@@ -92,6 +97,7 @@ module ID_EX(
 			A2 <= A1;
 			B2 <= B1;
 			Start2 <= Start1;
+			BD2 <= BD1;
 		end
 	end
 endmodule
@@ -105,12 +111,14 @@ module EX_MEM(
 	input reset,
 	input [31:0]Instr2,
 	input [31:0]imm32_2,
+	input BD2,
 	output reg [31:0]PC3,
 	output reg [31:0]Result3,
 	output reg [31:0]B3,
 	output reg [31:0]Instr3,
 	output reg [4:0]WA3,
-	output reg [31:0]imm32_3
+	output reg [31:0]imm32_3,
+	output reg BD3
 	);
 	initial begin
 		PC3 = 0;
@@ -119,6 +127,7 @@ module EX_MEM(
 		WA3 = 0;
 		Instr3 = 0;
 		imm32_3 = 0;
+		BD3 = 0;
 	end
 	always@(posedge clk)begin
 		if(reset)begin
@@ -128,6 +137,7 @@ module EX_MEM(
 			WA3 <= 0;
 			Instr3 <= 0;
 			imm32_3 <= 0;
+			BD3 <= 0;
 		end
 		else begin
 			PC3 <= PC2;
@@ -136,6 +146,7 @@ module EX_MEM(
 			WA3 <= WA2;
 			Instr3 <= Instr2;
 			imm32_3 <= imm32_2;
+			BD3 <= BD2;
 		end
 	end
 endmodule

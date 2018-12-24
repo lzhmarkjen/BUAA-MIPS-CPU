@@ -61,6 +61,7 @@ module Coprocessor0(
     input EXLClr,
     input clk,
     input reset,
+	 input BD3,
 	 input [31:0]Instr3,
 	 input [31:0]Instr4,
     output IntReq,
@@ -123,18 +124,21 @@ module Coprocessor0(
 			else if(IntReq)begin//发生了中断或异常
 				CAUSE[6:2] <= ExcCode;
 				SR[`exl] <= 1'b1;
-				if(branch | jump)begin//如果受害指令在延迟槽内,异常
+				
+				/*if(branch | jump)begin//如果受害指令在延迟槽内,异常
 					EPC <= {PC[31:2],2'b00} - 4;
 					CAUSE[`bd] <= 1'b1;
 				end
-				/*else if(`JAL | `JALR)begin
-					EPC <= {PC[31:2],2'b00} - 4;
-					CAUSE[`bd] <= 1'b1;
-				end*/
 				else begin//不在延迟槽内
 					EPC <= {PC[31:2],2'b00};
 					CAUSE[`bd] <= 1'b0;
-				end
+				*/	
+					if(BD3)//如果受害指令在延迟槽内,异常
+						EPC <= {PC[31:2],2'b00}-4;
+					else 
+						EPC <= {PC[31:2],2'b00};
+					CAUSE[`bd] <= BD3;
+				//end
 			end
 			
 			

@@ -26,7 +26,7 @@ static unsigned int ng1[] = {0U, 0U};
 static int ng2[] = {0, 0};
 static int ng3[] = {32, 0};
 static int ng4[] = {1, 0};
-static const char *ng5 = "@%h: $%d <= %h";
+static const char *ng5 = "%d@%h: $%d <= %h";
 
 
 
@@ -1146,6 +1146,7 @@ static void Always_52_3(char *t0)
     char t15[8];
     char t16[8];
     char t69[8];
+    char t81[16];
     char *t1;
     char *t2;
     char *t3;
@@ -1433,14 +1434,15 @@ LAB24:    xsi_set_current_line(57, ng0);
     if (t36 == 1)
         goto LAB25;
 
-LAB26:    xsi_set_current_line(59, ng0);
-    t2 = (t0 + 1244U);
-    t3 = *((char **)t2);
-    t2 = (t0 + 784U);
-    t4 = *((char **)t2);
-    t2 = (t0 + 876U);
-    t5 = *((char **)t2);
-    xsi_vlogfile_write(1, 0, 0, ng5, 4, t0, (char)118, t3, 32, (char)118, t4, 5, (char)118, t5, 32);
+LAB26:    xsi_set_current_line(58, ng0);
+    t2 = xsi_vlog_time(t81, 1000.0000000000000, 1000.0000000000000);
+    t3 = (t0 + 1244U);
+    t4 = *((char **)t3);
+    t3 = (t0 + 784U);
+    t5 = *((char **)t3);
+    t3 = (t0 + 876U);
+    t11 = *((char **)t3);
+    xsi_vlogfile_write(1, 0, 0, ng5, 5, t0, (char)118, t81, 64, (char)118, t4, 32, (char)118, t5, 5, (char)118, t11, 32);
     goto LAB23;
 
 LAB25:    t77 = *((unsigned int *)t16);

@@ -41,6 +41,7 @@ module Execution(
 	input IntReq,
 	input Rollback,
 	input Start,
+	input BD2,
 	input [31:0]Result3in,//Transpond
 	input [1:0]ForwardRSE,
 	input [1:0]ForwardRTE,
@@ -55,7 +56,8 @@ module Execution(
 	output Ov,
 	output ADEL,
 	output ADES,
-	output eret_reset
+	output eret_reset,
+	output BD3
     );
 	
 	wire [31:0]Result2in,A,B,B2,Result2out;
@@ -144,6 +146,7 @@ module Execution(
 	.B2(B2),
 	.WA2(WA2),
 	.clk(clk),
+	.BD2(BD2),
 	.reset(reset | IntReq),
 	.imm32_2(imm32_2),//
 	.PC3(PC3),
@@ -151,7 +154,8 @@ module Execution(
 	.Result3(Result3),
 	.B3(B3),
 	.WA3(WA3),
-	.imm32_3(imm32_3)
+	.imm32_3(imm32_3),
+	.BD3(BD3)
 	);
 /////////////////////////////	Store
 	wire [5:0] Op = Instr2[31:26];

@@ -33,7 +33,7 @@ static unsigned int ng8[] = {1U, 0U};
 static int ng9[] = {4096, 0};
 static unsigned int ng10[] = {0U, 0U};
 static int ng11[] = {1, 0};
-static const char *ng12 = "@%h: *%h <= %h";
+static const char *ng12 = "%d@%h: *%h <= %h";
 static int ng13[] = {4, 0};
 
 
@@ -2390,6 +2390,7 @@ static void Always_65_6(char *t0)
     char t13[8];
     char t15[8];
     char t16[8];
+    char t37[16];
     char *t1;
     char *t2;
     char *t3;
@@ -2560,20 +2561,21 @@ LAB18:    xsi_set_current_line(71, ng0);
     if (t32 == 1)
         goto LAB19;
 
-LAB20:    xsi_set_current_line(73, ng0);
-    t2 = (t0 + 1152U);
-    t3 = *((char **)t2);
-    t2 = ((char*)((ng10)));
-    t4 = ((char*)((ng13)));
-    t5 = (t0 + 600U);
-    t11 = *((char **)t5);
+LAB20:    xsi_set_current_line(72, ng0);
+    t2 = xsi_vlog_time(t37, 1000.0000000000000, 1000.0000000000000);
+    t3 = (t0 + 1152U);
+    t4 = *((char **)t3);
+    t3 = ((char*)((ng10)));
+    t5 = ((char*)((ng13)));
+    t11 = (t0 + 600U);
+    t12 = *((char **)t11);
     memset(t13, 0, 8);
-    xsi_vlog_unsigned_multiply(t13, 32, t4, 32, t11, 12);
+    xsi_vlog_unsigned_multiply(t13, 32, t5, 32, t12, 12);
     memset(t15, 0, 8);
-    xsi_vlog_unsigned_add(t15, 32, t2, 32, t13, 32);
-    t5 = (t0 + 1428U);
-    t12 = *((char **)t5);
-    xsi_vlogfile_write(1, 0, 0, ng12, 4, t0, (char)118, t3, 32, (char)118, t15, 32, (char)118, t12, 32);
+    xsi_vlog_unsigned_add(t15, 32, t3, 32, t13, 32);
+    t11 = (t0 + 1428U);
+    t14 = *((char **)t11);
+    xsi_vlogfile_write(1, 0, 0, ng12, 5, t0, (char)118, t37, 64, (char)118, t4, 32, (char)118, t15, 32, (char)118, t14, 32);
     goto LAB17;
 
 LAB19:    t33 = *((unsigned int *)t13);

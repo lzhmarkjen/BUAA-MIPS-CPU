@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.15 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.15 secs
  
 --> Reading design: mips.prj
 
@@ -46,7 +46,7 @@ Ignore Synthesis Constraint File   : NO
 ---- Target Parameters
 Output File Name                   : "mips"
 Output Format                      : NGC
-Target Device                      : xc6slx150-3-fgg676
+Target Device                      : xc6slx100-2-fgg676
 
 ---- Source Options
 Top Module Name                    : mips
@@ -181,11 +181,12 @@ WARNING:HDLCompiler:572 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 37: 
 WARNING:HDLCompiler:572 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 38: Macro <MTHI> is redefined.
 WARNING:HDLCompiler:572 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 39: Macro <MTLO> is redefined.
 WARNING:HDLCompiler:572 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 40: Macro <MTC0> is redefined.
-WARNING:HDLCompiler:572 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 42: Macro <Int> is redefined.
-WARNING:HDLCompiler:572 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 43: Macro <AdEL> is redefined.
-WARNING:HDLCompiler:572 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 44: Macro <AdES> is redefined.
-WARNING:HDLCompiler:572 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 45: Macro <RI> is redefined.
-WARNING:HDLCompiler:572 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 46: Macro <Ov> is redefined.
+WARNING:HDLCompiler:572 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 41: Macro <ERET> is redefined.
+WARNING:HDLCompiler:572 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 43: Macro <Int> is redefined.
+WARNING:HDLCompiler:572 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 44: Macro <AdEL> is redefined.
+WARNING:HDLCompiler:572 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 45: Macro <AdES> is redefined.
+WARNING:HDLCompiler:572 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 46: Macro <RI> is redefined.
+WARNING:HDLCompiler:572 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 47: Macro <Ov> is redefined.
 Parsing module <Coprocessor0>.
 Analyzing Verilog file "G:\ComputerOrganization\CPU\Timer_Counter.v" into library work
 Parsing module <Timer_Counter>.
@@ -392,7 +393,7 @@ Elaborating module <DM>.
 Elaborating module <MFRTM>.
 
 Elaborating module <MEM_WB>.
-WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\cpu.v" Line 166: Assignment to MemRead ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\cpu.v" Line 168: Assignment to MemRead ignored, since the identifier is never used
 
 Elaborating module <WriteBack>.
 
@@ -417,17 +418,20 @@ Elaborating module <Exception>.
 Elaborating module <ExcReg>.
 
 Elaborating module <Coprocessor0>.
-WARNING:HDLCompiler:872 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 97: Using initial value of PrID since it is never assigned
-WARNING:HDLCompiler:634 - "G:\ComputerOrganization\CPU\cpu.v" Line 225: Net <EXLSet> does not have a driver.
+WARNING:HDLCompiler:872 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 95: Using initial value of PrID since it is never assigned
+WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 152: Assignment to branch ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "G:\ComputerOrganization\CPU\Coprocessor0.v" Line 153: Assignment to jump ignored, since the identifier is never used
+WARNING:HDLCompiler:634 - "G:\ComputerOrganization\CPU\cpu.v" Line 227: Net <EXLSet> does not have a driver.
+WARNING:HDLCompiler:634 - "G:\ComputerOrganization\CPU\cpu.v" Line 228: Net <EXLClr> does not have a driver.
 
 Elaborating module <Bridge>.
 
 Elaborating module <Timer_Counter>.
 --> 
 
-Total memory usage is 1040196 kilobytes
+Total memory usage is 1039684 kilobytes
 
 Number of errors   :    1 (   0 filtered)
-Number of warnings :   41 (   0 filtered)
+Number of warnings :   45 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

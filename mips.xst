@@ -4,7 +4,7 @@ run
 -ifn mips.prj
 -ofn mips
 -ofmt NGC
--p xc6slx150-3-fgg676
+-p xc6slx100-2-fgg676
 -top mips
 -opt_mode Speed
 -opt_level 1
