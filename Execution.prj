@@ -1,5 +1,0 @@
-verilog work "pipline_reg.v"
-verilog work "mux.v"
-verilog work "Control.v"
-verilog work "ALU.v"
-verilog work "Execution.v"
