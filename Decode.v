@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: lzhmarkjen
 // 
 // Create Date:    19:31:05 11/23/2018 
 // Design Name: 
@@ -188,7 +188,7 @@ module Decode(
 	
 	
 //////////////////	Store
-	wire [5:0] Op = Instr1old[31:26];//判断旧版Instr1是否为未定义指令
+	wire [5:0] Op = Instr1old[31:26];//判断旧版(old)Instr1是否为未定义指令
 	wire [5:0] Func = Instr1old[5:0];
 	
 	wire un_RI = `LB | `LBU | `LH | `LHU | `LW | `SB | `SH | `SW | 

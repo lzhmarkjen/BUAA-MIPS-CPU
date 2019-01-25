@@ -1,7 +1,0 @@
-verilog work "TranspondMux.v"
-verilog work "pipline_reg.v"
-verilog work "mux.v"
-verilog work "MultModule.v"
-verilog work "Control.v"
-verilog work "ALU.v"
-verilog work "Execution.v"

@@ -1,1 +1,0 @@
-vhdtdtfi -lang verilog -prj CPU -o G:/ComputerOrganization/CPU/Coprocessor0.tfi -lib work G:/ComputerOrganization/CPU//Coprocessor0.v -module Coprocessor0 -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

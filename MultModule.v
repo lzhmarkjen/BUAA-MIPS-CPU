@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: lzhmarkjen
 // 
 // Create Date:    15:24:55 12/08/2018 
 // Design Name: 
@@ -75,13 +75,13 @@ module MultModule(
 			ans_LO = 0;
 		end
 		
-		else if(Rollback)begin//如果mult family在W级，则回滚结果
+		else if(Rollback)begin//如果mult family在W级，CP0发出回滚信号和中断信号，回滚结果
 			//ans_HI = HI;
 			//ans_LO = LO;
 			HI <= HI_save;
 			LO <= LO_save;
 		end
-		else if(IntReq)//如果mult family在E级，则不启动乘除读写
+		else if(IntReq)//如果mult family在E级，CP0只发出中断信号，则不启动乘除读写即可
 			;
 		else if(`MTHI)
 			HI <= A;
@@ -129,7 +129,7 @@ module MultModule(
 			Busy <= 0;
 			_time <= 0;
 		end
-		else if(Rollback)begin//回滚时,模拟计时清空
+		else if(Rollback)begin//回滚时,模拟计时的标记要清空
 			count <= 1;
 			Busy <= 0;
 			_time <= 0;

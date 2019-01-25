@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: lzhmarkjen
 // 
 // Create Date:    20:13:23 11/23/2018 
 // Design Name: 
@@ -169,5 +169,6 @@ module Execution(
 	assign ADEL = load  & Overflow;
 	
 	assign ADES = store & Overflow;
+	//注意同样是溢出，根据指令不同报错也不同
 /////////////////////////////////	Exception part
 endmodule

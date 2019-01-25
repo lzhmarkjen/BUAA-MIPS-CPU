@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: lzhmarkjen
 // 
 // Create Date:    21:21:31 11/29/2018 
 // Design Name: 
@@ -72,7 +72,7 @@ module Hazard(
 																													   1'b0;
 	wire Stall_mult = (Start2 | Busy) & (mult_D | mt_D | mf_D);//在D级只阻塞mult类型的指令
 	
-	wire Stall_eret = eret_D & mtc0_E;
+	wire Stall_eret = eret_D & mtc0_E;//注意这个的暂停
 	
 	assign Stall = Stall_rs | Stall_rt | Stall_mult | Stall_eret;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

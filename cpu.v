@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: lzhmarkjen
 // 
 // Create Date:    21:03:39 11/16/2018 
 // Design Name: 
@@ -198,7 +198,7 @@ module cpu(
     .ForwardRTM(ForwardRTM)
     );
 /////////////////////	pipeline controller
-	Exception Exception(
+	Exception Exception(//异常处理单元
 	.clk(clk),
 	.reset(reset),
 	.PC_Exc(PC_Exc),

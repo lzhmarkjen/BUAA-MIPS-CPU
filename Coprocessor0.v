@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: lzhmarkjen
 // 
 // Create Date:    11:59:14 12/14/2018 
 // Design Name: 
@@ -83,14 +83,14 @@ module Coprocessor0(
 					  ARead==5'd15 ?  PrID:
 										  32'b0;
 										  
-	assign EPCout = AWrite==5'd14 & CP0WE & ~IntReq? Din:EPC;
+	assign EPCout = AWrite==5'd14 & CP0WE & ~IntReq? Din:EPC;//EPC的转发
 	
 	assign HWIntReq = |(HWInt[7:2] & SR[`im]) & SR[`ie] & !SR[`exl];//硬件中断
-	assign ExcInt  = ExcCodein!=5'b0 & !SR[`exl];//程序异常 & SR[`ie]
+	assign ExcInt  = ExcCodein!=5'b0 & !SR[`exl];//程序异常
 	
 	wire [6:2]ExcCode = HWIntReq==0 ? ExcCodein:`Int;//中断的ExcCode大于异常
 
-	assign IntReq = HWIntReq | ExcInt;
+	assign IntReq = HWIntReq | ExcInt;//IntReq就是最终判断出来的中断/异常请求
 	
 	initial begin
 		SR = 0;
@@ -112,13 +112,11 @@ module Coprocessor0(
 				SR <= Din;
 			else if(CP0WE & AWrite==5'd14 & ~IntReq)//Write EPC
 				EPC <= Din;
-			//else if(CP0WE & AWrite==5'd13 & ~IntReq)//Write CAUSE #########	test only
-			//	CAUSE <= Din;
 				
 			else if(EXLSet)
 				SR[`exl] <= 1'b1;
 				
-			else if(EXLClr | `ERET)//如果ERET在W级，则重置EXL为0
+			else if(EXLClr | `ERET)//如果ERET在W级，则重置EXL为0！！！！！！！！！！！！这个很重要(我TM就因为一开始写到了M级，所以在计时器0情况下gg了）
 				SR[`exl] <= 1'b0;
 				
 			else if(IntReq)begin//发生了中断或异常
@@ -138,7 +136,9 @@ module Coprocessor0(
 					else 
 						EPC <= {PC[31:2],2'b00};
 					CAUSE[`bd] <= BD3;
-				//end
+					//上面是两种写法，被注释掉的if-else是不考虑jal然后延迟槽里面sw $31的这种，最后考试也就这样
+					//下面这种BD3的写法考虑了这种极端情况，估计考了要死一堆(还好没考)，思路是D级判断了是否为延迟槽然后将这个判断的结果流水过来
+					//BD3的这种写法这个是上机前一天改的，没有经过debug
 			end
 			
 			

@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: lzhmarkjen
 // 
 // Create Date:    21:03:39 11/16/2018 
 // Design Name: 
@@ -71,5 +71,5 @@ module mips(
 	 .IRQ(HWInt[3:3])
 	 );
 	 
-	 assign HWInt[7:4] = 4'b0;
+	 assign HWInt[7:4] = 4'b0;//×¢ÒâÕâ¸ö
 endmodule
