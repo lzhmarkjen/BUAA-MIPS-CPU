@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: lzhmarkjen
 // 
 // Create Date:    19:31:05 11/23/2018 
 // Design Name: 
@@ -50,9 +50,9 @@ module Decode(
 	
 	wire RD_AEqualB = (A1 == B1);
 	wire RD_ASmall0 = (($signed(A1) < 0));
-	//wire RD_AEqual0 = ($signed(A1) == 0);
 	wire RD_AEqual0 = (A1 == 0);
 /////////////////		Comparater
+
 	assign PC_j = {PC1[31:28],Instr1[25:0],2'b00};
 	assign PC_jr = A1;
 	assign PC_beq = PC1 + 4 + imm32;

@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: lzhmarkjen
 // 
 // Create Date:    21:58:44 11/16/2018 
 // Design Name: 
@@ -55,7 +55,7 @@ module DM(
 							 WriteBE==4'b0011 ? WData[7:0]:
 							 WriteBE==4'b0001 ? WData[7:0]:
 													  ram[A][7:0];
-	
+//根据字、字节、半字的要求，先将数据根据指令拼一波然后再写
 	
 	initial begin
 		for(i=0;i<4096;i=i+1)

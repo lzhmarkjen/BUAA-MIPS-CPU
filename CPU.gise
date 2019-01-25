@@ -173,13 +173,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1544674391" xil_pn:in_ck="-5415885362151189518" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1544674391">
+    <transform xil_pn:end_ts="1548428553" xil_pn:in_ck="-5415885362151189518" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1548428553">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="ALU.v"/>
       <outfile xil_pn:name="Control.v"/>
       <outfile xil_pn:name="DM.v"/>
@@ -217,7 +213,6 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>

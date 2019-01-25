@@ -1,6 +1,0 @@
-vhdtdtfi -lib work G:/ComputerOrganization/CPU/IM.v -lang verilog -prj CPU -o IM.spl -module IM -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan6 IM.spl G:/ComputerOrganization/CPU/IM.sym 
-vhdtdtfi -lang verilog -prj CPU -o G:/ComputerOrganization/CPU/IM.tfi -lib work G:/ComputerOrganization/CPU//IM.v -module IM -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
-vhdtdtfi -lib work G:/ComputerOrganization/CPU/IM.v -lang verilog -prj CPU -o IM.spl -module IM -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan6 IM.spl G:/ComputerOrganization/CPU/IM.sym 
-vhdtdtfi -lang verilog -prj CPU -o G:/ComputerOrganization/CPU/IM.tfi -lib work G:/ComputerOrganization/CPU//IM.v -module IM -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

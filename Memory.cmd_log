@@ -1,2 +1,0 @@
-vhdtdtfi -lib work G:/ComputerOrganization/CPU/Memory.v -lang verilog -prj CPU -o Memory.spl -module Memory -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan6 Memory.spl G:/ComputerOrganization/CPU/Memory.sym 

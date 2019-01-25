@@ -1,8 +1,0 @@
-[Inputs]
-clk
-reset
-[Outputs]
-[BiDir]
-[ATTRIBUTES]
-VeriModel mips
-

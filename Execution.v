@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: lzhmarkjen
 // 
 // Create Date:    20:13:23 11/23/2018 
 // Design Name: 
@@ -65,7 +65,7 @@ module Execution(
 	.Result(Result2in)
 	);
 //////////////////	ALU
-	MultModule MultModule(
+	MultModule MultModule(//乘法模块
 	.clk(clk),
 	.reset(reset),
 	.Instr2(Instr2),
@@ -90,7 +90,7 @@ module Execution(
 	.WA(WA2)
 	);
 	
-	ALUMultmux ALUMultmux(
+	ALUMultmux ALUMultmux(//ALU输出选择：乘法器和ALU二选一
 	.Result2(Result2in),
 	.HILO(HILO),
 	.ALUMultSel(ALUMultSel),

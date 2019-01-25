@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: lzhmarkjen
 // 
 // Create Date:    21:21:31 11/29/2018 
 // Design Name: 
@@ -70,6 +70,7 @@ module Hazard(
 						 Tuse_rt1 & Res_E==`DM  & Instr1[`rt]==WA_E & WA_E!=5'b0 & RegWrite_E ? 1'b1://E M冲突 需要DM结果
 																													   1'b0;
 	wire Stall_mult = (Start2 | Busy) & (mult_D | mt_D | mf_D);//在D级只阻塞mult类型的指令
+	//注意这里的判断条件是(Start2 | Busy)，不是Busy，这样才能拟合要求的波形
 	
 	assign Stall = Stall_rs | Stall_rt | Stall_mult;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -83,4 +84,5 @@ module Hazard(
 																											  2'd0;
 	assign ForwardRTM = Instr3[`rt]==WA_W & WA_W!=5'b0 & RegWrite_W & Res_W==`DM  ? 1'b1:
 																											  1'b0;
+	//detector型好处在于转发暂停基本不用改
 endmodule

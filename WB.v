@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: lzhmarkjen
 // 
 // Create Date:    13:11:55 11/24/2018 
 // Design Name: 
@@ -44,7 +44,7 @@ module WriteBack(
 	.ReadBE(ReadBE),
 	.RD4out(RD4out)
 	);
-////////////////////////		Ext
+////////////////////////		lw,lb,lhu指令的区别：不同的扩展方式，放在W级据说是因为M级本来就慢就不要再加模块拖慢速度了，匀一点到W级
 	MemtoRegmux MemtoRegmux(
 	.MemtoReg(MemtoReg),
 	.Result(Result4),

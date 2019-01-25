@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: lzhmarkjen
 // 
 // Create Date:    15:24:55 12/08/2018 
 // Design Name: 
@@ -40,14 +40,14 @@ module MultModule(
 	reg [3:0]count;
 	reg [31:0] HI,LO;
 	reg [31:0] ans_HI,ans_LO;
-	reg _time;
+	reg _time;//_time=0标明是乘法，延迟5；否则延迟10
 	
 	wire [5:0] Op = Instr2[31:26];
 	wire [5:0] Func = Instr2[5:0];
 	
 	assign HILO = `MFHI ?    HI:
 					  `MFLO ?    LO:
-							    32'b0;//output HILO mux
+							    32'b0;//将HI和LO寄存器的输出二选一再输出
 	
 	initial begin
 		HI = 0;
@@ -61,7 +61,7 @@ module MultModule(
 		LO = 0;
 	end
 	
-	always @(posedge clk)begin
+	always @(posedge clk)begin//这个是乘除法的数据处理部分
 		if(reset)begin
 			HI <= 0;
 			LO <= 0;
@@ -73,7 +73,7 @@ module MultModule(
 		else if(`MTLO)
 				LO <= A;
 			
-		else if(Start & !Busy)begin
+			else if(Start & !Busy)begin//Busy为0时才能启动计算，这里直接用组合逻辑马上就计算结果不管延迟（当然实际的CPU上肯定不行）
 			Busy <= 1;
 			if(`MULT)begin
 			{ans_HI,ans_LO} = $signed(A) * $signed(B2);
@@ -84,7 +84,7 @@ module MultModule(
 				_time <= 0;
 			end
 			else if(`DIV)begin
-				if(B2 == 32'b0)begin
+				if(B2 == 32'b0)begin//这里讨论了除0的情况，不过助教没考
 					ans_LO = 0;
 					ans_HI = 0;
 				end
@@ -95,7 +95,7 @@ module MultModule(
 				_time <=1;
 			end
 			else if(`DIVU)begin
-				if(B2 == 32'b0)begin
+				if(B2 == 32'b0)begin//同理
 					ans_LO = 0;
 					ans_HI = 0;
 				end
@@ -107,8 +107,11 @@ module MultModule(
 			end
 		end
 	end
-//////////////////////////////////////////////////////////
-	always @(posedge clk)begin
+	/**上面是乘法数据的处理部分
+	*下面是乘法的模拟延迟部分
+	*两个模块在综合会有error，不管他直接仿真就好（除非做到p8）
+	*/
+	always @(posedge clk)begin//模拟一波延迟
 		if(reset)begin
 			count <= 1;
 			Busy <= 0;

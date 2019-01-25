@@ -1,3 +1,0 @@
-vhdtdtfi -lib work G:/ComputerOrganization/CPU/EXT.v -lang verilog -prj CPU -o EXT.spl -module EXT -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan6 EXT.spl G:/ComputerOrganization/CPU/EXT.sym 
-vhdtdtfi -lang verilog -prj CPU -o G:/ComputerOrganization/CPU/EXT.tfi -lib work G:/ComputerOrganization/CPU//EXT.v -module EXT -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

@@ -1,2 +1,0 @@
-vhdtdtfi -lib work G:/ComputerOrganization/CPU/Execution.v -lang verilog -prj CPU -o Execution.spl -module Execution -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan6 Execution.spl G:/ComputerOrganization/CPU/Execution.sym 
