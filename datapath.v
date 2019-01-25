@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: lzhmarkjen
 // 
 // Create Date:    10:04:49 11/17/2018 
 // Design Name: 
@@ -23,7 +23,7 @@ module datapath(
 	input reset
 	);
 	
-	wire [31:0]PC1,Instr1,PC2,Instr2,PC3,Instr3,PC4,Instr4;
+	wire [31:0]PC1,Instr1,PC2,Instr2,PC3,Instr3,PC4,Instr4;//0,1,2,3,4代表F,D,E,M,W级的指令和PC
 	wire [31:0]WD,RD4,Result3,Result4;
 	wire [31:0]A2,B2,B3,imm32_2,imm32_3;
 	wire [31:0]PC_j,PC_jr,PC_beq;
@@ -31,7 +31,7 @@ module datapath(
 	wire [1:0]PCSel;
 	wire PCWrtie,Zero3;
 	wire RegWrite_E,RegWrite_M,RegWrite_W;
-///////////////////
+///////////////////数据通路线
 	wire PC_En,IF_ID_En,ID_EX_Clr,IF_ID_Clr,Stall;
 	assign PC_En = ~Stall;
 	assign IF_ID_En = ~Stall;
@@ -40,8 +40,8 @@ module datapath(
 
 	wire [1:0]ForwardRTD,ForwardRSD,ForwardRSE,ForwardRTE;
 	wire ForwardRTM;
-///////////////////		Transpond Wire
-	Fetch fetch(
+///////////////////		转发线
+	Fetch fetch(//F级
 	.clk(clk),
 	.reset(reset),
 	.PCSel(PCSel),
@@ -55,7 +55,7 @@ module datapath(
 	.Instr1(Instr1)
 	);
 	
-	Decode decode(
+	Decode decode(//D级
 	.Instr1(Instr1),
 	.PC1(PC1),
 	.clk(clk),
@@ -64,10 +64,10 @@ module datapath(
 	.RegWrite(RegWrite_W),
 	.ID_EX_Clr(ID_EX_Clr),
 	.PC4(PC4),
-	.WD(WD),//Transpond
+	.WD(WD),
 	.ForwardRSD(ForwardRSD),
 	.ForwardRTD(ForwardRTD),
-	.Result3(Result3),//Transpond
+	.Result3(Result3),//
 	.PC2(PC2),
 	.Instr2(Instr2),
 	.A2(A2),
@@ -79,7 +79,7 @@ module datapath(
 	.PC_beq(PC_beq)
 	);
 	
-	Execution execution(
+	Execution execution(//E级
 	.PC2(PC2),
 	.A2in(A2),
 	.B2in(B2),
@@ -87,7 +87,7 @@ module datapath(
 	.Instr2(Instr2),
 	.clk(clk),
 	.reset(reset),
-	.Result3in(Result3),//Transpond
+	.Result3in(Result3),
 	.ForwardRSE(ForwardRSE),
 	.ForwardRTE(ForwardRTE),
 	.WD(WD),//Transpond
@@ -99,7 +99,7 @@ module datapath(
 	.imm32_3(imm32_3)
 	);
 	
-	Memory memory(
+	Memory memory(//M级
 	.PC3(PC3),
 	.Result3(Result3),
 	.B3(B3),
@@ -117,7 +117,7 @@ module datapath(
 	.Instr4(Instr4)
 	);
 	
-	WriteBack writeback(
+	WriteBack writeback(//W级（没有寄存器）
 	.PC4(PC4),
 	.Instr4(Instr4),
 	.Result4(Result4),
@@ -126,7 +126,7 @@ module datapath(
 	.WD(WD)
 	);
 //////////////////////	module
-Controller Hazard (
+Hazard Hazard (//转发暂停模块
     .clk(clk), 
     .reset(reset), 
     .Instr1(Instr1), 

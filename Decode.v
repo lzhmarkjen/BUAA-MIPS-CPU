@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: lzhmarkjen
 // 
 // Create Date:    19:31:05 11/23/2018 
 // Design Name: 
@@ -52,7 +52,7 @@ module Decode(
 	assign PC_j = {PC1[31:28],Instr1[25:0],2'b00};
 	assign PC_jr = A1;
 	assign PC_beq = PC1 + 4 + imm32;
-//////////////////	PC Calculate
+//////////////////	nPCµÄ¼ÆËã
 	Decode_Controller DC(
 	.RD_Equal(RD_Equal),
 	.Instr1(Instr1),//

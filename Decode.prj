@@ -1,5 +1,0 @@
-verilog work "pipline_reg.v"
-verilog work "GRF.v"
-verilog work "EXT.v"
-verilog work "Control.v"
-verilog work "Decode.v"

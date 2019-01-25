@@ -1,6 +1,0 @@
-vhdtdtfi -lib work G:/ComputerOrganization/CPU/Controller.v -lang verilog -prj CPU -o Controller.spl -module Controller -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan6 Controller.spl G:/ComputerOrganization/CPU/Controller.sym 
-vhdtdtfi -lang verilog -prj CPU -o G:/ComputerOrganization/CPU/Controller.tfi -lib work G:/ComputerOrganization/CPU//Controller.v -module Controller -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
-vhdtdtfi -lib work G:/ComputerOrganization/CPU/Controller.v -lang verilog -prj CPU -o Controller.spl -module Controller -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan6 Controller.spl G:/ComputerOrganization/CPU/Controller.sym 
-vhdtdtfi -lang verilog -prj CPU -o G:/ComputerOrganization/CPU/Controller.tfi -lib work G:/ComputerOrganization/CPU//Controller.v -module Controller -template G:/ComputerOrganization/ISE/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

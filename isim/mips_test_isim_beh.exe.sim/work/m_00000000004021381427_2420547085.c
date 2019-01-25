@@ -29,7 +29,7 @@ static unsigned int ng4[] = {43U, 0U};
 
 
 
-static void Cont_85_0(char *t0)
+static void Cont_87_0(char *t0)
 {
     char t3[8];
     char *t1;
@@ -64,7 +64,7 @@ LAB0:    t1 = (t0 + 1628U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(85, ng0);
+LAB2:    xsi_set_current_line(87, ng0);
     t2 = (t0 + 600U);
     t4 = *((char **)t2);
     memset(t3, 0, 8);
@@ -105,7 +105,7 @@ LAB2:    xsi_set_current_line(85, ng0);
 LAB1:    return;
 }
 
-static void Cont_88_1(char *t0)
+static void Cont_90_1(char *t0)
 {
     char t3[8];
     char t4[8];
@@ -167,7 +167,7 @@ LAB0:    t1 = (t0 + 1772U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(88, ng0);
+LAB2:    xsi_set_current_line(90, ng0);
     t2 = (t0 + 876U);
     t5 = *((char **)t2);
     t2 = ((char*)((ng1)));
@@ -279,7 +279,7 @@ LAB18:    memcpy(t3, t33, 8);
 
 }
 
-static void Cont_91_2(char *t0)
+static void Cont_93_2(char *t0)
 {
     char t3[8];
     char t4[8];
@@ -341,7 +341,7 @@ LAB0:    t1 = (t0 + 1916U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(91, ng0);
+LAB2:    xsi_set_current_line(93, ng0);
     t2 = (t0 + 876U);
     t5 = *((char **)t2);
     t2 = ((char*)((ng4)));
@@ -456,7 +456,7 @@ LAB18:    memcpy(t3, t33, 8);
 
 extern void work_m_00000000004021381427_2420547085_init()
 {
-	static char *pe[] = {(void *)Cont_85_0,(void *)Cont_88_1,(void *)Cont_91_2};
+	static char *pe[] = {(void *)Cont_87_0,(void *)Cont_90_1,(void *)Cont_93_2};
 	xsi_register_didat("work_m_00000000004021381427_2420547085", "isim/mips_test_isim_beh.exe.sim/work/m_00000000004021381427_2420547085.didat");
 	xsi_register_executes(pe);
 }
